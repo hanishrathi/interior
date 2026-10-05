@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Bash(npm run check)",
+      "Bash(npm run typecheck)",
+      "Bash(npm run lint)",
+      "Bash(npm test)",
+      "Bash(npm run test)",
+      "Bash(npm run build)",
+      "Bash(npm run validate)",
+      "Bash(npm run validate:design-system)",
+      "Bash(npm run validate:products)",
+      "Bash(npm run tokens:css)",
+      "Bash(npm run tokens:check)",
+      "Bash(npx vitest run:*)",
+      "Bash(npx tsx scripts/validate-product-data.ts:*)",
+      "Bash(npx tsx scripts/validate-design-system.ts)"
+    ],
+    "deny": ["Read(./.env)", "Read(./.env.*)"]
+  }
+}

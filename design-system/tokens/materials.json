@@ -1,0 +1,232 @@
+{
+  "$description": "Material vocabulary. `categories` define schedule code prefixes (e.g. ST-01) and generic considerations. `references` describe materials commonly specified in Indian interiors, for concept work only: descriptions are qualitative, `displayColor` is an approximate on-screen reference (never a colour match), and every technical property — slip resistance, water absorption, sealing, availability — must come from supplier test data for the actual lot.",
+  "categories": {
+    "natural-stone": {
+      "label": "Natural stone",
+      "codePrefix": "ST",
+      "considerations": [
+        "Natural variation between blocks and lots — approve from the actual lot where possible.",
+        "Porosity, slip resistance and stain behaviour depend on the stone and its finish — obtain supplier test data.",
+        "Confirm sealing requirements and compatible cleaning products with the supplier."
+      ]
+    },
+    "engineered-stone": {
+      "label": "Engineered stone",
+      "codePrefix": "ES",
+      "considerations": [
+        "Confirm heat and UV resistance for the intended location.",
+        "Confirm slab size, thickness and fabrication limits with the fabricator."
+      ]
+    },
+    "ceramic-tile": {
+      "label": "Ceramic tile",
+      "codePrefix": "CT",
+      "considerations": [
+        "Wall-grade tiles may not be suitable for floors — confirm the intended use with the manufacturer."
+      ]
+    },
+    "vitrified-tile": {
+      "label": "Vitrified / porcelain tile",
+      "codePrefix": "VT",
+      "considerations": [
+        "Obtain the manufacturer's slip-resistance classification for floor and wet-area use.",
+        "Large formats need flatness tolerances and appropriate adhesive — confirm with the tiling contractor."
+      ]
+    },
+    "handmade-tile": {
+      "label": "Handmade tile",
+      "codePrefix": "HT",
+      "considerations": [
+        "Expect variation in size, tone and surface — allow for it in layout and joint widths.",
+        "Confirm sealing, curing and maintenance requirements with the maker."
+      ]
+    },
+    "terrazzo": {
+      "label": "Terrazzo",
+      "codePrefix": "TZ",
+      "considerations": [
+        "In-situ terrazzo needs control joints and a skilled applicator — confirm the joint layout."
+      ]
+    },
+    "cementitious-finish": {
+      "label": "Cementitious finish",
+      "codePrefix": "CF",
+      "considerations": [
+        "Hairline cracking is possible — agree acceptability with the client in advance.",
+        "Confirm sealer and slip resistance for wet areas."
+      ]
+    },
+    "solid-wood": {
+      "label": "Solid wood",
+      "codePrefix": "WD",
+      "considerations": [
+        "Confirm species, origin, grading, moisture content and legality documentation with the supplier.",
+        "Allow for seasonal movement, especially during the monsoon."
+      ]
+    },
+    "veneer": {
+      "label": "Veneer",
+      "codePrefix": "VN",
+      "considerations": [
+        "Approve flitch or leaf sequence where grain continuity matters.",
+        "Specify the substrate (e.g. plywood grade) separately."
+      ]
+    },
+    "laminate": {
+      "label": "Laminate",
+      "codePrefix": "LM",
+      "considerations": [
+        "Confirm edge-banding colour match and the post-forming limits."
+      ]
+    },
+    "paint": {
+      "label": "Paint",
+      "codePrefix": "PT",
+      "considerations": [
+        "Specify the full system: primer, putty and finish coats.",
+        "Use moisture-tolerant systems in bathrooms and kitchens — confirm with the manufacturer."
+      ]
+    },
+    "plaster": {
+      "label": "Plaster",
+      "codePrefix": "PL",
+      "considerations": [
+        "Lime finishes need skilled applicators and curing time — confirm the programme."
+      ]
+    },
+    "metal": {
+      "label": "Metal",
+      "codePrefix": "MT",
+      "considerations": [
+        "Confirm the grade and coating for humid or coastal locations."
+      ]
+    },
+    "glass": {
+      "label": "Glass",
+      "codePrefix": "GL",
+      "considerations": [
+        "Use safety glass where human impact is possible — confirm the specification with the supplier."
+      ]
+    },
+    "fabric": {
+      "label": "Fabric",
+      "codePrefix": "FB",
+      "considerations": [
+        "Confirm abrasion rating, light fastness and cleaning method for the intended use."
+      ]
+    },
+    "wallpaper": {
+      "label": "Wallpaper",
+      "codePrefix": "WP",
+      "considerations": [
+        "Not recommended on walls with damp risk — check the substrate moisture first."
+      ]
+    },
+    "other": {
+      "label": "Other",
+      "codePrefix": "MS",
+      "considerations": []
+    }
+  },
+  "references": [
+    {
+      "id": "kota-stone",
+      "label": "Kota stone",
+      "category": "natural-stone",
+      "origin": "Kota region, Rajasthan",
+      "description": "Fine-grained limestone, typically blue-green to grey or brown, widely used for floors in India.",
+      "displayColor": "#7D8576",
+      "commonFinishes": ["stone-natural", "stone-honed", "stone-leathered", "stone-polished"]
+    },
+    {
+      "id": "kadappa-stone",
+      "label": "Kadappa (Cuddapah) stone",
+      "category": "natural-stone",
+      "origin": "Kadapa region, Andhra Pradesh",
+      "description": "Dense, dark grey-black limestone used for floors, counters and shelving.",
+      "displayColor": "#2F3133",
+      "commonFinishes": ["stone-honed", "stone-leathered", "stone-polished"]
+    },
+    {
+      "id": "jaisalmer-limestone",
+      "label": "Jaisalmer yellow limestone",
+      "category": "natural-stone",
+      "origin": "Jaisalmer, Rajasthan",
+      "description": "Warm yellow to golden limestone, often with fossil inclusions.",
+      "displayColor": "#C8A564",
+      "commonFinishes": ["stone-natural", "stone-honed", "stone-polished"]
+    },
+    {
+      "id": "makrana-marble",
+      "label": "Makrana marble",
+      "category": "natural-stone",
+      "origin": "Makrana, Rajasthan",
+      "description": "White marble with soft grey veining.",
+      "displayColor": "#ECE8E0",
+      "commonFinishes": ["stone-polished", "stone-honed"]
+    },
+    {
+      "id": "tandur-stone",
+      "label": "Tandur stone",
+      "category": "natural-stone",
+      "origin": "Tandur, Telangana",
+      "description": "Limestone available in yellow and blue-grey variants, used for floors and paving.",
+      "displayColor": "#A89D7C",
+      "commonFinishes": ["stone-natural", "stone-honed", "stone-polished"]
+    },
+    {
+      "id": "athangudi-tile",
+      "label": "Athangudi tile",
+      "category": "handmade-tile",
+      "origin": "Athangudi, Chettinad region, Tamil Nadu",
+      "description": "Handmade cement tile with patterns laid into the surface; each tile varies slightly.",
+      "displayColor": "#A65A3F",
+      "commonFinishes": ["tile-handmade"]
+    },
+    {
+      "id": "red-oxide-floor",
+      "label": "Red oxide flooring",
+      "category": "cementitious-finish",
+      "origin": "Traditional finish, South India",
+      "description": "In-situ cement floor finish coloured with red oxide pigment and polished by hand.",
+      "displayColor": "#8E3B2B",
+      "commonFinishes": ["cement-polished"]
+    },
+    {
+      "id": "in-situ-terrazzo",
+      "label": "In-situ terrazzo",
+      "category": "terrazzo",
+      "origin": "Site-laid",
+      "description": "Cement or resin matrix with stone chips, ground and finished on site.",
+      "displayColor": "#D8D2C6",
+      "commonFinishes": ["stone-polished", "stone-honed"]
+    },
+    {
+      "id": "teak",
+      "label": "Teak",
+      "category": "solid-wood",
+      "origin": "Confirm source and legality documentation with the supplier",
+      "description": "Tectona grandis. Warm golden-brown timber used for doors, frames and furniture.",
+      "displayColor": "#8B5E34",
+      "commonFinishes": ["wood-oil", "wood-matt-pu", "wood-satin-pu"]
+    },
+    {
+      "id": "sheesham",
+      "label": "Sheesham",
+      "category": "solid-wood",
+      "origin": "Confirm source and legality documentation with the supplier",
+      "description": "Dalbergia sissoo (Indian rosewood). Dense timber with pronounced grain, common in furniture.",
+      "displayColor": "#6E4A2F",
+      "commonFinishes": ["wood-oil", "wood-matt-pu", "wood-satin-pu"]
+    },
+    {
+      "id": "lime-plaster-araish",
+      "label": "Lime plaster (araish)",
+      "category": "plaster",
+      "origin": "Traditional finish, Rajasthan",
+      "description": "Lime-based plaster that can be burnished to a soft sheen.",
+      "displayColor": "#E9E2D4",
+      "commonFinishes": ["plaster-lime-polished", "plaster-lime-matt"]
+    }
+  ]
+}

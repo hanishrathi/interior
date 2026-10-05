@@ -1,0 +1,237 @@
+{
+  "$description": "Finish vocabulary referenced by materials and products. `wetFloorGuidance` is a first-pass design signal only: `avoid` means the finish is generally slippery when wet; `verify` means suitability depends on the specific product; `typically-suitable` still requires the supplier's slip-resistance data before specification.",
+  "finishes": {
+    "stone-polished": {
+      "label": "Polished",
+      "appliesTo": ["natural-stone", "engineered-stone", "terrazzo"],
+      "sheen": "high",
+      "wetFloorGuidance": "avoid",
+      "description": "Ground to a reflective gloss; heightens colour and veining.",
+      "maintenance": "Shows scratches; acidic cleaners can etch calcareous stone."
+    },
+    "stone-honed": {
+      "label": "Honed",
+      "appliesTo": ["natural-stone", "engineered-stone", "terrazzo"],
+      "sheen": "low",
+      "wetFloorGuidance": "verify",
+      "description": "Smooth, flat, low-sheen surface.",
+      "maintenance": "Shows stains more readily than polished — confirm sealing."
+    },
+    "stone-leathered": {
+      "label": "Leathered",
+      "appliesTo": ["natural-stone", "engineered-stone"],
+      "sheen": "satin",
+      "wetFloorGuidance": "verify",
+      "description": "Brushed surface with a soft, undulating texture.",
+      "maintenance": "Texture holds dirt — specify a suitable cleaning regime."
+    },
+    "stone-flamed": {
+      "label": "Flamed",
+      "appliesTo": ["natural-stone"],
+      "sheen": "textured",
+      "wetFloorGuidance": "typically-suitable",
+      "description": "Thermal finish producing a rough, crystalline texture, typically on granite.",
+      "maintenance": "Rough texture holds dirt."
+    },
+    "stone-natural": {
+      "label": "Natural / cleft",
+      "appliesTo": ["natural-stone"],
+      "sheen": "textured",
+      "wetFloorGuidance": "typically-suitable",
+      "description": "Natural split surface with uneven texture.",
+      "maintenance": "Check flatness tolerances for furniture and level thresholds."
+    },
+    "tile-matt": {
+      "label": "Matt",
+      "appliesTo": ["ceramic-tile", "vitrified-tile"],
+      "sheen": "matt",
+      "wetFloorGuidance": "verify",
+      "description": "Non-reflective glazed or unglazed surface.",
+      "maintenance": "Generally low maintenance."
+    },
+    "tile-satin": {
+      "label": "Satin",
+      "appliesTo": ["ceramic-tile", "vitrified-tile"],
+      "sheen": "satin",
+      "wetFloorGuidance": "verify",
+      "description": "Soft sheen between matt and gloss.",
+      "maintenance": "Generally low maintenance."
+    },
+    "tile-glossy": {
+      "label": "Glossy",
+      "appliesTo": ["ceramic-tile", "vitrified-tile"],
+      "sheen": "high",
+      "wetFloorGuidance": "avoid",
+      "description": "Highly reflective glazed surface.",
+      "maintenance": "Shows water marks and scratches."
+    },
+    "tile-structured": {
+      "label": "Structured / anti-skid",
+      "appliesTo": ["ceramic-tile", "vitrified-tile"],
+      "sheen": "textured",
+      "wetFloorGuidance": "typically-suitable",
+      "description": "Textured surface intended for wet or external floors.",
+      "maintenance": "Texture holds dirt — specify a suitable cleaning regime."
+    },
+    "tile-handmade": {
+      "label": "Handmade",
+      "appliesTo": ["handmade-tile"],
+      "sheen": "satin",
+      "wetFloorGuidance": "verify",
+      "description": "Hand-finished surface with natural variation.",
+      "maintenance": "Usually sealed — confirm the sealer and maintenance with the maker."
+    },
+    "cement-polished": {
+      "label": "Hand-polished cement",
+      "appliesTo": ["cementitious-finish"],
+      "sheen": "satin",
+      "wetFloorGuidance": "verify",
+      "description": "Trowelled and polished cementitious surface.",
+      "maintenance": "Periodic re-waxing or sealing — confirm with the applicator."
+    },
+    "wood-oil": {
+      "label": "Oiled",
+      "appliesTo": ["solid-wood", "veneer"],
+      "sheen": "matt",
+      "wetFloorGuidance": "not-applicable",
+      "description": "Penetrating oil finish that keeps the wood's natural feel.",
+      "maintenance": "Re-oil periodically."
+    },
+    "wood-matt-pu": {
+      "label": "Matt PU lacquer",
+      "appliesTo": ["solid-wood", "veneer"],
+      "sheen": "matt",
+      "wetFloorGuidance": "not-applicable",
+      "description": "Polyurethane lacquer, matt sheen.",
+      "maintenance": "Wipe clean; avoid abrasive cleaners."
+    },
+    "wood-satin-pu": {
+      "label": "Satin PU lacquer",
+      "appliesTo": ["solid-wood", "veneer"],
+      "sheen": "satin",
+      "wetFloorGuidance": "not-applicable",
+      "description": "Polyurethane lacquer, satin sheen.",
+      "maintenance": "Wipe clean; avoid abrasive cleaners."
+    },
+    "laminate-matt": {
+      "label": "Matt laminate",
+      "appliesTo": ["laminate"],
+      "sheen": "matt",
+      "wetFloorGuidance": "not-applicable",
+      "description": "Low-sheen decorative laminate.",
+      "maintenance": "Wipe clean."
+    },
+    "laminate-gloss": {
+      "label": "Gloss laminate",
+      "appliesTo": ["laminate"],
+      "sheen": "high",
+      "wetFloorGuidance": "not-applicable",
+      "description": "High-gloss decorative laminate.",
+      "maintenance": "Shows fingerprints and scratches."
+    },
+    "paint-matt": {
+      "label": "Matt emulsion",
+      "appliesTo": ["paint"],
+      "sheen": "matt",
+      "wetFloorGuidance": "not-applicable",
+      "description": "Flat finish that hides surface imperfections.",
+      "maintenance": "Less washable than higher sheens — confirm the product's washability."
+    },
+    "paint-eggshell": {
+      "label": "Eggshell",
+      "appliesTo": ["paint"],
+      "sheen": "low",
+      "wetFloorGuidance": "not-applicable",
+      "description": "Low sheen with improved washability.",
+      "maintenance": "Washable — confirm the product's rating."
+    },
+    "paint-satin": {
+      "label": "Satin",
+      "appliesTo": ["paint"],
+      "sheen": "satin",
+      "wetFloorGuidance": "not-applicable",
+      "description": "Soft sheen for joinery and high-wear walls.",
+      "maintenance": "Washable — confirm the product's rating."
+    },
+    "plaster-lime-polished": {
+      "label": "Burnished lime",
+      "appliesTo": ["plaster"],
+      "sheen": "satin",
+      "wetFloorGuidance": "not-applicable",
+      "description": "Lime plaster burnished to a soft sheen.",
+      "maintenance": "Confirm suitability near water with the applicator."
+    },
+    "plaster-lime-matt": {
+      "label": "Matt lime",
+      "appliesTo": ["plaster"],
+      "sheen": "matt",
+      "wetFloorGuidance": "not-applicable",
+      "description": "Breathable matt lime finish.",
+      "maintenance": "Can be marked by contact — allow for touch-ups."
+    },
+    "metal-brushed-stainless": {
+      "label": "Brushed stainless steel",
+      "appliesTo": ["metal"],
+      "sheen": "satin",
+      "wetFloorGuidance": "not-applicable",
+      "description": "Directional brushed finish on stainless steel.",
+      "maintenance": "Confirm the steel grade for humid or coastal locations."
+    },
+    "metal-chrome-polished": {
+      "label": "Polished chrome",
+      "appliesTo": ["metal"],
+      "sheen": "high",
+      "wetFloorGuidance": "not-applicable",
+      "description": "Bright, reflective plated finish.",
+      "maintenance": "Shows water spots in hard-water areas."
+    },
+    "metal-brushed-nickel": {
+      "label": "Brushed nickel",
+      "appliesTo": ["metal"],
+      "sheen": "satin",
+      "wetFloorGuidance": "not-applicable",
+      "description": "Warm grey brushed finish.",
+      "maintenance": "Wipe dry to reduce water marks."
+    },
+    "metal-pvd-brushed-brass": {
+      "label": "Brushed brass (PVD)",
+      "appliesTo": ["metal"],
+      "sheen": "satin",
+      "wetFloorGuidance": "not-applicable",
+      "description": "Brass-tone physical vapour deposition coating.",
+      "maintenance": "Avoid abrasive cleaners. Confirm the coating warranty with the manufacturer."
+    },
+    "metal-matt-black": {
+      "label": "Matt black",
+      "appliesTo": ["metal"],
+      "sheen": "matt",
+      "wetFloorGuidance": "not-applicable",
+      "description": "Powder-coated or PVD matt black.",
+      "maintenance": "Shows limescale in hard-water areas."
+    },
+    "glass-clear": {
+      "label": "Clear",
+      "appliesTo": ["glass"],
+      "sheen": "high",
+      "wetFloorGuidance": "not-applicable",
+      "description": "Clear glass. Consider low-iron glass where the green edge tint matters.",
+      "maintenance": "Shows water marks in shower areas."
+    },
+    "glass-fluted": {
+      "label": "Fluted",
+      "appliesTo": ["glass"],
+      "sheen": "textured",
+      "wetFloorGuidance": "not-applicable",
+      "description": "Reeded glass that diffuses views while admitting light.",
+      "maintenance": "Grooves need regular cleaning."
+    },
+    "glass-frosted": {
+      "label": "Frosted",
+      "appliesTo": ["glass"],
+      "sheen": "matt",
+      "wetFloorGuidance": "not-applicable",
+      "description": "Acid-etched or sandblasted for privacy.",
+      "maintenance": "Fingerprints show on etched surfaces."
+    }
+  }
+}

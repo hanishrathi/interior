@@ -1,0 +1,216 @@
+{
+  "id": "cli-mehta",
+  "displayName": "Ananya and Rohan Mehta",
+  "contacts": [
+    {
+      "name": "Ananya Mehta",
+      "role": "primary",
+      "email": "ananya.mehta@example.com",
+      "preferredChannel": "whatsapp"
+    },
+    {
+      "name": "Rohan Mehta",
+      "role": "decision-maker",
+      "email": "rohan.mehta@example.com",
+      "preferredChannel": "email"
+    }
+  ],
+  "household": {
+    "members": [
+      {
+        "id": "hm-ananya",
+        "role": "Client (primary contact)",
+        "ageGroup": "adult",
+        "needs": [
+          {
+            "id": "need-ananya-study",
+            "text": "Works from home three days a week; needs a quiet corner suitable for video calls.",
+            "certainty": "confirmed",
+            "source": "Intake meeting, 12 Aug 2026"
+          }
+        ]
+      },
+      {
+        "id": "hm-rohan",
+        "role": "Client",
+        "ageGroup": "adult",
+        "needs": []
+      },
+      {
+        "id": "hm-daughter",
+        "role": "Daughter (7 years)",
+        "ageGroup": "child",
+        "needs": [
+          {
+            "id": "need-daughter-desk",
+            "text": "Study desk and storage that can adapt as she grows.",
+            "certainty": "confirmed",
+            "source": "Intake meeting, 12 Aug 2026"
+          }
+        ]
+      },
+      {
+        "id": "hm-parent",
+        "role": "Rohan's mother",
+        "ageGroup": "senior",
+        "needs": [
+          {
+            "id": "need-parent-knees",
+            "text": "Knee pain; finds low seating and stepping over thresholds difficult.",
+            "certainty": "confirmed",
+            "source": "Intake meeting, 12 Aug 2026"
+          },
+          {
+            "id": "need-parent-aid",
+            "text": "Family expects she may need a walking aid within a few years.",
+            "certainty": "assumed",
+            "source": "Intake meeting — Rohan Mehta's estimate, not a medical assessment"
+          }
+        ]
+      }
+    ],
+    "pets": [],
+    "domesticHelp": {
+      "value": "part-time",
+      "certainty": "confirmed",
+      "source": "Intake meeting, 12 Aug 2026"
+    }
+  },
+  "lifestyle": [
+    {
+      "id": "life-hosting",
+      "text": "Hosts extended family most weekends — 10 to 12 people for lunch.",
+      "certainty": "confirmed",
+      "source": "Intake meeting, 12 Aug 2026"
+    },
+    {
+      "id": "life-cooking",
+      "text": "Cooks Indian food daily, including tempering; kitchen extraction matters.",
+      "certainty": "confirmed",
+      "source": "Intake meeting, 12 Aug 2026"
+    }
+  ],
+  "preferences": {
+    "styleKeywords": ["calm", "warm minimal", "natural materials", "crafted"],
+    "likes": [
+      {
+        "id": "like-stone",
+        "text": "Natural stone floors with a soft, low-sheen feel.",
+        "certainty": "confirmed",
+        "source": "Mood board review, 26 Aug 2026"
+      },
+      {
+        "id": "like-grain",
+        "text": "Visible wood grain on joinery.",
+        "certainty": "confirmed",
+        "source": "Mood board review, 26 Aug 2026"
+      }
+    ],
+    "dislikes": [
+      {
+        "id": "dislike-gloss",
+        "text": "High-gloss surfaces and mirror-polished floors.",
+        "certainty": "confirmed",
+        "source": "Intake meeting, 12 Aug 2026"
+      },
+      {
+        "id": "dislike-dark",
+        "text": "Dark rooms.",
+        "certainty": "confirmed",
+        "source": "Intake meeting, 12 Aug 2026"
+      }
+    ],
+    "colours": [
+      {
+        "id": "colour-warm",
+        "text": "Warm whites, sand and muted olive.",
+        "certainty": "confirmed",
+        "source": "Mood board review, 26 Aug 2026"
+      }
+    ],
+    "materials": [
+      {
+        "id": "material-kota",
+        "text": "Interested in Kota stone after seeing it in a friend's home; has not yet seen samples.",
+        "certainty": "confirmed",
+        "source": "Mood board review, 26 Aug 2026"
+      }
+    ]
+  },
+  "culturalConsiderations": [
+    {
+      "id": "cul-pooja",
+      "text": "Pooja unit to face east. The family follows Vastu where practical and is flexible on room layouts.",
+      "certainty": "confirmed",
+      "source": "Intake meeting, 12 Aug 2026"
+    },
+    {
+      "id": "cul-footwear",
+      "text": "Footwear is kept at the entrance, away from the pooja unit.",
+      "certainty": "confirmed",
+      "source": "Intake meeting, 12 Aug 2026"
+    }
+  ],
+  "accessibilityNeeds": [
+    {
+      "id": "acc-parent-bath",
+      "text": "Parents' bathroom must be safe for an older user: slip-resistant floor, grab bars, no step into the shower.",
+      "certainty": "confirmed",
+      "source": "Intake meeting, 12 Aug 2026"
+    }
+  ],
+  "budget": {
+    "currency": "INR",
+    "range": {
+      "value": { "minimum": 3500000, "maximum": 4500000 },
+      "certainty": "confirmed",
+      "source": "Intake meeting, 12 Aug 2026 — stated by Rohan Mehta"
+    },
+    "includesGst": {
+      "value": null,
+      "certainty": "unknown",
+      "note": "Not discussed. Confirm whether the range includes GST."
+    },
+    "covers": "Interior works, joinery, finishes, lighting and sanitaryware. Excludes appliances and loose decor."
+  },
+  "timeline": {
+    "targetCompletion": {
+      "value": "2027-03-31",
+      "certainty": "assumed",
+      "note": "Client's hoped-for move-in date. Not yet programmed against approvals and lead times."
+    },
+    "constraints": [
+      {
+        "id": "time-society",
+        "text": "Housing society permits noisy work only on weekdays between 10:00 and 18:00.",
+        "certainty": "requires-verification",
+        "source": "Client's recollection",
+        "owner": "Arjun Nair"
+      }
+    ]
+  },
+  "decisionMakers": ["Ananya Mehta", "Rohan Mehta"],
+  "communication": {
+    "languages": ["English", "Hindi"],
+    "availability": "Weekday evenings after 19:00; Saturday mornings."
+  },
+  "intake": {
+    "date": "2026-08-12",
+    "conductedBy": "Priya Raman",
+    "method": "in-person"
+  },
+  "openQuestions": [
+    {
+      "id": "q-gst",
+      "text": "Does the budget include GST?",
+      "certainty": "unknown",
+      "owner": "Rohan Mehta"
+    },
+    {
+      "id": "q-parent-stay",
+      "text": "Will Rohan's mother live with the family full-time or for part of the year?",
+      "certainty": "unknown",
+      "owner": "Ananya Mehta"
+    }
+  ]
+}

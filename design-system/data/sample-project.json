@@ -1,0 +1,320 @@
+{
+  "id": "prj-mehta-koramangala",
+  "code": "CD-2026-014",
+  "name": "Mehta Residence",
+  "clientId": "cli-mehta",
+  "location": {
+    "locality": "Koramangala",
+    "city": "Bengaluru",
+    "state": "Karnataka",
+    "country": "India"
+  },
+  "propertyType": "apartment",
+  "carpetAreaM2": {
+    "value": 128,
+    "certainty": "requires-verification",
+    "source": "Sale agreement provided by the client",
+    "note": "Not yet checked against a full measured survey."
+  },
+  "scope": [
+    {
+      "id": "scope-interiors",
+      "text": "Interior design of a three-bedroom apartment: joinery, finishes, lighting, sanitaryware and loose furniture.",
+      "certainty": "confirmed",
+      "source": "Engagement letter CD-2026-014, 20 Aug 2026"
+    },
+    {
+      "id": "scope-bathrooms",
+      "text": "Renovation of two bathrooms, including waterproofing and plumbing alterations.",
+      "certainty": "confirmed",
+      "source": "Engagement letter CD-2026-014, 20 Aug 2026"
+    },
+    {
+      "id": "scope-civil",
+      "text": "Civil changes limited to non-structural partitions unless a structural engineer and the housing society approve otherwise.",
+      "certainty": "confirmed",
+      "source": "Engagement letter CD-2026-014, 20 Aug 2026"
+    }
+  ],
+  "phase": "concept",
+  "documentStatus": "concept",
+  "team": [
+    { "name": "Priya Raman", "role": "Principal designer" },
+    { "name": "Arjun Nair", "role": "Project designer" }
+  ],
+  "startDate": "2026-08-20",
+  "targetCompletion": {
+    "value": "2027-03-31",
+    "certainty": "assumed",
+    "note": "Client's hoped-for move-in date. Not yet programmed against approvals and lead times."
+  },
+  "budget": {
+    "currency": "INR",
+    "range": {
+      "value": { "minimum": 3500000, "maximum": 4500000 },
+      "certainty": "confirmed",
+      "source": "Intake meeting, 12 Aug 2026 — stated by Rohan Mehta"
+    },
+    "includesGst": {
+      "value": null,
+      "certainty": "unknown",
+      "note": "Not discussed. Confirm whether the range includes GST."
+    },
+    "covers": "Interior works, joinery, finishes, lighting and sanitaryware. Excludes appliances and loose decor."
+  },
+  "rooms": [
+    { "id": "rm-living-dining", "name": "Living and dining", "type": "living" },
+    { "id": "rm-kitchen", "name": "Kitchen", "type": "kitchen" },
+    { "id": "rm-master-bedroom", "name": "Master bedroom", "type": "master-bedroom" },
+    { "id": "rm-child-bedroom", "name": "Daughter's bedroom", "type": "bedroom" },
+    { "id": "rm-parents-bedroom", "name": "Parents' bedroom", "type": "bedroom" },
+    { "id": "rm-parents-bathroom", "name": "Parents' bathroom", "type": "bathroom" },
+    { "id": "rm-master-bathroom", "name": "Master bathroom", "type": "bathroom" },
+    { "id": "rm-pooja", "name": "Pooja unit (within living room)", "type": "pooja" },
+    { "id": "rm-utility", "name": "Utility", "type": "utility" }
+  ],
+  "designBrief": {
+    "id": "brf-mehta",
+    "projectId": "prj-mehta-koramangala",
+    "version": "1.1",
+    "documentStatus": "concept",
+    "preparedBy": "Priya Raman",
+    "preparedOn": "2026-09-12",
+    "summary": "A calm, warm and durable home for a three-generation family: natural materials, honest craft and generous daylight, with the parents' suite designed for safe, independent use as Rohan's mother grows older.",
+    "objectives": [
+      {
+        "id": "obj-calm",
+        "text": "Create a calm, uncluttered backdrop for a busy family, with generous concealed storage.",
+        "certainty": "confirmed",
+        "source": "Intake meeting, 12 Aug 2026"
+      },
+      {
+        "id": "obj-ageing",
+        "text": "Make the parents' bedroom and bathroom safe and comfortable for an older user without looking clinical.",
+        "certainty": "confirmed",
+        "source": "Intake meeting, 12 Aug 2026"
+      },
+      {
+        "id": "obj-hosting",
+        "text": "Seat 10 to 12 guests for weekend lunches without permanently oversized furniture.",
+        "certainty": "confirmed",
+        "source": "Intake meeting, 12 Aug 2026"
+      },
+      {
+        "id": "obj-durable",
+        "text": "Favour durable, repairable materials that age well in Bengaluru's climate, including the monsoon.",
+        "certainty": "requires-approval",
+        "owner": "Ananya and Rohan Mehta"
+      }
+    ],
+    "styleDirection": {
+      "keywords": ["warm minimal", "tactile", "crafted", "quiet"],
+      "narrative": "Honed stone underfoot, warm timber, lime-finished walls and restrained metalwork. Light is layered and warm; colour comes from materials rather than paint.",
+      "references": [
+        {
+          "id": "ref-courtyard-homes",
+          "text": "Clients responded well to images of South Indian courtyard homes with red oxide floors and teak joinery.",
+          "certainty": "confirmed",
+          "source": "Mood board review, 26 Aug 2026"
+        }
+      ],
+      "avoid": [
+        {
+          "id": "avoid-gloss",
+          "text": "High-gloss laminates and mirror-polished floors.",
+          "certainty": "confirmed",
+          "source": "Intake meeting, 12 Aug 2026"
+        }
+      ]
+    },
+    "palette": {
+      "materialIds": ["mat-kota-floor", "mat-teak-veneer", "mat-lime-plaster", "mat-athangudi"],
+      "notes": [
+        {
+          "id": "palette-samples",
+          "text": "Material choices are conceptual. No physical samples have been approved yet.",
+          "certainty": "requires-approval",
+          "owner": "Ananya and Rohan Mehta"
+        }
+      ]
+    },
+    "functionalRequirements": [
+      {
+        "id": "fr-pooja",
+        "text": "East-facing pooja unit within the living room.",
+        "certainty": "confirmed",
+        "source": "Brief approval, email from Rohan Mehta, 7 Sep 2026"
+      },
+      {
+        "id": "fr-study",
+        "text": "Study corner for video calls with controllable daylight and warm, even light on the face.",
+        "certainty": "confirmed",
+        "source": "Intake meeting, 12 Aug 2026"
+      },
+      {
+        "id": "fr-footwear",
+        "text": "Closed footwear storage at the entrance for about 20 pairs.",
+        "certainty": "requires-verification",
+        "source": "Designer's estimate",
+        "owner": "Ananya Mehta"
+      }
+    ],
+    "constraints": [
+      {
+        "id": "con-society",
+        "text": "Housing society rules restrict working hours and debris removal.",
+        "certainty": "requires-verification",
+        "source": "Client's recollection",
+        "owner": "Arjun Nair"
+      },
+      {
+        "id": "con-structure",
+        "text": "No structural changes without a structural engineer's approval and the housing society's no-objection certificate.",
+        "certainty": "confirmed",
+        "source": "Engagement letter CD-2026-014, 20 Aug 2026"
+      }
+    ],
+    "budget": {
+      "currency": "INR",
+      "range": {
+        "value": { "minimum": 3500000, "maximum": 4500000 },
+        "certainty": "confirmed",
+        "source": "Intake meeting, 12 Aug 2026 — stated by Rohan Mehta"
+      },
+      "includesGst": {
+        "value": null,
+        "certainty": "unknown",
+        "note": "Not discussed. Confirm whether the range includes GST."
+      },
+      "covers": "Interior works, joinery, finishes, lighting and sanitaryware. Excludes appliances and loose decor."
+    },
+    "timeline": [
+      {
+        "id": "tl-move-in",
+        "text": "Clients hope to move in by 31 March 2027.",
+        "certainty": "assumed",
+        "source": "Intake meeting, 12 Aug 2026"
+      },
+      {
+        "id": "tl-lead-times",
+        "text": "Lead times for sanitaryware are unknown until models are confirmed.",
+        "certainty": "unknown"
+      }
+    ],
+    "recommendations": [
+      {
+        "id": "rec-kota-floors",
+        "text": "Use honed Kota stone as the continuous floor in the living, dining and bedroom areas.",
+        "rationale": "Locally sourced, durable and cool underfoot, and matches the clients' preference for a soft natural floor.",
+        "certainty": "requires-approval",
+        "owner": "Ananya and Rohan Mehta"
+      },
+      {
+        "id": "rec-parents-bathroom",
+        "text": "Design the parents' bathroom for level access with a linear drain and a fixed glass screen.",
+        "rationale": "Removes the step into the shower and reduces trip risk for an older user.",
+        "certainty": "requires-verification",
+        "owner": "Arjun Nair"
+      }
+    ],
+    "assumptions": [
+      {
+        "id": "as-soffit",
+        "text": "Slab soffit heights are similar across the apartment (about 2,850 mm), based on the bathroom survey.",
+        "certainty": "assumed",
+        "source": "Site survey of the parents' bathroom, 22 Aug 2026"
+      }
+    ],
+    "openQuestions": [
+      {
+        "id": "oq-gst",
+        "text": "Does the budget include GST?",
+        "certainty": "unknown",
+        "owner": "Rohan Mehta"
+      },
+      {
+        "id": "oq-sunken-depth",
+        "text": "Is there enough depth below the bathroom floors for level-access showers?",
+        "certainty": "requires-verification",
+        "owner": "Arjun Nair"
+      }
+    ]
+  },
+  "approvals": [
+    {
+      "id": "apr-brief-v1",
+      "projectId": "prj-mehta-koramangala",
+      "title": "Design brief",
+      "description": "Client approval of the design brief.",
+      "subject": { "kind": "design-brief", "refIds": ["brf-mehta"] },
+      "requestedBy": "Priya Raman",
+      "approver": "Ananya and Rohan Mehta",
+      "status": "approved-with-comments",
+      "requestedOn": "2026-09-02",
+      "dueOn": "2026-09-09",
+      "decidedOn": "2026-09-07",
+      "recordedVia": "email",
+      "evidenceRef": "Email from Rohan Mehta, 7 Sep 2026, subject 'Brief — go ahead'",
+      "conditions": ["Keep the pooja unit within the living room rather than a separate room."],
+      "revision": "1.0"
+    },
+    {
+      "id": "apr-bath-layout",
+      "projectId": "prj-mehta-koramangala",
+      "title": "Parents' bathroom concept layout",
+      "description": "Concept layout rev A: wet/dry zoning, level-access shower, wall-hung WC and vanity niche.",
+      "subject": { "kind": "layout", "refIds": ["rm-parents-bathroom"] },
+      "requestedBy": "Arjun Nair",
+      "approver": "Ananya and Rohan Mehta",
+      "status": "pending",
+      "requestedOn": "2026-09-25",
+      "dueOn": "2026-10-02",
+      "conditions": [],
+      "revision": "A"
+    },
+    {
+      "id": "apr-kota-sample",
+      "projectId": "prj-mehta-koramangala",
+      "title": "Kota stone sample (main floors)",
+      "description": "Approval of a physical sample of honed Kota stone from the supplier's current lot.",
+      "subject": { "kind": "material", "refIds": ["mat-kota-floor"] },
+      "requestedBy": "Priya Raman",
+      "approver": "Ananya and Rohan Mehta",
+      "status": "draft",
+      "requestedOn": "2026-10-01",
+      "conditions": [],
+      "revision": "A"
+    }
+  ],
+  "issues": [
+    {
+      "id": "iss-wc-outlet",
+      "projectId": "prj-mehta-koramangala",
+      "roomId": "rm-parents-bathroom",
+      "title": "Wall-hung WC needs a wall outlet; the existing WC has a floor outlet",
+      "description": "Converting the outlet depends on the sunken depth and the route to the soil stack, neither of which is confirmed.",
+      "severity": "major",
+      "category": "services",
+      "status": "open",
+      "raisedBy": "technical-review",
+      "raisedOn": "2026-09-28",
+      "owner": "Arjun Nair",
+      "dueOn": "2026-10-15",
+      "relatedIds": ["prd-wc-01", "svc-wc-outlet"]
+    },
+    {
+      "id": "iss-door-width",
+      "projectId": "prj-mehta-koramangala",
+      "roomId": "rm-parents-bathroom",
+      "title": "Bathroom door clear opening is 700 mm",
+      "description": "Below the 750 mm minimum in the planning guidance and well below the 900 mm recommended for a walking aid. Widening needs a check of the lintel.",
+      "severity": "major",
+      "category": "accessibility",
+      "status": "open",
+      "raisedBy": "technical-review",
+      "raisedOn": "2026-09-28",
+      "owner": "Priya Raman",
+      "relatedIds": ["op-door"]
+    }
+  ]
+}

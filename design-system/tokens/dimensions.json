@@ -1,0 +1,124 @@
+{
+  "$description": "Two families of dimensions. `size` holds interface sizes (CSS units) and is emitted as CSS variables. `planning` holds metric space-planning guidance (millimetres) used by compatibility checks to flag potential conflicts early. Planning values are generic design-guidance defaults — they are NOT code requirements and must be verified against applicable codes (e.g. the National Building Code of India), the accessibility guideline adopted for the project and manufacturer data before any documentation is issued.",
+  "size": {
+    "$type": "dimension",
+    "controlHeight": {
+      "sm": { "$value": "2rem" },
+      "md": { "$value": "2.5rem" },
+      "lg": { "$value": "3rem" }
+    },
+    "touchTarget": { "$value": "2.75rem", "$description": "Minimum hit area for touch (44 px)." },
+    "container": {
+      "narrow": { "$value": "40rem" },
+      "default": { "$value": "72rem" },
+      "wide": { "$value": "90rem" }
+    },
+    "sidebar": { "$value": "17.5rem" },
+    "icon": {
+      "sm": { "$value": "1rem" },
+      "md": { "$value": "1.25rem" }
+    },
+    "border": {
+      "hairline": { "$value": "1px" },
+      "strong": { "$value": "2px" }
+    },
+    "focusRing": {
+      "width": { "$value": "2px" },
+      "offset": { "$value": "2px" }
+    },
+    "swatch": { "$value": "3rem" }
+  },
+  "planning": {
+    "unit": "mm",
+    "status": "guidance",
+    "basis": "General residential planning guidance compiled for concept design. Verify against applicable codes, the project's accessibility guideline and manufacturer installation data.",
+    "clearances": {
+      "wcFrontClear": {
+        "label": "Clear space in front of WC",
+        "minimum": 600,
+        "recommended": 750,
+        "description": "Clear floor depth in front of the WC pan."
+      },
+      "wcCentrelineToSide": {
+        "label": "WC centreline to side obstruction",
+        "minimum": 400,
+        "recommended": 450,
+        "description": "Centreline of the WC pan to the nearest side wall, partition or fixture."
+      },
+      "basinFrontClear": {
+        "label": "Clear space in front of basin",
+        "minimum": 600,
+        "recommended": 750,
+        "description": "Clear floor depth in front of the basin or vanity."
+      },
+      "showerAreaInternal": {
+        "label": "Shower area internal dimension",
+        "minimum": 900,
+        "recommended": 1000,
+        "description": "Each internal dimension of the shower area, measured between finished surfaces."
+      },
+      "bathroomDoorClearOpening": {
+        "label": "Bathroom door clear opening",
+        "minimum": 750,
+        "recommended": 900,
+        "description": "900 mm recommended where a walker or wheelchair may be used — confirm with the accessibility guideline adopted for the project."
+      },
+      "circulationPath": {
+        "label": "Main circulation path",
+        "minimum": 900,
+        "recommended": 1000,
+        "description": "Clear width of the main route through a room."
+      },
+      "bedSideClear": {
+        "label": "Clearance beside bed",
+        "minimum": 600,
+        "recommended": 750,
+        "description": "Clear width along the side of a bed."
+      },
+      "wardrobeFrontClear": {
+        "label": "Clear space in front of wardrobe",
+        "minimum": 900,
+        "recommended": 1000,
+        "description": "Allows hinged shutters to open with a person standing in front."
+      },
+      "kitchenWorkAisle": {
+        "label": "Kitchen work aisle",
+        "minimum": 1000,
+        "recommended": 1200,
+        "description": "Clear width between opposite counters or a counter and a wall."
+      },
+      "diningChairPullOut": {
+        "label": "Dining chair pull-out zone",
+        "minimum": 750,
+        "recommended": 900,
+        "description": "Table edge to the nearest wall or obstruction."
+      }
+    },
+    "heights": {
+      "kitchenCounter": {
+        "label": "Kitchen worktop",
+        "typical": 850,
+        "range": [820, 900],
+        "description": "Finished worktop height. Set to the primary user's height where possible."
+      },
+      "vanityCounter": {
+        "label": "Vanity counter",
+        "typical": 800,
+        "range": [750, 850],
+        "description": "Top of counter. With countertop basins, check the finished rim height."
+      },
+      "wcSeat": {
+        "label": "WC seat",
+        "typical": 420,
+        "range": [400, 480],
+        "description": "Higher seats can suit older users — confirm with the user and the product data."
+      },
+      "doorHead": {
+        "label": "Door head",
+        "typical": 2100,
+        "range": [2100, 2400],
+        "description": "Finished floor to underside of door head."
+      }
+    }
+  }
+}
