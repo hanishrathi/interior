@@ -1,0 +1,730 @@
+[
+  {
+    "id": "mat-kota-floor",
+    "code": "ST-01",
+    "name": "Kota stone, honed — main floors",
+    "category": "natural-stone",
+    "referenceId": "kota-stone",
+    "origin": {
+      "value": "Kota region, Rajasthan",
+      "certainty": "requires-verification",
+      "note": "Confirm quarry and lot with the supplier."
+    },
+    "supplier": {
+      "value": null,
+      "certainty": "unknown",
+      "note": "Supplier not yet selected."
+    },
+    "finish": {
+      "value": "stone-honed",
+      "certainty": "requires-approval",
+      "source": "Concept material palette"
+    },
+    "colour": {
+      "value": "Blue-green grey",
+      "certainty": "requires-verification",
+      "note": "Colour varies by lot; approve from a physical sample."
+    },
+    "displayColor": "#7D8576",
+    "format": {
+      "lengthMm": {
+        "value": 600,
+        "certainty": "requires-approval",
+        "source": "Concept material palette"
+      },
+      "widthMm": {
+        "value": 600,
+        "certainty": "requires-approval",
+        "source": "Concept material palette"
+      },
+      "thicknessMm": {
+        "value": null,
+        "certainty": "unknown",
+        "note": "Confirm the available thicknesses with the supplier."
+      }
+    },
+    "applications": [
+      "floor"
+    ],
+    "properties": {
+      "slipResistance": {
+        "value": null,
+        "certainty": "unknown",
+        "note": "Obtain the supplier's test report for the specified finish."
+      },
+      "waterAbsorption": {
+        "value": null,
+        "certainty": "unknown",
+        "note": "Obtain the supplier's test report."
+      },
+      "requiresSealing": {
+        "value": null,
+        "certainty": "unknown",
+        "note": "Confirm with the supplier for the selected finish."
+      },
+      "maintenance": [
+        {
+          "id": "mnt-acid",
+          "text": "Avoid acidic cleaners on calcareous stone.",
+          "certainty": "assumed"
+        }
+      ]
+    },
+    "sampleStatus": "requested",
+    "status": "shortlisted",
+    "verification": {
+      "state": "sample-data",
+      "notes": "Placeholder until a supplier and lot are selected and verified."
+    },
+    "source": {
+      "kind": "sample-data",
+      "reference": null,
+      "isSample": true,
+      "note": "Sample entry for demonstration only. Describes a concept-stage intent; no supplier, test or price information has been verified."
+    },
+    "roomIds": [
+      "rm-living-dining",
+      "rm-master-bedroom",
+      "rm-child-bedroom",
+      "rm-parents-bedroom"
+    ],
+    "cost": {
+      "currency": "INR",
+      "amount": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "unit": "m2",
+      "includesGst": {
+        "value": null,
+        "certainty": "unknown"
+      }
+    }
+  },
+  {
+    "id": "mat-kota-wet-floor",
+    "code": "ST-02",
+    "name": "Kota stone, leathered — bathroom floors",
+    "category": "natural-stone",
+    "referenceId": "kota-stone",
+    "origin": {
+      "value": "Kota region, Rajasthan",
+      "certainty": "requires-verification",
+      "note": "Confirm quarry and lot with the supplier."
+    },
+    "supplier": {
+      "value": null,
+      "certainty": "unknown",
+      "note": "Supplier not yet selected."
+    },
+    "finish": {
+      "value": "stone-leathered",
+      "certainty": "requires-approval",
+      "source": "Concept material palette"
+    },
+    "colour": {
+      "value": "Blue-green grey",
+      "certainty": "requires-verification",
+      "note": "Colour varies by lot; approve from a physical sample."
+    },
+    "displayColor": "#7D8576",
+    "format": {
+      "lengthMm": {
+        "value": 600,
+        "certainty": "requires-approval",
+        "source": "Concept material palette"
+      },
+      "widthMm": {
+        "value": 300,
+        "certainty": "requires-approval",
+        "source": "Concept material palette"
+      },
+      "thicknessMm": {
+        "value": null,
+        "certainty": "unknown",
+        "note": "Confirm the available thicknesses with the supplier."
+      }
+    },
+    "applications": [
+      "wet-area-floor",
+      "shower-floor"
+    ],
+    "properties": {
+      "slipResistance": {
+        "value": null,
+        "certainty": "unknown",
+        "note": "Obtain the supplier's test report for the specified finish."
+      },
+      "waterAbsorption": {
+        "value": null,
+        "certainty": "unknown",
+        "note": "Obtain the supplier's test report."
+      },
+      "requiresSealing": {
+        "value": null,
+        "certainty": "unknown",
+        "note": "Confirm with the supplier for the selected finish."
+      },
+      "maintenance": [
+        {
+          "id": "mnt-acid",
+          "text": "Avoid acidic cleaners on calcareous stone.",
+          "certainty": "assumed"
+        },
+        {
+          "id": "mnt-texture",
+          "text": "Textured surface holds dirt; specify a suitable cleaning regime.",
+          "certainty": "assumed"
+        }
+      ]
+    },
+    "sampleStatus": "not-requested",
+    "status": "proposed",
+    "verification": {
+      "state": "sample-data",
+      "notes": "Placeholder until a supplier and lot are selected and verified."
+    },
+    "source": {
+      "kind": "sample-data",
+      "reference": null,
+      "isSample": true,
+      "note": "Sample entry for demonstration only. Describes a concept-stage intent; no supplier, test or price information has been verified."
+    },
+    "roomIds": [
+      "rm-parents-bathroom",
+      "rm-master-bathroom"
+    ],
+    "cost": {
+      "currency": "INR",
+      "amount": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "unit": "m2",
+      "includesGst": {
+        "value": null,
+        "certainty": "unknown"
+      }
+    }
+  },
+  {
+    "id": "mat-kadappa-vanity-top",
+    "code": "ST-03",
+    "name": "Kadappa stone, honed — vanity counter",
+    "category": "natural-stone",
+    "referenceId": "kadappa-stone",
+    "origin": {
+      "value": "Kadapa region, Andhra Pradesh",
+      "certainty": "requires-verification",
+      "note": "Confirm source with the supplier."
+    },
+    "supplier": {
+      "value": null,
+      "certainty": "unknown",
+      "note": "Supplier not yet selected."
+    },
+    "finish": {
+      "value": "stone-honed",
+      "certainty": "requires-approval",
+      "source": "Concept material palette"
+    },
+    "colour": {
+      "value": "Dark grey-black",
+      "certainty": "requires-verification",
+      "note": "Approve from a physical sample."
+    },
+    "displayColor": "#2F3133",
+    "format": {
+      "lengthMm": {
+        "value": 900,
+        "certainty": "requires-approval",
+        "source": "Concept elevation rev A"
+      },
+      "widthMm": {
+        "value": 520,
+        "certainty": "requires-approval",
+        "source": "Concept elevation rev A"
+      },
+      "thicknessMm": {
+        "value": null,
+        "certainty": "unknown"
+      }
+    },
+    "applications": [
+      "vanity-top"
+    ],
+    "properties": {
+      "slipResistance": {
+        "value": null,
+        "certainty": "unknown",
+        "note": "Obtain the supplier's test report for the specified finish."
+      },
+      "waterAbsorption": {
+        "value": null,
+        "certainty": "unknown",
+        "note": "Obtain the supplier's test report."
+      },
+      "requiresSealing": {
+        "value": null,
+        "certainty": "unknown",
+        "note": "Confirm with the supplier for the selected finish."
+      },
+      "maintenance": [
+        {
+          "id": "mnt-acid",
+          "text": "Avoid acidic cleaners on calcareous stone.",
+          "certainty": "assumed"
+        }
+      ]
+    },
+    "sampleStatus": "not-requested",
+    "status": "proposed",
+    "verification": {
+      "state": "sample-data",
+      "notes": "Placeholder until a supplier and lot are selected and verified."
+    },
+    "source": {
+      "kind": "sample-data",
+      "reference": null,
+      "isSample": true,
+      "note": "Sample entry for demonstration only. Describes a concept-stage intent; no supplier, test or price information has been verified."
+    },
+    "roomIds": [
+      "rm-parents-bathroom"
+    ]
+  },
+  {
+    "id": "mat-teak-veneer",
+    "code": "VN-01",
+    "name": "Teak veneer, matt PU lacquer — joinery",
+    "category": "veneer",
+    "description": "Teak (Tectona grandis) veneer on a plywood substrate; substrate grade to be specified separately.",
+    "origin": {
+      "value": null,
+      "certainty": "unknown",
+      "note": "Confirm species, origin and legality documentation with the supplier."
+    },
+    "supplier": {
+      "value": null,
+      "certainty": "unknown",
+      "note": "Supplier not yet selected."
+    },
+    "finish": {
+      "value": "wood-matt-pu",
+      "certainty": "requires-approval",
+      "source": "Concept material palette"
+    },
+    "colour": {
+      "value": "Natural teak, warm golden-brown",
+      "certainty": "requires-approval",
+      "source": "Concept material palette"
+    },
+    "displayColor": "#8B5E34",
+    "format": {
+      "lengthMm": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "widthMm": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "thicknessMm": {
+        "value": null,
+        "certainty": "unknown"
+      }
+    },
+    "applications": [
+      "joinery"
+    ],
+    "properties": {
+      "slipResistance": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "waterAbsorption": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "requiresSealing": {
+        "value": false,
+        "certainty": "assumed",
+        "note": "Sealed by the PU lacquer system."
+      },
+      "maintenance": [
+        {
+          "id": "mnt-veneer",
+          "text": "Wipe clean; avoid standing water on edges near the basin.",
+          "certainty": "assumed"
+        }
+      ]
+    },
+    "sampleStatus": "requested",
+    "status": "shortlisted",
+    "verification": {
+      "state": "sample-data",
+      "notes": "Placeholder until a supplier and lot are selected and verified."
+    },
+    "source": {
+      "kind": "sample-data",
+      "reference": null,
+      "isSample": true,
+      "note": "Sample entry for demonstration only. Describes a concept-stage intent; no supplier, test or price information has been verified."
+    },
+    "roomIds": [
+      "rm-living-dining",
+      "rm-master-bedroom",
+      "rm-parents-bedroom",
+      "rm-parents-bathroom"
+    ]
+  },
+  {
+    "id": "mat-lime-plaster",
+    "code": "PL-01",
+    "name": "Lime plaster (araish), matt — feature walls",
+    "category": "plaster",
+    "referenceId": "lime-plaster-araish",
+    "origin": {
+      "value": null,
+      "certainty": "unknown"
+    },
+    "supplier": {
+      "value": null,
+      "certainty": "unknown",
+      "note": "Specialist applicator not yet identified."
+    },
+    "finish": {
+      "value": "plaster-lime-matt",
+      "certainty": "requires-approval",
+      "source": "Concept material palette"
+    },
+    "colour": {
+      "value": "Warm off-white",
+      "certainty": "requires-approval",
+      "source": "Concept material palette"
+    },
+    "displayColor": "#E9E2D4",
+    "format": {
+      "lengthMm": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "widthMm": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "thicknessMm": {
+        "value": null,
+        "certainty": "unknown",
+        "note": "Applicator to advise the build-up."
+      }
+    },
+    "applications": [
+      "wall"
+    ],
+    "properties": {
+      "slipResistance": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "waterAbsorption": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "requiresSealing": {
+        "value": null,
+        "certainty": "unknown",
+        "note": "Confirm with the applicator."
+      },
+      "maintenance": [
+        {
+          "id": "mnt-lime",
+          "text": "Can be marked by contact; allow for touch-ups.",
+          "certainty": "assumed"
+        }
+      ]
+    },
+    "sampleStatus": "not-requested",
+    "status": "proposed",
+    "verification": {
+      "state": "sample-data",
+      "notes": "Placeholder until a supplier and lot are selected and verified."
+    },
+    "source": {
+      "kind": "sample-data",
+      "reference": null,
+      "isSample": true,
+      "note": "Sample entry for demonstration only. Describes a concept-stage intent; no supplier, test or price information has been verified."
+    },
+    "roomIds": [
+      "rm-living-dining",
+      "rm-parents-bedroom"
+    ]
+  },
+  {
+    "id": "mat-athangudi",
+    "code": "HT-01",
+    "name": "Athangudi tile — pooja unit floor and backdrop",
+    "category": "handmade-tile",
+    "referenceId": "athangudi-tile",
+    "origin": {
+      "value": "Athangudi, Tamil Nadu",
+      "certainty": "requires-verification",
+      "note": "Confirm the maker."
+    },
+    "supplier": {
+      "value": null,
+      "certainty": "unknown",
+      "note": "Supplier not yet selected."
+    },
+    "finish": {
+      "value": "tile-handmade",
+      "certainty": "requires-approval",
+      "source": "Concept material palette"
+    },
+    "colour": {
+      "value": "Terracotta and ivory pattern",
+      "certainty": "requires-approval",
+      "source": "Concept material palette"
+    },
+    "displayColor": "#A65A3F",
+    "format": {
+      "lengthMm": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "widthMm": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "thicknessMm": {
+        "value": null,
+        "certainty": "unknown"
+      }
+    },
+    "applications": [
+      "floor",
+      "wall"
+    ],
+    "properties": {
+      "slipResistance": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "waterAbsorption": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "requiresSealing": {
+        "value": null,
+        "certainty": "unknown",
+        "note": "Confirm the sealer with the maker."
+      },
+      "maintenance": []
+    },
+    "sampleStatus": "not-requested",
+    "status": "proposed",
+    "verification": {
+      "state": "sample-data",
+      "notes": "Placeholder until a supplier and lot are selected and verified."
+    },
+    "source": {
+      "kind": "sample-data",
+      "reference": null,
+      "isSample": true,
+      "note": "Sample entry for demonstration only. Describes a concept-stage intent; no supplier, test or price information has been verified."
+    },
+    "roomIds": [
+      "rm-pooja"
+    ]
+  },
+  {
+    "id": "mat-wall-tile",
+    "code": "VT-01",
+    "name": "Vitrified tile, matt — bathroom walls (brand to be selected)",
+    "category": "vitrified-tile",
+    "origin": {
+      "value": null,
+      "certainty": "unknown"
+    },
+    "supplier": {
+      "value": null,
+      "certainty": "unknown",
+      "note": "Supplier not yet selected."
+    },
+    "finish": {
+      "value": "tile-matt",
+      "certainty": "requires-approval",
+      "source": "Concept material palette"
+    },
+    "colour": {
+      "value": "Sand",
+      "certainty": "requires-approval",
+      "source": "Concept material palette"
+    },
+    "displayColor": "#D9CDB8",
+    "format": {
+      "lengthMm": {
+        "value": 600,
+        "certainty": "requires-approval",
+        "source": "Concept material palette"
+      },
+      "widthMm": {
+        "value": 300,
+        "certainty": "requires-approval",
+        "source": "Concept material palette"
+      },
+      "thicknessMm": {
+        "value": null,
+        "certainty": "unknown"
+      }
+    },
+    "applications": [
+      "wet-area-wall",
+      "wall"
+    ],
+    "properties": {
+      "slipResistance": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "waterAbsorption": {
+        "value": null,
+        "certainty": "unknown",
+        "note": "Obtain the manufacturer's data."
+      },
+      "requiresSealing": {
+        "value": false,
+        "certainty": "assumed",
+        "note": "Vitrified body; grout sealing to be confirmed."
+      },
+      "maintenance": []
+    },
+    "sampleStatus": "not-requested",
+    "status": "proposed",
+    "verification": {
+      "state": "sample-data",
+      "notes": "Placeholder until a supplier and lot are selected and verified."
+    },
+    "source": {
+      "kind": "sample-data",
+      "reference": null,
+      "isSample": true,
+      "note": "Sample entry for demonstration only. Describes a concept-stage intent; no supplier, test or price information has been verified."
+    },
+    "roomIds": [
+      "rm-parents-bathroom",
+      "rm-master-bathroom"
+    ],
+    "cost": {
+      "currency": "INR",
+      "amount": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "unit": "m2",
+      "includesGst": {
+        "value": null,
+        "certainty": "unknown"
+      }
+    }
+  },
+  {
+    "id": "mat-paint-walls",
+    "code": "PT-01",
+    "name": "Matt emulsion, warm white — general walls and ceilings",
+    "category": "paint",
+    "origin": {
+      "value": null,
+      "certainty": "unknown"
+    },
+    "supplier": {
+      "value": null,
+      "certainty": "unknown",
+      "note": "Supplier not yet selected."
+    },
+    "finish": {
+      "value": "paint-matt",
+      "certainty": "requires-approval",
+      "source": "Concept material palette"
+    },
+    "colour": {
+      "value": "Warm white",
+      "certainty": "requires-approval",
+      "source": "Concept material palette"
+    },
+    "displayColor": "#F2EDE3",
+    "format": {
+      "lengthMm": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "widthMm": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "thicknessMm": {
+        "value": null,
+        "certainty": "unknown"
+      }
+    },
+    "applications": [
+      "wall",
+      "ceiling"
+    ],
+    "properties": {
+      "slipResistance": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "waterAbsorption": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "requiresSealing": {
+        "value": false,
+        "certainty": "assumed",
+        "note": "Not applicable to paint systems."
+      },
+      "maintenance": [
+        {
+          "id": "mnt-paint-bath",
+          "text": "Use a moisture-tolerant system in bathrooms — confirm with the manufacturer.",
+          "certainty": "requires-verification",
+          "owner": "Arjun Nair"
+        }
+      ]
+    },
+    "sampleStatus": "not-requested",
+    "status": "proposed",
+    "verification": {
+      "state": "sample-data",
+      "notes": "Placeholder until a supplier and lot are selected and verified."
+    },
+    "source": {
+      "kind": "sample-data",
+      "reference": null,
+      "isSample": true,
+      "note": "Sample entry for demonstration only. Describes a concept-stage intent; no supplier, test or price information has been verified."
+    },
+    "roomIds": [
+      "rm-living-dining",
+      "rm-master-bedroom",
+      "rm-child-bedroom",
+      "rm-parents-bedroom",
+      "rm-parents-bathroom"
+    ],
+    "cost": {
+      "currency": "INR",
+      "amount": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "unit": "litre",
+      "includesGst": {
+        "value": null,
+        "certainty": "unknown"
+      }
+    }
+  }
+]

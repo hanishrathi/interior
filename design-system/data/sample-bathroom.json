@@ -1,0 +1,527 @@
+{
+  "id": "rm-parents-bathroom",
+  "projectId": "prj-mehta-koramangala",
+  "name": "Parents' bathroom",
+  "type": "bathroom",
+  "level": "Fourth floor (apartment level)",
+  "status": "client-review",
+  "dimensions": {
+    "lengthMm": {
+      "value": 2400,
+      "certainty": "confirmed",
+      "source": "Site survey by Arjun Nair, 22 Aug 2026 — laser measure, plaster to plaster"
+    },
+    "widthMm": {
+      "value": 1650,
+      "certainty": "confirmed",
+      "source": "Site survey by Arjun Nair, 22 Aug 2026 — laser measure, plaster to plaster"
+    },
+    "ceilingHeightMm": {
+      "value": 2850,
+      "certainty": "confirmed",
+      "source": "Site survey by Arjun Nair, 22 Aug 2026 — floor to slab soffit"
+    },
+    "falseCeilingHeightMm": {
+      "value": 2400,
+      "certainty": "requires-approval",
+      "source": "Concept layout rev A"
+    }
+  },
+  "openings": [
+    {
+      "id": "op-door",
+      "kind": "door",
+      "wall": "Wall A (entrance)",
+      "widthMm": {
+        "value": 700,
+        "certainty": "confirmed",
+        "source": "Site survey, 22 Aug 2026 — clear opening"
+      },
+      "heightMm": {
+        "value": 2100,
+        "certainty": "confirmed",
+        "source": "Site survey, 22 Aug 2026"
+      },
+      "operation": {
+        "value": "inward",
+        "certainty": "confirmed",
+        "source": "Site survey, 22 Aug 2026"
+      },
+      "notes": [
+        {
+          "id": "op-door-note",
+          "text": "Proposed: widen to a 900 mm clear opening and re-hang to open outward.",
+          "certainty": "requires-approval",
+          "owner": "Ananya and Rohan Mehta"
+        }
+      ]
+    },
+    {
+      "id": "op-ventilator",
+      "kind": "ventilator",
+      "wall": "Wall C (opposite the entrance)",
+      "widthMm": {
+        "value": 600,
+        "certainty": "confirmed",
+        "source": "Site survey, 22 Aug 2026"
+      },
+      "heightMm": {
+        "value": 450,
+        "certainty": "confirmed",
+        "source": "Site survey, 22 Aug 2026"
+      },
+      "sillHeightMm": {
+        "value": 1950,
+        "certainty": "confirmed",
+        "source": "Site survey, 22 Aug 2026"
+      },
+      "operation": {
+        "value": "top-hung",
+        "certainty": "confirmed",
+        "source": "Site survey, 22 Aug 2026"
+      },
+      "notes": []
+    }
+  ],
+  "services": [
+    {
+      "id": "svc-wc-outlet",
+      "kind": "wc-floor-outlet",
+      "label": "Existing WC floor outlet",
+      "state": "existing",
+      "location": {
+        "value": "Centred on the existing WC, roughly 300 mm from Wall B",
+        "certainty": "requires-verification",
+        "note": "Observed on site. Measure the exact set-out once the existing WC is removed."
+      }
+    },
+    {
+      "id": "svc-floor-trap",
+      "kind": "floor-trap",
+      "label": "Existing floor trap",
+      "state": "relocate",
+      "location": {
+        "value": "Shower corner at Wall C",
+        "certainty": "confirmed",
+        "source": "Site survey, 22 Aug 2026"
+      }
+    },
+    {
+      "id": "svc-cold",
+      "kind": "water-cold",
+      "label": "Cold water from the overhead tank",
+      "state": "existing",
+      "location": {
+        "value": "Concealed in Wall B",
+        "certainty": "assumed",
+        "note": "Inferred from the positions of the existing fittings."
+      }
+    },
+    {
+      "id": "svc-hot",
+      "kind": "water-hot",
+      "label": "Hot water from the existing water heater",
+      "state": "existing",
+      "location": {
+        "value": "Concealed in Wall B",
+        "certainty": "assumed",
+        "note": "Inferred from the positions of the existing fittings."
+      }
+    },
+    {
+      "id": "svc-heater-socket",
+      "kind": "electrical-socket",
+      "label": "16 A socket for the water heater",
+      "state": "existing",
+      "location": {
+        "value": "Wall B, at high level",
+        "certainty": "confirmed",
+        "source": "Site survey, 22 Aug 2026"
+      }
+    },
+    {
+      "id": "svc-lighting",
+      "kind": "lighting-point",
+      "label": "Ceiling lighting point",
+      "state": "existing",
+      "location": {
+        "value": "Centre of ceiling",
+        "certainty": "confirmed",
+        "source": "Site survey, 22 Aug 2026"
+      }
+    },
+    {
+      "id": "svc-exhaust",
+      "kind": "exhaust",
+      "label": "Exhaust fan in the ventilator",
+      "state": "existing",
+      "location": {
+        "value": "Wall C ventilator",
+        "certainty": "confirmed",
+        "source": "Site survey, 22 Aug 2026"
+      }
+    }
+  ],
+  "siteConditions": {
+    "waterPressureBar": {
+      "value": 0.8,
+      "certainty": "requires-verification",
+      "source": "Single gauge reading at the basin tap by the site plumber, 22 Aug 2026",
+      "note": "Repeat at the shower outlet during peak morning use."
+    },
+    "wallConstruction": {
+      "value": "Solid concrete block masonry, plastered",
+      "certainty": "assumed",
+      "note": "Based on the building's age and a tap test. Confirm before fixing grab bars or the cistern frame."
+    },
+    "sunkenDepthMm": {
+      "value": null,
+      "certainty": "unknown",
+      "note": "Floor build-up not opened up. Needed to confirm level access and the WC outlet conversion."
+    },
+    "notes": [
+      {
+        "id": "sc-damp",
+        "text": "Damp staining on the bedroom side of Wall B suggests the existing waterproofing has failed.",
+        "certainty": "requires-verification",
+        "owner": "Arjun Nair"
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "req-slip",
+      "text": "Slip-resistant floor in both the wet and dry zones",
+      "category": "safety",
+      "priority": "must",
+      "source": "client",
+      "certainty": "confirmed",
+      "status": "partially-met",
+      "addressedBy": ["mat-kota-wet-floor"],
+      "notes": "Textured finish proposed; slip-resistance test data not yet obtained."
+    },
+    {
+      "id": "req-grab-bars",
+      "text": "Grab bars beside the WC and in the shower",
+      "category": "accessibility",
+      "priority": "must",
+      "source": "client",
+      "certainty": "confirmed",
+      "status": "partially-met",
+      "addressedBy": ["prd-grab-01"],
+      "notes": "Positions to be agreed with the user; wall fixing to be verified."
+    },
+    {
+      "id": "req-level-shower",
+      "text": "Level access into the shower, without a step",
+      "category": "accessibility",
+      "priority": "must",
+      "source": "client",
+      "certainty": "confirmed",
+      "status": "not-assessed",
+      "addressedBy": ["rec-level-access"],
+      "notes": "Depends on the sunken depth, which is unknown."
+    },
+    {
+      "id": "req-health-faucet",
+      "text": "Health faucet beside the WC",
+      "category": "function",
+      "priority": "must",
+      "source": "client",
+      "certainty": "confirmed",
+      "status": "met",
+      "addressedBy": ["prd-hf-01"]
+    },
+    {
+      "id": "req-hot-water",
+      "text": "Hot water at the shower and basin",
+      "category": "services",
+      "priority": "must",
+      "source": "client",
+      "certainty": "confirmed",
+      "status": "met",
+      "addressedBy": ["prd-wh-01"]
+    },
+    {
+      "id": "req-storage",
+      "text": "Closed storage for toiletries and medicines, reachable while seated",
+      "category": "storage",
+      "priority": "should",
+      "source": "designer",
+      "certainty": "requires-approval",
+      "status": "met",
+      "addressedBy": ["prd-vanity-01"]
+    },
+    {
+      "id": "req-night-light",
+      "text": "Low-level night lighting from the bedroom door to the WC",
+      "category": "lighting",
+      "priority": "should",
+      "source": "designer",
+      "certainty": "requires-approval",
+      "status": "partially-met",
+      "addressedBy": ["rec-night-light"]
+    },
+    {
+      "id": "req-door",
+      "text": "Outward-opening door with a 900 mm clear opening",
+      "category": "accessibility",
+      "priority": "should",
+      "source": "designer",
+      "certainty": "requires-approval",
+      "status": "not-met",
+      "addressedBy": [],
+      "notes": "The existing opening is 700 mm. Widening needs a check of the lintel."
+    },
+    {
+      "id": "req-wall-hung-wc",
+      "text": "Wall-hung WC for easier floor cleaning",
+      "category": "maintenance",
+      "priority": "could",
+      "source": "client",
+      "certainty": "confirmed",
+      "status": "partially-met",
+      "addressedBy": ["prd-wc-01", "prd-cistern-01"],
+      "notes": "Needs the floor outlet converted — see issue iss-wc-outlet."
+    }
+  ],
+  "recommendations": [
+    {
+      "id": "rec-level-access",
+      "text": "Form a level-access shower with a linear drain along Wall C and a fixed toughened-glass screen.",
+      "rationale": "Removes the step into the shower and keeps water within the wet zone.",
+      "certainty": "requires-verification",
+      "owner": "Arjun Nair"
+    },
+    {
+      "id": "rec-door-outward",
+      "text": "Widen the door to a 900 mm clear opening and hang it to open outward.",
+      "rationale": "An outward-opening door cannot be blocked by someone who has fallen inside, and the wider opening suits a walking aid.",
+      "certainty": "requires-approval",
+      "owner": "Ananya and Rohan Mehta"
+    },
+    {
+      "id": "rec-night-light",
+      "text": "Add a warm, low-level night light on a motion sensor near the door.",
+      "rationale": "Allows safe movement at night without glare.",
+      "certainty": "requires-approval",
+      "owner": "Ananya and Rohan Mehta"
+    },
+    {
+      "id": "rec-waterproofing",
+      "text": "Remove the existing finishes and re-waterproof the floor and the wet-zone walls.",
+      "rationale": "Damp staining on Wall B indicates failure; partial repairs rarely last.",
+      "certainty": "requires-verification",
+      "owner": "Arjun Nair"
+    }
+  ],
+  "fixtureAllowances": [
+    {
+      "id": "fa-wc",
+      "label": "WC allowance",
+      "productId": "prd-wc-01",
+      "widthMm": { "value": 800, "certainty": "requires-approval", "source": "Concept layout rev A" },
+      "depthMm": { "value": 650, "certainty": "requires-approval", "source": "Concept layout rev A" },
+      "frontClearance": {
+        "guidance": "wcFrontClear",
+        "availableMm": { "value": 700, "certainty": "requires-approval", "source": "Concept layout rev A" }
+      }
+    },
+    {
+      "id": "fa-vanity",
+      "label": "vanity niche",
+      "productId": "prd-vanity-01",
+      "widthMm": { "value": 900, "certainty": "requires-approval", "source": "Concept layout rev A" },
+      "depthMm": { "value": 550, "certainty": "requires-approval", "source": "Concept layout rev A" },
+      "frontClearance": {
+        "guidance": "basinFrontClear",
+        "availableMm": { "value": 800, "certainty": "requires-approval", "source": "Concept layout rev A" }
+      }
+    },
+    {
+      "id": "fa-shower",
+      "label": "Shower area",
+      "widthMm": { "value": 1650, "certainty": "confirmed", "source": "Site survey, 22 Aug 2026" },
+      "depthMm": { "value": 1000, "certainty": "requires-approval", "source": "Concept layout rev A" }
+    }
+  ],
+  "productIds": [
+    "prd-wc-01",
+    "prd-cistern-01",
+    "prd-hf-01",
+    "prd-basin-01",
+    "prd-bmx-01",
+    "prd-shower-01",
+    "prd-showerhead-01",
+    "prd-vanity-01",
+    "prd-wh-01",
+    "prd-grab-01",
+    "prd-downlight-01",
+    "prd-mirror-01"
+  ],
+  "materialIds": ["mat-kota-wet-floor", "mat-wall-tile", "mat-kadappa-vanity-top", "mat-teak-veneer", "mat-paint-walls"],
+  "lighting": {
+    "id": "lp-parents-bathroom",
+    "roomId": "rm-parents-bathroom",
+    "intent": "Soft, even ambient light, shadow-free light at the mirror and a glare-free night path. Warm throughout.",
+    "targets": [
+      {
+        "id": "tg-ambient",
+        "task": "Ambient",
+        "minLux": 150,
+        "maxLux": 300,
+        "certainty": "assumed",
+        "basis": "Typical residential design target (tokens/lighting.json) — not a code requirement"
+      },
+      {
+        "id": "tg-mirror",
+        "task": "Grooming at the mirror",
+        "minLux": 300,
+        "maxLux": 500,
+        "certainty": "assumed",
+        "basis": "Typical residential design target (tokens/lighting.json) — not a code requirement"
+      }
+    ],
+    "fixtures": [
+      {
+        "id": "fx-shower-downlight",
+        "label": "Shower downlight",
+        "layer": "ambient",
+        "productId": "prd-downlight-01",
+        "quantity": { "value": 1, "certainty": "requires-approval", "source": "Concept lighting layout rev A" },
+        "mounting": { "value": "recessed", "certainty": "requires-approval", "source": "Concept lighting layout rev A" },
+        "colourTemperatureK": { "value": 3000, "certainty": "requires-approval", "source": "Concept lighting layout rev A" },
+        "cri": { "value": null, "certainty": "unknown" },
+        "lumens": { "value": null, "certainty": "unknown" },
+        "beamAngleDeg": { "value": null, "certainty": "unknown" },
+        "ipRating": {
+          "value": null,
+          "certainty": "unknown",
+          "note": "Fixture not selected. Zone 1 needs at least IPX4."
+        },
+        "dimmable": { "value": true, "certainty": "requires-approval", "source": "Concept lighting layout rev A" },
+        "control": { "value": "switch", "certainty": "requires-approval", "source": "Concept lighting layout rev A" },
+        "bathroomZone": "zone-1",
+        "notes": []
+      },
+      {
+        "id": "fx-dry-downlights",
+        "label": "Dry-zone downlights",
+        "layer": "ambient",
+        "productId": "prd-downlight-01",
+        "quantity": { "value": 2, "certainty": "requires-approval", "source": "Concept lighting layout rev A" },
+        "mounting": { "value": "recessed", "certainty": "requires-approval", "source": "Concept lighting layout rev A" },
+        "colourTemperatureK": { "value": 3000, "certainty": "requires-approval", "source": "Concept lighting layout rev A" },
+        "cri": { "value": null, "certainty": "unknown" },
+        "lumens": { "value": null, "certainty": "unknown" },
+        "beamAngleDeg": { "value": null, "certainty": "unknown" },
+        "ipRating": { "value": null, "certainty": "unknown" },
+        "dimmable": { "value": true, "certainty": "requires-approval", "source": "Concept lighting layout rev A" },
+        "control": { "value": "switch", "certainty": "requires-approval", "source": "Concept lighting layout rev A" },
+        "bathroomZone": "outside-zones",
+        "notes": []
+      },
+      {
+        "id": "fx-mirror",
+        "label": "Mirror light",
+        "layer": "task",
+        "productId": "prd-mirror-01",
+        "quantity": { "value": 1, "certainty": "requires-approval", "source": "Concept elevation rev A" },
+        "mounting": { "value": "integrated", "certainty": "requires-approval", "source": "Concept elevation rev A" },
+        "colourTemperatureK": { "value": 3000, "certainty": "requires-approval", "source": "Concept elevation rev A" },
+        "cri": {
+          "value": 90,
+          "certainty": "requires-approval",
+          "source": "Design target for grooming (tokens/lighting.json)"
+        },
+        "lumens": { "value": null, "certainty": "unknown" },
+        "ipRating": { "value": null, "certainty": "unknown" },
+        "dimmable": { "value": false, "certainty": "assumed", "note": "Assumed non-dimmable until the fabricator confirms the driver." },
+        "control": { "value": "switch", "certainty": "requires-approval", "source": "Concept elevation rev A" },
+        "bathroomZone": "outside-zones",
+        "notes": []
+      },
+      {
+        "id": "fx-night-light",
+        "label": "Night light",
+        "layer": "night",
+        "quantity": { "value": 1, "certainty": "requires-approval", "source": "Concept lighting layout rev A" },
+        "mounting": { "value": "wall", "certainty": "requires-approval", "source": "Concept lighting layout rev A" },
+        "colourTemperatureK": { "value": 2200, "certainty": "requires-approval", "source": "Concept lighting layout rev A" },
+        "cri": { "value": null, "certainty": "unknown" },
+        "lumens": { "value": null, "certainty": "unknown" },
+        "ipRating": { "value": null, "certainty": "unknown" },
+        "dimmable": { "value": false, "certainty": "assumed", "note": "Fixed low output assumed." },
+        "control": { "value": "sensor", "certainty": "requires-approval", "source": "Concept lighting layout rev A" },
+        "bathroomZone": "outside-zones",
+        "notes": []
+      }
+    ],
+    "controls": [
+      {
+        "id": "ctl-switching",
+        "text": "Switches outside the bathroom door; night light on a motion sensor.",
+        "certainty": "requires-approval",
+        "owner": "Ananya and Rohan Mehta"
+      }
+    ],
+    "notes": [
+      {
+        "id": "lp-zones",
+        "text": "Zone boundaries follow concept layout rev A and must be confirmed by the electrical consultant.",
+        "certainty": "requires-verification",
+        "owner": "Arjun Nair"
+      }
+    ]
+  },
+  "bathroom": {
+    "zones": [
+      {
+        "id": "zn-wet",
+        "kind": "wet",
+        "label": "Shower (wet zone)",
+        "widthMm": { "value": 1650, "certainty": "confirmed", "source": "Site survey, 22 Aug 2026" },
+        "depthMm": { "value": 1000, "certainty": "requires-approval", "source": "Concept layout rev A" }
+      },
+      {
+        "id": "zn-dry",
+        "kind": "dry",
+        "label": "WC and vanity (dry zone)",
+        "widthMm": { "value": 1650, "certainty": "confirmed", "source": "Site survey, 22 Aug 2026" },
+        "depthMm": { "value": 1400, "certainty": "requires-approval", "source": "Concept layout rev A" }
+      }
+    ],
+    "waterproofing": {
+      "id": "bw-waterproofing",
+      "text": "Full re-waterproofing of the floor and wet-zone walls proposed; system and extent to be specified with the waterproofing contractor.",
+      "certainty": "requires-verification",
+      "owner": "Arjun Nair"
+    },
+    "drainage": {
+      "id": "bw-drainage",
+      "text": "Linear drain at the shower with the floor trap relocated; falls to be designed once the sunken depth is known.",
+      "certainty": "requires-verification",
+      "owner": "Arjun Nair"
+    },
+    "ventilation": {
+      "id": "bw-ventilation",
+      "text": "Replace the exhaust fan in the existing ventilator; duct route unchanged.",
+      "certainty": "assumed",
+      "source": "Concept layout rev A"
+    },
+    "hotWater": {
+      "id": "bw-hot-water",
+      "text": "Storage water heater above the false ceiling in the dry zone, serving the shower and basin.",
+      "certainty": "requires-approval",
+      "owner": "Ananya and Rohan Mehta"
+    }
+  },
+  "notes": [
+    {
+      "id": "rm-concept-status",
+      "text": "Concept layout rev A is for discussion only and is not for construction.",
+      "certainty": "confirmed",
+      "source": "Clawed Design concept layout rev A, 24 Sep 2026"
+    }
+  ]
+}

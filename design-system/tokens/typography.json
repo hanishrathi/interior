@@ -1,0 +1,124 @@
+{
+  "$description": "Type tokens. A restrained serif for display headings, a neutral grotesk for interface text and a monospace for codes, model numbers and measurements. Fonts are referenced by name with robust system fallbacks; loading web fonts is the host application's responsibility.",
+  "fontFamily": {
+    "$type": "fontFamily",
+    "display": {
+      "$value": ["Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", "Georgia", "serif"],
+      "$description": "Display and page titles only (≥ 1.75rem). Low x-height — never use for body text."
+    },
+    "sans": {
+      "$value": ["Instrument Sans", "Helvetica Neue", "Arial", "system-ui", "sans-serif"],
+      "$description": "Interface and body text."
+    },
+    "mono": {
+      "$value": ["IBM Plex Mono", "SFMono-Regular", "Menlo", "Consolas", "monospace"],
+      "$description": "Material codes, model numbers, measurements and tabular figures."
+    }
+  },
+  "fontWeight": {
+    "$type": "fontWeight",
+    "regular": { "$value": 400 },
+    "medium": { "$value": 500 },
+    "semibold": { "$value": 600 }
+  },
+  "fontSize": {
+    "$type": "dimension",
+    "xs": { "$value": "0.75rem" },
+    "sm": { "$value": "0.875rem" },
+    "md": { "$value": "1rem" },
+    "lg": { "$value": "1.125rem" },
+    "xl": { "$value": "1.375rem" },
+    "2xl": { "$value": "1.75rem" },
+    "3xl": { "$value": "2.25rem" },
+    "4xl": { "$value": "3rem" }
+  },
+  "lineHeight": {
+    "$type": "number",
+    "tight": { "$value": 1.15 },
+    "snug": { "$value": 1.3 },
+    "normal": { "$value": 1.5 },
+    "relaxed": { "$value": 1.65 }
+  },
+  "letterSpacing": {
+    "$type": "dimension",
+    "tight": { "$value": "-0.01em" },
+    "normal": { "$value": "0em" },
+    "wide": { "$value": "0.02em" },
+    "overline": { "$value": "0.12em", "$description": "Uppercase eyebrow labels, in the manner of drawing title blocks." }
+  },
+  "textStyle": {
+    "$type": "typography",
+    "display": {
+      "$value": {
+        "fontFamily": "{fontFamily.display}",
+        "fontSize": "{fontSize.4xl}",
+        "fontWeight": "{fontWeight.regular}",
+        "lineHeight": "{lineHeight.tight}",
+        "letterSpacing": "{letterSpacing.tight}"
+      }
+    },
+    "heading1": {
+      "$value": {
+        "fontFamily": "{fontFamily.display}",
+        "fontSize": "{fontSize.3xl}",
+        "fontWeight": "{fontWeight.medium}",
+        "lineHeight": "{lineHeight.tight}",
+        "letterSpacing": "{letterSpacing.tight}"
+      }
+    },
+    "heading2": {
+      "$value": {
+        "fontFamily": "{fontFamily.sans}",
+        "fontSize": "{fontSize.xl}",
+        "fontWeight": "{fontWeight.semibold}",
+        "lineHeight": "{lineHeight.snug}",
+        "letterSpacing": "{letterSpacing.normal}"
+      }
+    },
+    "heading3": {
+      "$value": {
+        "fontFamily": "{fontFamily.sans}",
+        "fontSize": "{fontSize.lg}",
+        "fontWeight": "{fontWeight.semibold}",
+        "lineHeight": "{lineHeight.snug}",
+        "letterSpacing": "{letterSpacing.normal}"
+      }
+    },
+    "body": {
+      "$value": {
+        "fontFamily": "{fontFamily.sans}",
+        "fontSize": "{fontSize.md}",
+        "fontWeight": "{fontWeight.regular}",
+        "lineHeight": "{lineHeight.normal}",
+        "letterSpacing": "{letterSpacing.normal}"
+      }
+    },
+    "small": {
+      "$value": {
+        "fontFamily": "{fontFamily.sans}",
+        "fontSize": "{fontSize.sm}",
+        "fontWeight": "{fontWeight.regular}",
+        "lineHeight": "{lineHeight.normal}",
+        "letterSpacing": "{letterSpacing.normal}"
+      }
+    },
+    "overline": {
+      "$value": {
+        "fontFamily": "{fontFamily.sans}",
+        "fontSize": "{fontSize.xs}",
+        "fontWeight": "{fontWeight.semibold}",
+        "lineHeight": "{lineHeight.normal}",
+        "letterSpacing": "{letterSpacing.overline}"
+      }
+    },
+    "data": {
+      "$value": {
+        "fontFamily": "{fontFamily.mono}",
+        "fontSize": "{fontSize.sm}",
+        "fontWeight": "{fontWeight.regular}",
+        "lineHeight": "{lineHeight.normal}",
+        "letterSpacing": "{letterSpacing.normal}"
+      }
+    }
+  }
+}

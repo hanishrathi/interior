@@ -1,0 +1,59 @@
+{
+  "$description": "Lighting guidance for concept design. Illuminance ranges are typical residential design targets, not code requirements. Bathroom zone ingress-protection minimums follow the IEC 60364-7-701 zone concept and must be confirmed by the project's electrical consultant against applicable Indian standards before specification.",
+  "colorTemperature": {
+    "candle": { "kelvin": 2200, "label": "Candle warm", "use": "Decorative and late-evening ambience." },
+    "warm": { "kelvin": 2700, "label": "Warm", "use": "Living, dining and bedrooms." },
+    "warmWhite": { "kelvin": 3000, "label": "Warm white", "use": "General residential lighting, bathrooms and kitchens." },
+    "neutralWarm": { "kelvin": 3500, "label": "Neutral warm", "use": "Studies and utility spaces." },
+    "neutral": { "kelvin": 4000, "label": "Neutral", "use": "Task-intensive areas where a crisper light is preferred." }
+  },
+  "colorRendering": {
+    "general": { "minimumCri": 80, "use": "General ambient lighting." },
+    "highFidelity": {
+      "minimumCri": 90,
+      "use": "Grooming at mirrors, food preparation, wardrobes and material review."
+    }
+  },
+  "illuminanceTargets": [
+    { "id": "living-ambient", "label": "Living — ambient", "minLux": 100, "maxLux": 200 },
+    { "id": "reading", "label": "Reading", "minLux": 300, "maxLux": 500 },
+    { "id": "kitchen-worktop", "label": "Kitchen worktop", "minLux": 300, "maxLux": 500 },
+    { "id": "dining-table", "label": "Dining table", "minLux": 150, "maxLux": 300 },
+    { "id": "bedroom-ambient", "label": "Bedroom — ambient", "minLux": 50, "maxLux": 150 },
+    { "id": "bathroom-ambient", "label": "Bathroom — ambient", "minLux": 150, "maxLux": 300 },
+    { "id": "bathroom-vanity", "label": "Bathroom — mirror / grooming", "minLux": 300, "maxLux": 500 },
+    { "id": "circulation", "label": "Corridors and stairs", "minLux": 50, "maxLux": 150 },
+    { "id": "night-path", "label": "Night path / navigation", "minLux": 1, "maxLux": 10 }
+  ],
+  "layers": {
+    "ambient": { "label": "Ambient", "description": "General, even illumination for the space." },
+    "task": { "label": "Task", "description": "Focused light for activities such as grooming, cooking or reading." },
+    "accent": { "label": "Accent", "description": "Highlights materials, art or architectural features." },
+    "decorative": { "label": "Decorative", "description": "Fixtures valued for their own appearance." },
+    "night": { "label": "Night", "description": "Very low-level glare-free light for safe movement at night." }
+  },
+  "beamAngles": {
+    "spot": { "label": "Spot", "minDeg": 10, "maxDeg": 25 },
+    "narrowFlood": { "label": "Narrow flood", "minDeg": 25, "maxDeg": 40 },
+    "flood": { "label": "Flood", "minDeg": 40, "maxDeg": 60 },
+    "wideFlood": { "label": "Wide flood", "minDeg": 60, "maxDeg": 120 }
+  },
+  "bathroomZones": {
+    "zone-0": { "label": "Zone 0", "minimumIp": "IPX7", "description": "Inside the bath or shower tray." },
+    "zone-1": {
+      "label": "Zone 1",
+      "minimumIp": "IPX4",
+      "description": "Above the bath or shower area up to 2250 mm from the floor. IPX5 where water jets may be used for cleaning."
+    },
+    "zone-2": {
+      "label": "Zone 2",
+      "minimumIp": "IPX4",
+      "description": "600 mm horizontally beyond zone 1, up to 2250 mm from the floor."
+    },
+    "outside-zones": {
+      "label": "Outside zones",
+      "minimumIp": null,
+      "description": "Beyond zone 2. Humidity still applies — confirm fixture suitability with the electrical consultant."
+    }
+  }
+}

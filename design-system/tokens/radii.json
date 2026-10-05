@@ -1,0 +1,12 @@
+{
+  "$description": "Corner radii. Architectural restraint: small radii for controls and cards; pill only for badges.",
+  "radius": {
+    "$type": "dimension",
+    "none": { "$value": "0px" },
+    "xs": { "$value": "2px" },
+    "sm": { "$value": "4px" },
+    "md": { "$value": "6px" },
+    "lg": { "$value": "10px" },
+    "pill": { "$value": "999px" }
+  }
+}

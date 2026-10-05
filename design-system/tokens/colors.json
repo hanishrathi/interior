@@ -1,0 +1,120 @@
+{
+  "$description": "Clawed Design colour tokens. Warm architectural neutrals with muted, desaturated status hues. `palette` holds raw values; `color` holds semantic roles that alias the palette. Components must only reference `color.*` tokens.",
+  "palette": {
+    "$type": "color",
+    "stone": {
+      "0": { "$value": "#FFFFFF", "$description": "Pure surface white." },
+      "50": { "$value": "#F7F5F1", "$description": "Warm paper — application canvas." },
+      "100": { "$value": "#EFEBE4" },
+      "200": { "$value": "#E2DCD2" },
+      "300": { "$value": "#CFC7BA" },
+      "400": { "$value": "#ADA394", "$description": "Decorative only. Never use for text." },
+      "500": { "$value": "#857B6C", "$description": "Form-control borders (3:1 non-text contrast). Large text only." },
+      "600": { "$value": "#675F53" },
+      "700": { "$value": "#4D473F" },
+      "800": { "$value": "#35312C" },
+      "900": { "$value": "#1F1D1A", "$description": "Ink." }
+    },
+    "bronze": {
+      "100": { "$value": "#F3EADC" },
+      "500": { "$value": "#A07A45" },
+      "600": { "$value": "#8A6233" },
+      "700": { "$value": "#7A5A2E" },
+      "800": { "$value": "#5C4322" }
+    },
+    "moss": {
+      "100": { "$value": "#E6EFE6" },
+      "300": { "$value": "#A9C2AB" },
+      "700": { "$value": "#2F5D3A" }
+    },
+    "ochre": {
+      "100": { "$value": "#F6EBD3" },
+      "300": { "$value": "#DDBF82" },
+      "700": { "$value": "#7A4E00" }
+    },
+    "brick": {
+      "100": { "$value": "#F6E1DE" },
+      "300": { "$value": "#DDA59E" },
+      "700": { "$value": "#8E2A23" }
+    },
+    "slate": {
+      "100": { "$value": "#E2EAF1" },
+      "300": { "$value": "#A5BACB" },
+      "700": { "$value": "#2D4F6C" }
+    },
+    "plum": {
+      "100": { "$value": "#EDE5F0" },
+      "300": { "$value": "#BFA9C8" },
+      "700": { "$value": "#5A3E66" }
+    }
+  },
+  "color": {
+    "$type": "color",
+    "background": {
+      "canvas": { "$value": "{palette.stone.50}", "$description": "Page background." },
+      "surface": { "$value": "{palette.stone.0}", "$description": "Cards, tables, inputs." },
+      "subtle": { "$value": "{palette.stone.100}", "$description": "Table headers, muted panels." },
+      "sunken": { "$value": "{palette.stone.200}", "$description": "Progress tracks, wells." },
+      "inverse": { "$value": "{palette.stone.900}" },
+      "accent": { "$value": "{palette.bronze.100}" },
+      "overlay": { "$value": "rgba(31, 29, 26, 0.45)", "$description": "Modal backdrop (ink at 45%)." }
+    },
+    "text": {
+      "primary": { "$value": "{palette.stone.900}" },
+      "secondary": { "$value": "{palette.stone.700}" },
+      "muted": { "$value": "{palette.stone.600}", "$description": "Lowest-contrast text allowed (≥ 4.5:1 on canvas, surface and subtle)." },
+      "inverse": { "$value": "{palette.stone.0}" },
+      "link": { "$value": "{palette.bronze.700}" },
+      "critical": { "$value": "{palette.brick.700}" }
+    },
+    "border": {
+      "subtle": { "$value": "{palette.stone.200}", "$description": "Decorative dividers." },
+      "default": { "$value": "{palette.stone.300}", "$description": "Card outlines." },
+      "control": { "$value": "{palette.stone.500}", "$description": "Form controls (WCAG 1.4.11 non-text contrast)." },
+      "strong": { "$value": "{palette.stone.900}" },
+      "focus": { "$value": "{palette.bronze.600}" }
+    },
+    "action": {
+      "primary": { "$value": "{palette.stone.900}" },
+      "primaryHover": { "$value": "{palette.stone.800}" },
+      "primaryText": { "$value": "{palette.stone.0}" },
+      "secondary": { "$value": "{palette.stone.0}" },
+      "secondaryHover": { "$value": "{palette.stone.100}" },
+      "secondaryText": { "$value": "{palette.stone.900}" },
+      "danger": { "$value": "{palette.brick.700}" },
+      "dangerText": { "$value": "{palette.stone.0}" }
+    },
+    "status": {
+      "neutral": {
+        "text": { "$value": "{palette.stone.700}" },
+        "background": { "$value": "{palette.stone.100}" },
+        "border": { "$value": "{palette.stone.400}" }
+      },
+      "info": {
+        "text": { "$value": "{palette.slate.700}" },
+        "background": { "$value": "{palette.slate.100}" },
+        "border": { "$value": "{palette.slate.300}" }
+      },
+      "positive": {
+        "text": { "$value": "{palette.moss.700}" },
+        "background": { "$value": "{palette.moss.100}" },
+        "border": { "$value": "{palette.moss.300}" }
+      },
+      "caution": {
+        "text": { "$value": "{palette.ochre.700}" },
+        "background": { "$value": "{palette.ochre.100}" },
+        "border": { "$value": "{palette.ochre.300}" }
+      },
+      "critical": {
+        "text": { "$value": "{palette.brick.700}" },
+        "background": { "$value": "{palette.brick.100}" },
+        "border": { "$value": "{palette.brick.300}" }
+      },
+      "pending": {
+        "text": { "$value": "{palette.plum.700}" },
+        "background": { "$value": "{palette.plum.100}" },
+        "border": { "$value": "{palette.plum.300}" }
+      }
+    }
+  }
+}

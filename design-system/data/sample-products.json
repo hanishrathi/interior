@@ -1,0 +1,1130 @@
+[
+  {
+    "id": "prd-wc-01",
+    "name": "Wall-hung WC (Kohler, model to be selected)",
+    "category": "wc",
+    "brand": {
+      "value": "Kohler",
+      "certainty": "assumed",
+      "note": "Brand preference stated by the client; availability of a suitable model in India not yet checked."
+    },
+    "modelNumber": {
+      "value": null,
+      "certainty": "requires-verification",
+      "note": "Select the model with the client, then obtain the specification sheet."
+    },
+    "source": {
+      "kind": "sample-data",
+      "reference": null,
+      "isSample": true,
+      "note": "Sample entry for demonstration only. Not taken from a Kohler catalogue. Every specification must be verified against current Kohler India documentation or an authorised dealer quotation."
+    },
+    "dimensions": {
+      "widthMm": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "depthMm": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "heightMm": {
+        "value": null,
+        "certainty": "unknown"
+      }
+    },
+    "finish": {
+      "name": {
+        "value": "White",
+        "certainty": "assumed",
+        "note": "Client's preference; confirm the manufacturer's finish name."
+      },
+      "code": {
+        "value": null,
+        "certainty": "unknown"
+      }
+    },
+    "installation": {
+      "mounting": {
+        "value": "wall-hung",
+        "certainty": "assumed",
+        "note": "Design intent: the client asked for a wall-hung WC."
+      },
+      "waterSupply": {
+        "value": "cold",
+        "certainty": "assumed",
+        "note": "Supplied via the concealed cistern."
+      },
+      "drainage": {
+        "value": "wall-outlet",
+        "certainty": "assumed",
+        "note": "Wall-hung WCs normally connect at the wall; confirm for the selected model."
+      },
+      "electrical": {
+        "value": "none",
+        "certainty": "assumed",
+        "note": "Assumes a non-electric WC; changes if a shower-toilet is chosen."
+      },
+      "outletSetOutMm": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "requiredComponents": [
+        {
+          "id": "rc-wc-cistern",
+          "text": "Concealed cistern and mounting frame matched to this WC (see prd-cistern-01).",
+          "certainty": "assumed"
+        },
+        {
+          "id": "rc-wc-buildout",
+          "text": "Wall build-out deep enough to house the cistern frame.",
+          "certainty": "requires-verification",
+          "owner": "Arjun Nair"
+        }
+      ],
+      "notes": []
+    },
+    "status": "shortlisted",
+    "verification": {
+      "state": "sample-data",
+      "notes": "Placeholder until a real product is selected and verified."
+    },
+    "roomIds": [
+      "rm-parents-bathroom"
+    ],
+    "quantity": {
+      "value": 1,
+      "certainty": "requires-approval",
+      "source": "Concept layout rev A"
+    },
+    "documents": []
+  },
+  {
+    "id": "prd-cistern-01",
+    "name": "Concealed cistern and frame (Kohler, model to be selected)",
+    "category": "concealed-cistern",
+    "brand": {
+      "value": "Kohler",
+      "certainty": "assumed",
+      "note": "Brand preference stated by the client; availability of a suitable model in India not yet checked."
+    },
+    "modelNumber": {
+      "value": null,
+      "certainty": "requires-verification",
+      "note": "Select the model with the client, then obtain the specification sheet."
+    },
+    "source": {
+      "kind": "sample-data",
+      "reference": null,
+      "isSample": true,
+      "note": "Sample entry for demonstration only. Not taken from a Kohler catalogue. Every specification must be verified against current Kohler India documentation or an authorised dealer quotation."
+    },
+    "dimensions": {
+      "widthMm": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "depthMm": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "heightMm": {
+        "value": null,
+        "certainty": "unknown"
+      }
+    },
+    "finish": {
+      "name": {
+        "value": null,
+        "certainty": "unknown",
+        "note": "Flush plate finish to be chosen."
+      },
+      "code": {
+        "value": null,
+        "certainty": "unknown"
+      }
+    },
+    "installation": {
+      "mounting": {
+        "value": "concealed",
+        "certainty": "assumed",
+        "note": "Built into the wall behind the WC."
+      },
+      "waterSupply": {
+        "value": "cold",
+        "certainty": "assumed",
+        "note": "Cold feed to the cistern."
+      },
+      "drainage": {
+        "value": "none",
+        "certainty": "assumed",
+        "note": "Discharges through the WC."
+      },
+      "electrical": {
+        "value": "none",
+        "certainty": "assumed",
+        "note": "Assumes a mechanical flush."
+      },
+      "requiredComponents": [
+        {
+          "id": "rc-cistern-plate",
+          "text": "Flush plate compatible with the cistern.",
+          "certainty": "assumed"
+        },
+        {
+          "id": "rc-cistern-access",
+          "text": "Service access through the flush plate opening.",
+          "certainty": "requires-verification",
+          "owner": "Arjun Nair"
+        }
+      ],
+      "notes": []
+    },
+    "status": "shortlisted",
+    "verification": {
+      "state": "sample-data",
+      "notes": "Placeholder until a real product is selected and verified."
+    },
+    "roomIds": [
+      "rm-parents-bathroom"
+    ],
+    "quantity": {
+      "value": 1,
+      "certainty": "requires-approval",
+      "source": "Concept layout rev A"
+    },
+    "documents": []
+  },
+  {
+    "id": "prd-hf-01",
+    "name": "Health faucet (Kohler, model to be selected)",
+    "category": "health-faucet",
+    "brand": {
+      "value": "Kohler",
+      "certainty": "assumed",
+      "note": "Brand preference stated by the client; availability of a suitable model in India not yet checked."
+    },
+    "modelNumber": {
+      "value": null,
+      "certainty": "requires-verification",
+      "note": "Select the model with the client, then obtain the specification sheet."
+    },
+    "source": {
+      "kind": "sample-data",
+      "reference": null,
+      "isSample": true,
+      "note": "Sample entry for demonstration only. Not taken from a Kohler catalogue. Every specification must be verified against current Kohler India documentation or an authorised dealer quotation."
+    },
+    "dimensions": {
+      "widthMm": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "depthMm": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "heightMm": {
+        "value": null,
+        "certainty": "unknown"
+      }
+    },
+    "finish": {
+      "name": {
+        "value": "Brushed nickel",
+        "certainty": "requires-approval",
+        "source": "Concept material palette"
+      },
+      "code": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "finishTokenId": "metal-brushed-nickel"
+    },
+    "installation": {
+      "mounting": {
+        "value": "wall-mounted",
+        "certainty": "assumed",
+        "note": "Beside the WC, within reach when seated."
+      },
+      "waterSupply": {
+        "value": "cold",
+        "certainty": "assumed",
+        "note": "Cold only; a mixing version would need a hot supply."
+      },
+      "drainage": {
+        "value": "none",
+        "certainty": "assumed",
+        "note": "Not applicable."
+      },
+      "electrical": {
+        "value": "none",
+        "certainty": "assumed",
+        "note": "Not applicable."
+      },
+      "requiredComponents": [
+        {
+          "id": "rc-hf-valve",
+          "text": "Angle valve or stop cock for isolation.",
+          "certainty": "assumed"
+        }
+      ],
+      "notes": []
+    },
+    "status": "shortlisted",
+    "verification": {
+      "state": "sample-data",
+      "notes": "Placeholder until a real product is selected and verified."
+    },
+    "roomIds": [
+      "rm-parents-bathroom"
+    ],
+    "quantity": {
+      "value": 1,
+      "certainty": "requires-approval",
+      "source": "Concept layout rev A"
+    },
+    "documents": []
+  },
+  {
+    "id": "prd-basin-01",
+    "name": "Countertop basin (Kohler, model to be selected)",
+    "category": "basin",
+    "brand": {
+      "value": "Kohler",
+      "certainty": "assumed",
+      "note": "Brand preference stated by the client; availability of a suitable model in India not yet checked."
+    },
+    "modelNumber": {
+      "value": null,
+      "certainty": "requires-verification",
+      "note": "Select the model with the client, then obtain the specification sheet."
+    },
+    "source": {
+      "kind": "sample-data",
+      "reference": null,
+      "isSample": true,
+      "note": "Sample entry for demonstration only. Not taken from a Kohler catalogue. Every specification must be verified against current Kohler India documentation or an authorised dealer quotation."
+    },
+    "dimensions": {
+      "widthMm": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "depthMm": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "heightMm": {
+        "value": null,
+        "certainty": "unknown"
+      }
+    },
+    "finish": {
+      "name": {
+        "value": "White",
+        "certainty": "assumed",
+        "note": "Client's preference; confirm the manufacturer's finish name."
+      },
+      "code": {
+        "value": null,
+        "certainty": "unknown"
+      }
+    },
+    "installation": {
+      "mounting": {
+        "value": "countertop",
+        "certainty": "assumed",
+        "note": "Concept shows a countertop basin on the vanity."
+      },
+      "waterSupply": {
+        "value": "hot-and-cold",
+        "certainty": "assumed",
+        "note": "Via the wall-mounted mixer."
+      },
+      "drainage": {
+        "value": "waste-outlet",
+        "certainty": "assumed",
+        "note": "Waste and bottle trap to the wall."
+      },
+      "electrical": {
+        "value": "none",
+        "certainty": "assumed",
+        "note": "Not applicable."
+      },
+      "tapHoles": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "requiredComponents": [],
+      "notes": []
+    },
+    "status": "proposed",
+    "verification": {
+      "state": "sample-data",
+      "notes": "Placeholder until a real product is selected and verified."
+    },
+    "roomIds": [
+      "rm-parents-bathroom"
+    ],
+    "quantity": {
+      "value": 1,
+      "certainty": "requires-approval",
+      "source": "Concept layout rev A"
+    },
+    "documents": []
+  },
+  {
+    "id": "prd-bmx-01",
+    "name": "Wall-mounted basin mixer (Kohler, model to be selected)",
+    "category": "basin-mixer",
+    "brand": {
+      "value": "Kohler",
+      "certainty": "assumed",
+      "note": "Brand preference stated by the client; availability of a suitable model in India not yet checked."
+    },
+    "modelNumber": {
+      "value": null,
+      "certainty": "requires-verification",
+      "note": "Select the model with the client, then obtain the specification sheet."
+    },
+    "source": {
+      "kind": "sample-data",
+      "reference": null,
+      "isSample": true,
+      "note": "Sample entry for demonstration only. Not taken from a Kohler catalogue. Every specification must be verified against current Kohler India documentation or an authorised dealer quotation."
+    },
+    "dimensions": {
+      "widthMm": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "depthMm": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "heightMm": {
+        "value": null,
+        "certainty": "unknown"
+      }
+    },
+    "finish": {
+      "name": {
+        "value": "Brushed nickel",
+        "certainty": "requires-approval",
+        "source": "Concept material palette"
+      },
+      "code": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "finishTokenId": "metal-brushed-nickel"
+    },
+    "installation": {
+      "mounting": {
+        "value": "wall-mounted",
+        "certainty": "assumed",
+        "note": "Keeps the counter clear for an older user."
+      },
+      "waterSupply": {
+        "value": "hot-and-cold",
+        "certainty": "assumed",
+        "note": "Mixer serving the basin."
+      },
+      "drainage": {
+        "value": "none",
+        "certainty": "assumed",
+        "note": "Not applicable."
+      },
+      "electrical": {
+        "value": "none",
+        "certainty": "assumed",
+        "note": "Not applicable."
+      },
+      "requiredComponents": [
+        {
+          "id": "rc-bmx-body",
+          "text": "Concealed mixer body matched to the trim.",
+          "certainty": "requires-verification",
+          "owner": "Arjun Nair"
+        }
+      ],
+      "notes": []
+    },
+    "status": "proposed",
+    "verification": {
+      "state": "sample-data",
+      "notes": "Placeholder until a real product is selected and verified."
+    },
+    "roomIds": [
+      "rm-parents-bathroom"
+    ],
+    "quantity": {
+      "value": 1,
+      "certainty": "requires-approval",
+      "source": "Concept layout rev A"
+    },
+    "documents": []
+  },
+  {
+    "id": "prd-shower-01",
+    "name": "Concealed thermostatic shower mixer (Kohler, model to be selected)",
+    "category": "shower-mixer",
+    "brand": {
+      "value": "Kohler",
+      "certainty": "assumed",
+      "note": "Brand preference stated by the client; availability of a suitable model in India not yet checked."
+    },
+    "modelNumber": {
+      "value": null,
+      "certainty": "requires-verification",
+      "note": "Select the model with the client, then obtain the specification sheet."
+    },
+    "source": {
+      "kind": "sample-data",
+      "reference": null,
+      "isSample": true,
+      "note": "Sample entry for demonstration only. Not taken from a Kohler catalogue. Every specification must be verified against current Kohler India documentation or an authorised dealer quotation."
+    },
+    "dimensions": {
+      "widthMm": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "depthMm": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "heightMm": {
+        "value": null,
+        "certainty": "unknown"
+      }
+    },
+    "finish": {
+      "name": {
+        "value": "Brushed nickel",
+        "certainty": "requires-approval",
+        "source": "Concept material palette"
+      },
+      "code": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "finishTokenId": "metal-brushed-nickel"
+    },
+    "installation": {
+      "mounting": {
+        "value": "concealed",
+        "certainty": "assumed",
+        "note": "Concealed body with a visible trim."
+      },
+      "waterSupply": {
+        "value": "hot-and-cold",
+        "certainty": "assumed",
+        "note": "Thermostatic mixing of hot and cold supplies."
+      },
+      "drainage": {
+        "value": "none",
+        "certainty": "assumed",
+        "note": "Not applicable."
+      },
+      "electrical": {
+        "value": "none",
+        "certainty": "assumed",
+        "note": "Not applicable."
+      },
+      "minWaterPressureBar": {
+        "value": null,
+        "certainty": "unknown",
+        "note": "Obtain the minimum working pressure from the specification sheet; site pressure may be low."
+      },
+      "requiredComponents": [
+        {
+          "id": "rc-shower-body",
+          "text": "Concealed valve body matched to the trim.",
+          "certainty": "requires-verification",
+          "owner": "Arjun Nair"
+        }
+      ],
+      "notes": []
+    },
+    "status": "shortlisted",
+    "verification": {
+      "state": "sample-data",
+      "notes": "Placeholder until a real product is selected and verified."
+    },
+    "roomIds": [
+      "rm-parents-bathroom"
+    ],
+    "quantity": {
+      "value": 1,
+      "certainty": "requires-approval",
+      "source": "Concept layout rev A"
+    },
+    "documents": []
+  },
+  {
+    "id": "prd-showerhead-01",
+    "name": "Overhead shower (Kohler, model to be selected)",
+    "category": "shower-head",
+    "brand": {
+      "value": "Kohler",
+      "certainty": "assumed",
+      "note": "Brand preference stated by the client; availability of a suitable model in India not yet checked."
+    },
+    "modelNumber": {
+      "value": null,
+      "certainty": "requires-verification",
+      "note": "Select the model with the client, then obtain the specification sheet."
+    },
+    "source": {
+      "kind": "sample-data",
+      "reference": null,
+      "isSample": true,
+      "note": "Sample entry for demonstration only. Not taken from a Kohler catalogue. Every specification must be verified against current Kohler India documentation or an authorised dealer quotation."
+    },
+    "dimensions": {
+      "widthMm": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "depthMm": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "heightMm": {
+        "value": null,
+        "certainty": "unknown"
+      }
+    },
+    "finish": {
+      "name": {
+        "value": "Brushed nickel",
+        "certainty": "requires-approval",
+        "source": "Concept material palette"
+      },
+      "code": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "finishTokenId": "metal-brushed-nickel"
+    },
+    "installation": {
+      "mounting": {
+        "value": "wall-mounted",
+        "certainty": "assumed",
+        "note": "Wall arm assumed; a ceiling-fed head would need a different route."
+      },
+      "waterSupply": {
+        "value": "none",
+        "certainty": "assumed",
+        "note": "Fed from the shower mixer outlet rather than a direct supply."
+      },
+      "drainage": {
+        "value": "none",
+        "certainty": "assumed",
+        "note": "Not applicable."
+      },
+      "electrical": {
+        "value": "none",
+        "certainty": "assumed",
+        "note": "Not applicable."
+      },
+      "minWaterPressureBar": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "requiredComponents": [],
+      "notes": []
+    },
+    "status": "shortlisted",
+    "verification": {
+      "state": "sample-data",
+      "notes": "Placeholder until a real product is selected and verified."
+    },
+    "roomIds": [
+      "rm-parents-bathroom"
+    ],
+    "quantity": {
+      "value": 1,
+      "certainty": "requires-approval",
+      "source": "Concept layout rev A"
+    },
+    "documents": []
+  },
+  {
+    "id": "prd-vanity-01",
+    "name": "Wall-hung vanity, custom joinery",
+    "category": "vanity",
+    "brand": {
+      "value": null,
+      "certainty": "requires-verification",
+      "note": "Custom joinery — fabricator to be appointed."
+    },
+    "modelNumber": {
+      "value": "CD-VAN-01",
+      "certainty": "requires-approval",
+      "source": "Clawed Design joinery schedule (concept)"
+    },
+    "description": "Designer-specified vanity with closed storage reachable while seated.",
+    "source": {
+      "kind": "sample-data",
+      "reference": null,
+      "isSample": true,
+      "note": "Sample entry for demonstration only. Represents a concept-stage intent; no product has been selected and no supplier information has been verified."
+    },
+    "dimensions": {
+      "widthMm": {
+        "value": 850,
+        "certainty": "requires-approval",
+        "source": "Concept layout rev A"
+      },
+      "depthMm": {
+        "value": 500,
+        "certainty": "requires-approval",
+        "source": "Concept layout rev A"
+      },
+      "heightMm": {
+        "value": 450,
+        "certainty": "requires-approval",
+        "source": "Concept elevation rev A"
+      }
+    },
+    "finish": {
+      "name": {
+        "value": "Teak veneer, matt PU lacquer",
+        "certainty": "requires-approval",
+        "source": "Concept material palette"
+      },
+      "code": {
+        "value": "VN-01",
+        "certainty": "requires-approval",
+        "source": "Concept material palette"
+      },
+      "finishTokenId": "wood-matt-pu"
+    },
+    "installation": {
+      "mounting": {
+        "value": "wall-hung",
+        "certainty": "requires-approval",
+        "source": "Concept elevation rev A"
+      },
+      "waterSupply": {
+        "value": "none",
+        "certainty": "assumed",
+        "note": "Basin and mixer are separate items."
+      },
+      "drainage": {
+        "value": "none",
+        "certainty": "assumed",
+        "note": "Basin waste passes through the carcass."
+      },
+      "electrical": {
+        "value": "none",
+        "certainty": "assumed",
+        "note": "No integrated electrics proposed."
+      },
+      "requiredComponents": [
+        {
+          "id": "rc-vanity-support",
+          "text": "Concealed brackets or a timber batten fixed to solid masonry to carry the counter.",
+          "certainty": "requires-verification",
+          "owner": "Arjun Nair"
+        }
+      ],
+      "notes": []
+    },
+    "status": "shortlisted",
+    "verification": {
+      "state": "sample-data",
+      "notes": "Placeholder until a real product is selected and verified."
+    },
+    "roomIds": [
+      "rm-parents-bathroom"
+    ],
+    "quantity": {
+      "value": 1,
+      "certainty": "requires-approval",
+      "source": "Concept layout rev A"
+    },
+    "price": {
+      "currency": "INR",
+      "amount": {
+        "value": 65000,
+        "certainty": "assumed",
+        "note": "Designer's budget allowance, not a quotation."
+      },
+      "includesGst": {
+        "value": false,
+        "certainty": "assumed",
+        "note": "Allowance excludes GST."
+      }
+    },
+    "documents": []
+  },
+  {
+    "id": "prd-wh-01",
+    "name": "Storage water heater, 15 litres (brand to be selected)",
+    "category": "water-heater",
+    "brand": {
+      "value": null,
+      "certainty": "unknown",
+      "note": "Brand or fabricator not yet selected."
+    },
+    "modelNumber": {
+      "value": null,
+      "certainty": "unknown"
+    },
+    "source": {
+      "kind": "sample-data",
+      "reference": null,
+      "isSample": true,
+      "note": "Sample entry for demonstration only. Represents a concept-stage intent; no product has been selected and no supplier information has been verified."
+    },
+    "dimensions": {
+      "widthMm": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "depthMm": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "heightMm": {
+        "value": null,
+        "certainty": "unknown"
+      }
+    },
+    "finish": {
+      "name": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "code": {
+        "value": null,
+        "certainty": "unknown"
+      }
+    },
+    "installation": {
+      "mounting": {
+        "value": "wall-mounted",
+        "certainty": "assumed",
+        "note": "Above the false ceiling in the dry zone; keep service access."
+      },
+      "waterSupply": {
+        "value": "cold",
+        "certainty": "assumed",
+        "note": "Cold feed in; hot water out to the shower and basin."
+      },
+      "drainage": {
+        "value": "none",
+        "certainty": "assumed",
+        "note": "Pressure-relief discharge to be routed to a drain — confirm."
+      },
+      "electrical": {
+        "value": "socket-16a",
+        "certainty": "assumed",
+        "note": "Typical for storage water heaters; confirm the rating from the product data."
+      },
+      "ipRating": {
+        "value": null,
+        "certainty": "unknown",
+        "note": "Bathroom installation — obtain the rated IP code."
+      },
+      "requiredComponents": [],
+      "notes": []
+    },
+    "status": "shortlisted",
+    "verification": {
+      "state": "sample-data",
+      "notes": "Placeholder until a real product is selected and verified."
+    },
+    "roomIds": [
+      "rm-parents-bathroom"
+    ],
+    "quantity": {
+      "value": 1,
+      "certainty": "requires-approval",
+      "source": "Concept layout rev A"
+    },
+    "documents": []
+  },
+  {
+    "id": "prd-grab-01",
+    "name": "Grab bars, stainless steel (brand to be selected)",
+    "category": "grab-bar",
+    "brand": {
+      "value": null,
+      "certainty": "unknown",
+      "note": "Brand or fabricator not yet selected."
+    },
+    "modelNumber": {
+      "value": null,
+      "certainty": "unknown"
+    },
+    "source": {
+      "kind": "sample-data",
+      "reference": null,
+      "isSample": true,
+      "note": "Sample entry for demonstration only. Represents a concept-stage intent; no product has been selected and no supplier information has been verified."
+    },
+    "dimensions": {
+      "widthMm": {
+        "value": 600,
+        "certainty": "requires-approval",
+        "source": "Concept layout rev A"
+      },
+      "depthMm": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "heightMm": {
+        "value": null,
+        "certainty": "unknown"
+      }
+    },
+    "finish": {
+      "name": {
+        "value": "Brushed stainless steel",
+        "certainty": "requires-approval",
+        "source": "Concept material palette"
+      },
+      "code": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "finishTokenId": "metal-brushed-stainless"
+    },
+    "installation": {
+      "mounting": {
+        "value": "wall-mounted",
+        "certainty": "assumed",
+        "note": "Fixed to the wall beside the WC and in the shower."
+      },
+      "waterSupply": {
+        "value": "none",
+        "certainty": "assumed",
+        "note": "Not applicable."
+      },
+      "drainage": {
+        "value": "none",
+        "certainty": "assumed",
+        "note": "Not applicable."
+      },
+      "electrical": {
+        "value": "none",
+        "certainty": "assumed",
+        "note": "Not applicable."
+      },
+      "requiredComponents": [
+        {
+          "id": "rc-grab-fixings",
+          "text": "Fixings rated for the load into solid masonry — confirm the wall construction first.",
+          "certainty": "requires-verification",
+          "owner": "Arjun Nair"
+        }
+      ],
+      "notes": [
+        {
+          "id": "note-grab-mockup",
+          "text": "Heights and positions to be agreed with Rohan's mother using a mock-up on site.",
+          "certainty": "requires-approval",
+          "owner": "Ananya and Rohan Mehta"
+        }
+      ]
+    },
+    "status": "shortlisted",
+    "verification": {
+      "state": "sample-data",
+      "notes": "Placeholder until a real product is selected and verified."
+    },
+    "roomIds": [
+      "rm-parents-bathroom"
+    ],
+    "quantity": {
+      "value": 3,
+      "certainty": "requires-approval",
+      "source": "Concept layout rev A"
+    },
+    "documents": []
+  },
+  {
+    "id": "prd-downlight-01",
+    "name": "Recessed LED downlight, IP-rated (brand to be selected)",
+    "category": "lighting",
+    "brand": {
+      "value": null,
+      "certainty": "unknown",
+      "note": "Brand or fabricator not yet selected."
+    },
+    "modelNumber": {
+      "value": null,
+      "certainty": "unknown"
+    },
+    "source": {
+      "kind": "sample-data",
+      "reference": null,
+      "isSample": true,
+      "note": "Sample entry for demonstration only. Represents a concept-stage intent; no product has been selected and no supplier information has been verified."
+    },
+    "dimensions": {
+      "widthMm": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "depthMm": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "heightMm": {
+        "value": null,
+        "certainty": "unknown"
+      }
+    },
+    "finish": {
+      "name": {
+        "value": "Matt white",
+        "certainty": "requires-approval",
+        "source": "Concept lighting layout rev A"
+      },
+      "code": {
+        "value": null,
+        "certainty": "unknown"
+      }
+    },
+    "installation": {
+      "mounting": {
+        "value": "recessed",
+        "certainty": "requires-approval",
+        "source": "Concept lighting layout rev A"
+      },
+      "waterSupply": {
+        "value": "none",
+        "certainty": "assumed",
+        "note": "Not applicable."
+      },
+      "drainage": {
+        "value": "none",
+        "certainty": "assumed",
+        "note": "Not applicable."
+      },
+      "electrical": {
+        "value": "hardwired",
+        "certainty": "assumed",
+        "note": "Mains downlight with a remote driver above the false ceiling — confirm."
+      },
+      "ipRating": {
+        "value": null,
+        "certainty": "unknown",
+        "note": "One fitting sits in zone 1 — at least IPX4 needed."
+      },
+      "requiredComponents": [],
+      "notes": []
+    },
+    "status": "proposed",
+    "verification": {
+      "state": "sample-data",
+      "notes": "Placeholder until a real product is selected and verified."
+    },
+    "roomIds": [
+      "rm-parents-bathroom"
+    ],
+    "quantity": {
+      "value": 3,
+      "certainty": "requires-approval",
+      "source": "Concept lighting layout rev A"
+    },
+    "documents": []
+  },
+  {
+    "id": "prd-mirror-01",
+    "name": "Mirror with integrated LED light, custom (fabricator to be appointed)",
+    "category": "mirror",
+    "brand": {
+      "value": null,
+      "certainty": "requires-verification",
+      "note": "Custom item — fabricator to be appointed."
+    },
+    "modelNumber": {
+      "value": null,
+      "certainty": "unknown"
+    },
+    "source": {
+      "kind": "sample-data",
+      "reference": null,
+      "isSample": true,
+      "note": "Sample entry for demonstration only. Represents a concept-stage intent; no product has been selected and no supplier information has been verified."
+    },
+    "dimensions": {
+      "widthMm": {
+        "value": 800,
+        "certainty": "requires-approval",
+        "source": "Concept elevation rev A"
+      },
+      "depthMm": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "heightMm": {
+        "value": 700,
+        "certainty": "requires-approval",
+        "source": "Concept elevation rev A"
+      }
+    },
+    "finish": {
+      "name": {
+        "value": "Clear mirror with a slim brushed-nickel frame",
+        "certainty": "requires-approval",
+        "source": "Concept elevation rev A"
+      },
+      "code": {
+        "value": null,
+        "certainty": "unknown"
+      },
+      "finishTokenId": "metal-brushed-nickel"
+    },
+    "installation": {
+      "mounting": {
+        "value": "wall-mounted",
+        "certainty": "requires-approval",
+        "source": "Concept elevation rev A"
+      },
+      "waterSupply": {
+        "value": "none",
+        "certainty": "assumed",
+        "note": "Not applicable."
+      },
+      "drainage": {
+        "value": "none",
+        "certainty": "assumed",
+        "note": "Not applicable."
+      },
+      "electrical": {
+        "value": "hardwired",
+        "certainty": "assumed",
+        "note": "Concealed connection behind the mirror."
+      },
+      "ipRating": {
+        "value": null,
+        "certainty": "unknown",
+        "note": "Obtain the IP rating of the integrated light and driver."
+      },
+      "requiredComponents": [],
+      "notes": []
+    },
+    "status": "proposed",
+    "verification": {
+      "state": "sample-data",
+      "notes": "Placeholder until a real product is selected and verified."
+    },
+    "roomIds": [
+      "rm-parents-bathroom"
+    ],
+    "quantity": {
+      "value": 1,
+      "certainty": "requires-approval",
+      "source": "Concept elevation rev A"
+    },
+    "documents": []
+  }
+]
