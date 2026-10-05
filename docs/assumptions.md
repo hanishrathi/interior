@@ -17,6 +17,7 @@ whenever you make a new assumption.
 | A8 | Component tests render to static markup (`react-dom/server`) instead of using jsdom. | Covers structure and accessibility attributes without extra dependencies. Interactive behaviour (Tabs keys, Modal focus) is a candidate for browser tests later. |
 | A9 | Scripts run with **tsx**. | Runs the TypeScript sources directly, including JSON imports. |
 | A10 | Additional files beyond the requested structure: `schemas/common.ts`, `tokens/resolve.ts`, `components/{cx,Field,DetailList,SpecValueText,StatementList}`, `styles/*.css`, `scripts/lib/reporter.ts`, `tests/fixtures.ts`, `tests/components.test.tsx`. | Shared primitives and helpers keep the requested files focused. |
+| A11 | CI runs on GitHub-hosted `ubuntu-latest` with Node **22** (the version everything was verified on), installs with `npm ci` from the committed lockfile and runs `npm run check`. Actions are pinned to major versions (`actions/checkout@v5`, `actions/setup-node@v5`). | Mirrors the local definition of done; widen the Node matrix (e.g. 24) once verified. |
 
 ## Tokens and design
 

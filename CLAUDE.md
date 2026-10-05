@@ -22,6 +22,9 @@ skills and agents that help designers use it.
 Stack: TypeScript 6 (strict, `noUncheckedIndexedAccess`), React 19, Zod 4, Vite 8, Vitest 5, ESLint 9,
 npm. Styling is plain CSS custom properties generated from the token JSON — there is no Tailwind.
 
+CI (`.github/workflows/check.yml`) runs `npm ci` then `npm run check` on every pull request and on
+pushes to `main`; a red check means `npm run check` fails — reproduce it locally first.
+
 ## Map
 
 ```

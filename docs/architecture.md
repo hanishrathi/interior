@@ -100,7 +100,8 @@ import { ProductCard, assessRoomProducts } from '@clawed/design-system';
 | Product data | `npm run validate:products` | Schemas, sample-data policy, integrity, completeness, compatibility, units and language |
 | Build | `npm run build` | Declarations and bundle |
 
-`npm run check` runs them all.
+`npm run check` runs them all. CI (`.github/workflows/check.yml`) runs `npm ci` and `npm run check`
+on every pull request, on pushes to `main` and on demand.
 
 ## Claude Code layer
 
