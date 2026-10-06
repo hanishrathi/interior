@@ -95,13 +95,14 @@ import { ProductCard, assessRoomProducts } from '@clawed/design-system';
 | --- | --- | --- |
 | Types | `npm run typecheck` | Strict TypeScript across library, scripts and tests |
 | Lint | `npm run lint` | typescript-eslint (type-aware), React hooks, jsx-a11y |
-| Tests | `npm test` | Tokens, schemas, compatibility, audit, components |
+| Tests | `npm test` | Tokens, schemas, compatibility, audit, component markup |
+| Browser tests | `npm run test:browser` | Tabs and Modal keyboard, focus, visibility and dismissal in headless Chromium, with the shipped CSS |
 | Design system | `npm run validate:design-system` | Token resolution, contrast, generated CSS, CSS variables, component exports and hygiene, docs, skills and agents |
 | Product data | `npm run validate:products` | Schemas, sample-data policy, integrity, completeness, compatibility, units and language |
 | Build | `npm run build` | Declarations and bundle |
 
-`npm run check` runs them all. CI (`.github/workflows/check.yml`) runs `npm ci` and `npm run check`
-on every pull request, on pushes to `main` and on demand.
+`npm run check` runs them all. CI (`.github/workflows/check.yml`) runs `npm ci`, installs Playwright's
+headless Chromium and runs `npm run check` on every pull request, on pushes to `main` and on demand.
 
 ## Claude Code layer
 

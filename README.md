@@ -7,7 +7,8 @@ decisions.
 
 ```bash
 npm install
-npm run check        # typecheck, lint, tests, validators and build
+npx playwright install chromium   # once, for the browser tests
+npm run check                     # typecheck, lint, unit and browser tests, validators and build
 ```
 
 | Read | For |

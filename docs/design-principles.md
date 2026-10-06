@@ -102,7 +102,7 @@ compliance.
 | 6 | `findImperialUnits` in the audit and `validate-product-data` |
 | 7 | `specValue()`, `statementSchema`, `recommendationSchema`, `combineCertainty` |
 | 8, 9 | Tokens; `validate-design-system` (no raw colours in CSS or components) |
-| 10 | `jsx-a11y` lint, contrast tests, component tests |
+| 10 | `jsx-a11y` lint, contrast tests, component tests, browser tests (keyboard, focus, dialogs) |
 | 11 | Strict TypeScript, `z.infer` types |
 | 12 | `validate-design-system` (no `zod` in components), code review |
 | 14 | `checkSampleDataPolicy`, `productSchema` sample rules |

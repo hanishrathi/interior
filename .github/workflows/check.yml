@@ -28,5 +28,9 @@ jobs:
 
       - run: npm ci
 
-      # Typecheck, lint, tests, design-system and product-data validators, build.
+      # Headless Chromium (and its system libraries) for the browser tests, at the version
+      # the installed Playwright expects.
+      - run: npx playwright install --with-deps --only-shell chromium
+
+      # Typecheck, lint, unit and browser tests, design-system and product-data validators, build.
       - run: npm run check
