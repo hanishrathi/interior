@@ -111,6 +111,18 @@ describe('Tabs in a browser', () => {
     await expectSelected('Concept');
   });
 
+  it('falls back to the first enabled tab when the requested tab is disabled or missing', async () => {
+    const { unmount } = await render(<Tabs items={roomTabs} label="Room details" defaultValue="lighting" />);
+    await expectSelected('Layout');
+    expect(tab('Layout').element().tabIndex).toBe(0);
+    expect(page.getByRole('tabpanel').elements()).toHaveLength(1);
+    await unmount();
+
+    await render(<Tabs items={roomTabs} label="Room details" value="no-such-tab" />);
+    await expectSelected('Layout');
+    expect(page.getByRole('tabpanel').elements()).toHaveLength(1);
+  });
+
   it('follows the value from a controlling parent', async () => {
     const onChange = vi.fn();
     const { rerender } = await render(<Tabs items={roomTabs} label="Room details" value="materials" onChange={onChange} />);

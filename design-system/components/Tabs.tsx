@@ -26,9 +26,11 @@ export interface TabsProps {
 export function Tabs({ items, label, value, defaultValue, onChange, className }: TabsProps) {
   const baseId = useId();
   const enabled = items.filter((item) => !item.disabled);
-  const [internalValue, setInternalValue] = useState(defaultValue ?? enabled[0]?.id);
-  const selected = value ?? internalValue;
-  const focusableId = enabled.some((item) => item.id === selected) ? selected : enabled[0]?.id;
+  const [internalValue, setInternalValue] = useState(defaultValue);
+  // A missing or disabled id falls back to the first enabled tab, so exactly one panel is
+  // shown and it belongs to the tab that holds the keyboard tab stop.
+  const requested = value ?? internalValue;
+  const selected = enabled.some((item) => item.id === requested) ? requested : enabled[0]?.id;
   const tabRefs = useRef(new Map<string, HTMLButtonElement>());
 
   const tabId = (id: string) => `${baseId}-tab-${id}`;
@@ -72,7 +74,7 @@ export function Tabs({ items, label, value, defaultValue, onChange, className }:
               id={tabId(item.id)}
               aria-selected={isSelected}
               aria-controls={panelId(item.id)}
-              tabIndex={item.id === focusableId ? 0 : -1}
+              tabIndex={isSelected ? 0 : -1}
               disabled={item.disabled}
               className={cx('cd-tabs__tab', isSelected && 'cd-tabs__tab--selected')}
               onClick={() => select(item.id)}

@@ -29,6 +29,44 @@ function ShareConcept({ onClose }: { onClose: () => void }) {
   );
 }
 
+/** A parent that refuses to close — e.g. while it asks about unsaved changes. */
+function UnsavedChanges({ onClose }: { onClose: () => void }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <button type="button" onClick={() => setOpen(true)}>
+        Share concept
+      </button>
+      <Modal open={open} onClose={onClose} title="Unsaved changes">
+        <p>The concept notes have not been saved.</p>
+      </Modal>
+    </>
+  );
+}
+
+/** A parent that mounts the dialog only while it is open. */
+function MountedWhileOpen({ onClose }: { onClose: () => void }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <button type="button" onClick={() => setOpen(true)}>
+        Share concept
+      </button>
+      {open ? (
+        <Modal
+          open
+          onClose={() => {
+            onClose();
+            setOpen(false);
+          }}
+          title="Share concept with client"
+          footer={<Button onClick={() => setOpen(false)}>Keep editing</Button>}
+        />
+      ) : null}
+    </>
+  );
+}
+
 const dialog = () => page.getByRole('dialog');
 const closedDialog = () => page.getByRole('dialog', { includeHidden: true });
 const trigger = () => page.getByRole('button', { name: 'Share concept' });
@@ -117,6 +155,37 @@ describe('Modal in a browser', () => {
     expect(onClose).not.toHaveBeenCalled();
     await expect.element(closedDialog()).not.toBeVisible();
     await expect.element(trigger()).toHaveFocus();
+  });
+
+  it('stays open while the parent keeps it open', async () => {
+    const onClose = vi.fn();
+    await render(<UnsavedChanges onClose={onClose} />);
+    await openDialog();
+
+    await userEvent.keyboard('{Escape}');
+    await expect.poll(() => onClose.mock.calls.length).toBe(1);
+    await page.getByRole('button', { name: 'Close' }).click();
+    expect(onClose).toHaveBeenCalledTimes(2);
+
+    // Both requests went to the parent, which kept the dialog open.
+    await expect.element(dialog()).toBeVisible();
+    expect(dialog().element().matches(':modal')).toBe(true);
+  });
+
+  it('returns focus to the trigger when it is unmounted while open', async () => {
+    const onClose = vi.fn();
+    await render(<MountedWhileOpen onClose={onClose} />);
+
+    await openDialog();
+    await page.getByRole('button', { name: 'Keep editing' }).click();
+    await expect.element(closedDialog()).not.toBeInTheDocument();
+    await expect.element(trigger()).toHaveFocus();
+
+    await openDialog();
+    await userEvent.keyboard('{Escape}');
+    await expect.element(closedDialog()).not.toBeInTheDocument();
+    await expect.element(trigger()).toHaveFocus();
+    expect(onClose).toHaveBeenCalledOnce(); // Escape only; unmounting is not a dismissal
   });
 
   it('opens again after being dismissed', async () => {
