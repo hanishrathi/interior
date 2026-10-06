@@ -1,4 +1,5 @@
-import { defineConfig } from 'vitest/config';
+import { playwright } from '@vitest/browser-playwright';
+import { configDefaults, defineConfig } from 'vitest/config';
 
 // One config drives both the library build (`vite build`) and the test runner (`vitest`).
 export default defineConfig({
@@ -18,7 +19,38 @@ export default defineConfig({
     },
   },
   test: {
-    include: ['tests/**/*.test.{ts,tsx}'],
-    environment: 'node',
+    projects: [
+      {
+        // Logic, schemas, data and static markup — fast, no browser needed (`npm test`).
+        extends: true,
+        test: {
+          name: 'unit',
+          include: ['tests/**/*.test.{ts,tsx}'],
+          exclude: [...configDefaults.exclude, 'tests/browser/**'],
+          environment: 'node',
+        },
+      },
+      {
+        // Interaction, focus and keyboard behaviour in a real Chromium (`npm run test:browser`).
+        extends: true,
+        // The stylesheets are imported by the test setup, not served as public files.
+        publicDir: false,
+        test: {
+          name: 'browser',
+          include: ['tests/browser/**/*.test.{ts,tsx}'],
+          setupFiles: ['tests/browser/setup.ts'],
+          browser: {
+            enabled: true,
+            headless: true,
+            // Playwright's own Chromium by default (`npx playwright install chromium`); set
+            // CHROMIUM_EXECUTABLE_PATH to use a Chromium that is already installed instead.
+            provider: playwright({
+              launchOptions: { executablePath: process.env.CHROMIUM_EXECUTABLE_PATH || undefined },
+            }),
+            instances: [{ browser: 'chromium' }],
+          },
+        },
+      },
+    ],
   },
 });

@@ -31,6 +31,11 @@ export default defineConfig(
     },
   },
   {
+    // Test harnesses are components too.
+    files: ['tests/**/*.tsx'],
+    extends: [reactHooks.configs.flat['recommended-latest']],
+  },
+  {
     files: ['**/*.js'],
     extends: [tseslint.configs.disableTypeChecked],
   },

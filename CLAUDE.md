@@ -12,18 +12,23 @@ skills and agents that help designers use it.
 | Everything (run before you finish) | `npm run check` |
 | Type checking | `npm run typecheck` |
 | Lint (type-aware, React hooks, jsx-a11y) | `npm run lint` |
-| Tests (Vitest) | `npm test` |
+| Unit tests (Vitest, Node) | `npm test` |
+| Browser tests (keyboard, focus, dialogs in Chromium) | `npm run test:browser` |
+| Install the browser for browser tests (once per machine) | `npx playwright install chromium` |
 | Library build (types + bundle + CSS) | `npm run build` |
 | Validate tokens, CSS, components, docs, skills, agents | `npm run validate:design-system` |
 | Validate sample product and material data | `npm run validate:products` |
 | Validate a real catalogue | `npx tsx scripts/validate-product-data.ts --products=path.json --materials=path.json` |
 | Regenerate `styles/tokens.css` after editing tokens | `npm run tokens:css` |
 
-Stack: TypeScript 6 (strict, `noUncheckedIndexedAccess`), React 19, Zod 4, Vite 8, Vitest 5, ESLint 9,
-npm. Styling is plain CSS custom properties generated from the token JSON — there is no Tailwind.
+Stack: TypeScript 6 (strict, `noUncheckedIndexedAccess`), React 19, Zod 4, Vite 8, Vitest 5 (Node and
+browser mode via Playwright), ESLint 9, npm. Styling is plain CSS custom properties generated from the
+token JSON — there is no Tailwind. To run the browser tests against a Chromium that is already
+installed, set `CHROMIUM_EXECUTABLE_PATH` to its executable.
 
-CI (`.github/workflows/check.yml`) runs `npm ci` then `npm run check` on every pull request and on
-pushes to `main`; a red check means `npm run check` fails — reproduce it locally first.
+CI (`.github/workflows/check.yml`) runs `npm ci`, installs Playwright's headless Chromium, then
+`npm run check` on every pull request and on pushes to `main`; a red check means `npm run check`
+fails — reproduce it locally first.
 
 ## Map
 
@@ -36,7 +41,7 @@ design-system/
   styles/      tokens.css (generated — never edit) and components.css
   data/        Sample dataset: Mehta Residence, Bengaluru (all product data is unverified sample data)
 scripts/       validate-design-system, validate-product-data, generate-token-css
-tests/         Vitest suites
+tests/         Vitest suites (tests/browser/ runs in Chromium)
 docs/          Architecture, principles, usage guides, workflow, assumptions
 .claude/       Settings, skills (workflows) and agents (specialists)
 ```
@@ -78,8 +83,9 @@ docs/          Architecture, principles, usage guides, workflow, assumptions
 - **Adding a token**: edit the JSON, run `npm run tokens:css`, and add a contrast requirement in
   `tokens/index.ts` for any new text/background pairing.
 - **Adding a component**: one file per component in `design-system/components/`, named export matching
-  the file, exported from `design-system/index.ts`, covered in `tests/components.test.tsx` and
-  documented in `docs/component-usage.md`.
+  the file, exported from `design-system/index.ts`, covered in `tests/components.test.tsx` (plus
+  `tests/browser/` when it has keyboard, focus or dialog behaviour) and documented in
+  `docs/component-usage.md`.
 - **Adding product data**: follow `docs/product-integration-workflow.md` and the `product-integration`
   skill; run `npm run validate:products`.
 - Record any new assumption in `docs/assumptions.md`.

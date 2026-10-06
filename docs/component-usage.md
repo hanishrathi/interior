@@ -71,4 +71,5 @@ Domain cards accept `headingLevel` (2 or 3) so they fit the page outline.
 - Every control has a visible label; hints and errors are linked.
 - Keyboard: everything reachable, nothing trapped, visible focus (`:focus-visible` ring from tokens).
 - Status is never colour alone — include text.
-- Test in `tests/components.test.tsx`.
+- Test markup in `tests/components.test.tsx`; test keyboard, focus and dialog behaviour in
+  `tests/browser/` (real Chromium, `npm run test:browser`).
