@@ -7,6 +7,7 @@
       "Bash(npm run lint)",
       "Bash(npm test)",
       "Bash(npm run test)",
+      "Bash(npm run test:browser)",
       "Bash(npm run build)",
       "Bash(npm run validate)",
       "Bash(npm run validate:design-system)",
@@ -17,6 +18,9 @@
       "Bash(npx tsx scripts/validate-product-data.ts:*)",
       "Bash(npx tsx scripts/validate-design-system.ts)"
     ],
-    "deny": ["Read(./.env)", "Read(./.env.*)"]
+    "deny": [
+      "Read(**/.env)",
+      "Read(**/.env.*)"
+    ]
   }
 }

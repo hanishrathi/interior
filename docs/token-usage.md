@@ -86,4 +86,4 @@ To theme, override palette variables after `tokens.css`:
 }
 ```
 
-Check contrast for any override: add a test or run `auditContrast()` against the new values.
+Check contrast for any override: `auditContrast()` reads the token JSON, so add the theme's colours there (with contrast requirements in `tokens/index.ts`), so `npm run validate:design-system` checks them.

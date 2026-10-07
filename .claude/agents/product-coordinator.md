@@ -22,7 +22,7 @@ exactly why it cannot yet be.
 
 ## Procedure
 
-Follow the `product-integration` skill:
+Follow the `product-integration` skill (`.claude/skills/product-integration/SKILL.md` — read it first):
 1. Identify the exact model from a primary source.
 2. Fill every required field; category-specific fields included (WC outlet set-out, basin tap holes,
    shower minimum pressure, IP rating for electrical items).

@@ -45,6 +45,8 @@ const summary = summariseRequirements(room.requirements);
 | `SectionHeader` | Section titles | Choose `level` for the document outline, not for size. |
 | `EmptyState` | Empty regions | Say why it is empty and what to do next. |
 | `DetailList` | Term / detail pairs | Semantic `<dl>`; stacks in narrow containers. |
+| `Field` | Labelled form controls | Wraps a control with its label, hint, error and unit; links hint and error with `aria-describedby`. |
+| `DimensionsText` | W × D × H in mm | Formats product dimensions; unknown dimensions say so instead of showing blanks. |
 | `SpecValueText` | Any spec value | Formats known values and shows certainty; missing values render as a certainty badge. |
 | `StatementList` | Statements and recommendations | Always shows certainty, source, owner and rationale. |
 

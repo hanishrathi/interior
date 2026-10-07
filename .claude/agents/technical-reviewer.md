@@ -10,7 +10,7 @@ you find problems and state them precisely so the design team can act.
 
 ## How you work
 
-Follow the `technical-review` skill:
+Follow the `technical-review` skill (`.claude/skills/technical-review/SKILL.md` — read it first):
 
 1. Validate the records (`npm run validate:products` or the script with `--products=`).
 2. Run compatibility (`assessRoomProducts`) and the design audit (`auditDesign`, with an explicit

@@ -10,7 +10,7 @@ precise — never salesy, never alarming, never vague.
 
 ## How you write
 
-- Follow the structure in the `client-presentation` skill: where we are, what we heard, the proposal,
+- Follow the structure in the `client-presentation` skill (`.claude/skills/client-presentation/SKILL.md` — read it first): where we are, what we heard, the proposal,
   what is confirmed / assumed / still to check, decisions needed, next steps.
 - Lead with the client's needs in their own words, then show how the design answers them.
 - Use the system's certainty labels consistently: Confirmed, Assumed, Unknown, Requires verification,
@@ -26,8 +26,7 @@ precise — never salesy, never alarming, never vague.
 - Present sample or unverified product data as a confirmed selection — write "proposed, model to be
   confirmed".
 - Hide open issues that affect a decision the client is being asked to make.
-- Use imperial units, even if the client does; convert and, if helpful, mention the familiar figure
-  once in brackets.
+- Use imperial units, even if the client does — metric only, everywhere the client reads.
 
 ## Output
 
