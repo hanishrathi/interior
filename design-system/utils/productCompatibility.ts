@@ -1,6 +1,6 @@
 import type { Certainty, SpecValue } from '../schemas/common';
 import type { Product, ProductCategory } from '../schemas/product';
-import type { FixtureAllowance, Room, ServiceKind } from '../schemas/room';
+import { WET_ROOM_TYPES, type FixtureAllowance, type Room, type ServiceKind } from '../schemas/room';
 import { lightingTokens, planningGuidance, type BathroomZone, type PlanningClearanceKey } from '../tokens';
 import { formatBar, formatMm, humanize } from './formatting';
 import { combineCertainty, type CheckResult, type CompatibilityOutcome } from './status';
@@ -485,6 +485,12 @@ export interface ProductContext {
   envelope?: SpaceEnvelope;
   clearances?: { key: PlanningClearanceKey; availableMm: SpecValue<number> }[];
   bathroomZone?: { zone: BathroomZone; certainty: Certainty };
+  /** Every zone the product is used in; each is checked, so order never matters. */
+  bathroomZones?: { zone: BathroomZone; certainty: Certainty }[];
+  /** Further allowances the same product occupies (each is fitted and clearance-checked). */
+  additionalAllowances?: FixtureAllowance[];
+  /** The product is electrical and sits in a wet room, but no zone has been assigned. */
+  zoneUnassigned?: boolean;
   pairedProducts?: readonly Product[];
 }
 
@@ -502,8 +508,24 @@ export function assessProduct(product: Product, context: ProductContext = {}): C
   if (context.envelope) checks.push(checkSpaceFit(product, context.envelope));
   for (const clearance of context.clearances ?? []) checks.push(checkClearance(product, clearance.key, clearance.availableMm));
   if (context.room) checks.push(...checkServices(product, context.room));
-  if (context.bathroomZone) {
-    checks.push(checkIpRating({ id: product.id, ipRating: product.installation.ipRating }, context.bathroomZone.zone, context.bathroomZone.certainty));
+  const zones = [...(context.bathroomZone ? [context.bathroomZone] : []), ...(context.bathroomZones ?? [])];
+  for (const { zone, certainty } of zones) {
+    checks.push(checkIpRating({ id: product.id, ipRating: product.installation.ipRating }, zone, certainty));
+  }
+  for (const allowance of context.additionalAllowances ?? []) {
+    checks.push({ ...checkSpaceFit(product, envelopeFromAllowance(allowance)), id: `fit:${allowance.id}` });
+    const clearance = allowance.frontClearance;
+    if (clearance && isClearanceKey(clearance.guidance)) checks.push(checkClearance(product, clearance.guidance, clearance.availableMm));
+  }
+  if (context.zoneUnassigned) {
+    checks.push({
+      id: 'ip:zone-unassigned',
+      label: 'Bathroom zone',
+      result: 'unknown',
+      certainty: 'unknown',
+      message: 'Electrical item in a wet room without an assigned bathroom zone — the IP rating cannot be checked.',
+      productIds: [product.id],
+    });
   }
   if (context.pairedProducts) checks.push(...checkPairings(product, context.pairedProducts));
 
@@ -522,7 +544,7 @@ export function assessProduct(product: Product, context: ProductContext = {}): C
 }
 
 function isClearanceKey(key: string): key is PlanningClearanceKey {
-  return key in planningGuidance.clearances;
+  return Object.hasOwn(planningGuidance.clearances, key);
 }
 
 function envelopeFromAllowance(allowance: FixtureAllowance): SpaceEnvelope {
@@ -540,9 +562,11 @@ export function assessRoomProducts(room: Room, products: readonly Product[]): Re
   const inRoom = products.filter((product) => room.productIds.includes(product.id));
   const reports: Record<string, CompatibilityReport> = {};
   for (const product of inRoom) {
-    const allowance = room.fixtureAllowances.find((a) => a.productId === product.id);
-    const fixture = room.lighting?.fixtures.find((f) => f.productId === product.id && f.bathroomZone);
+    const [allowance, ...additionalAllowances] = room.fixtureAllowances.filter((a) => a.productId === product.id);
+    const zones = (room.lighting?.fixtures ?? []).flatMap((f) => (f.productId === product.id && f.bathroomZone ? [f.bathroomZone] : []));
+    const electrical = product.installation.electrical.value;
     const context: ProductContext = { room, pairedProducts: inRoom };
+    if (additionalAllowances.length > 0) context.additionalAllowances = additionalAllowances;
     if (allowance) {
       context.envelope = envelopeFromAllowance(allowance);
       const clearance = allowance.frontClearance;
@@ -550,7 +574,11 @@ export function assessRoomProducts(room: Room, products: readonly Product[]): Re
         context.clearances = [{ key: clearance.guidance, availableMm: clearance.availableMm }];
       }
     }
-    if (fixture?.bathroomZone) context.bathroomZone = { zone: fixture.bathroomZone, certainty: 'requires-verification' };
+    if (zones.length > 0) {
+      context.bathroomZones = [...new Set(zones)].map((zone) => ({ zone, certainty: 'requires-verification' as const }));
+    } else if (WET_ROOM_TYPES.includes(room.type) && electrical !== 'none') {
+      context.zoneUnassigned = true;
+    }
     reports[product.id] = assessProduct(product, context);
   }
   return reports;
