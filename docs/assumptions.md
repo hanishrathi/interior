@@ -20,6 +20,8 @@ whenever you make a new assumption.
 | A11 | CI runs on GitHub-hosted `ubuntu-latest` with Node **22** (the version everything was verified on), installs with `npm ci` from the committed lockfile, installs Playwright's headless Chromium and runs `npm run check`. Actions are pinned to major versions (`actions/checkout@v5`, `actions/setup-node@v5`). | Mirrors the local definition of done; widen the Node matrix (e.g. 24) once verified. |
 | A12 | Browser tests use Vitest browser mode with the Playwright provider in **headless Chromium only** (`@vitest/browser-playwright`, `playwright`, `vitest-browser-react`), in a separate `browser` test project. CI installs the headless shell that matches the locked Playwright version; locally, `npx playwright install chromium` once. `CHROMIUM_EXECUTABLE_PATH` points the tests at an already installed Chromium instead — useful where downloads are blocked, but that build may differ from the one Playwright expects. | Chromium covers the native `<dialog>` and focus behaviour the components rely on. Add Firefox and WebKit instances when cross-browser support is required. |
 
+| A13 | "Deploy" means the static preview site in `site/`, hosted on cPanel. The library is `private` and is consumed as a package, so it is not published; the site is built locally or in CI and uploaded as static files (File Manager zip now, FTPS/SFTP from CI once the account details exist). | The repository has no application. The user chose cPanel; shared cPanel hosting typically offers static hosting only. |
+
 ## Tokens and design
 
 | # | Assumption | Reason |
