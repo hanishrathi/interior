@@ -8,3 +8,5 @@ coverage/
 .env.*
 .claude/settings.local.json
 .claude/worktrees/
+site-dist/
+clawed-design-preview.zip

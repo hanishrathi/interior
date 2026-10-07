@@ -20,5 +20,5 @@
     "noEmit": true,
     "types": ["node"]
   },
-  "include": ["design-system", "scripts", "tests", "vite.config.ts"]
+  "include": ["design-system", "scripts", "tests", "site", "vite.config.ts", "vite.site.config.ts"]
 }

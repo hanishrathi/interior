@@ -21,6 +21,7 @@ skills and agents that help designers use it.
 | Review a real project (records, compatibility, audit, readiness) | `npm run review:project -- --project=… --client=… --rooms=… --products=… --materials=…` |
 | Validate a real catalogue | `npx tsx scripts/validate-product-data.ts --products=path.json --materials=path.json` |
 | Regenerate `styles/tokens.css` after editing tokens | `npm run tokens:css` |
+| Build the static preview site / zip it for cPanel (see `docs/deployment.md`) | `npm run build:site` / `npm run package:site` |
 
 Stack: TypeScript 6 (strict, `noUncheckedIndexedAccess`), React 19, Zod 4, Vite 8, Vitest 5 (Node and
 browser mode via Playwright), ESLint 9, npm. Styling is plain CSS custom properties generated from the
@@ -41,7 +42,8 @@ design-system/
   components/  Presentational React components (no business logic, no zod)
   styles/      tokens.css (generated — never edit) and components.css
   data/        Sample dataset: Mehta Residence, Bengaluru (all product data is unverified sample data)
-scripts/       validate-design-system, validate-product-data, generate-token-css
+site/          Static preview site (tokens + sample components) — the only thing that is hosted
+scripts/       validate-design-system, validate-product-data, review-project, generate-token-css, zip-site
 tests/         Vitest suites (tests/browser/ runs in Chromium)
 docs/          Architecture, principles, usage guides, workflow, assumptions
 .claude/       Settings, skills (workflows) and agents (specialists)
