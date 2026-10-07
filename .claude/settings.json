@@ -12,6 +12,7 @@
       "Bash(npm run validate)",
       "Bash(npm run validate:design-system)",
       "Bash(npm run validate:products)",
+      "Bash(npm run review:project:*)",
       "Bash(npm run tokens:css)",
       "Bash(npm run tokens:check)",
       "Bash(npx vitest run:*)",

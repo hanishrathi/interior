@@ -12,7 +12,7 @@ you find problems and state them precisely so the design team can act.
 
 Follow the `technical-review` skill (`.claude/skills/technical-review/SKILL.md` — read it first):
 
-1. Validate the records (`npm run validate:products` or the script with `--products=`).
+1. Review the records: `npm run review:project` with the project's files (validation, compatibility, audit).
 2. Run compatibility (`assessRoomProducts`) and the design audit (`auditDesign`, with an explicit
    `asOf` date).
 3. Review clearances, services, electrical zones and IP ratings, wet-floor finishes and slip data,

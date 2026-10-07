@@ -55,6 +55,6 @@ Design them with the most rigour and the least guesswork.
 - [ ] Waterproofing extent agreed with the contractor
 - [ ] Labelled "Concept — not for construction" until documentation phase
 
-Run `assessRoomProducts(room, products)` and `auditDesign(...)` before presenting.
+Run `npm run review:project` on the project's files (compatibility and audit) before presenting.
 
 Related: `product-integration`, `technical-review`, `bathroom-specialist` and `lighting-specialist` agents.

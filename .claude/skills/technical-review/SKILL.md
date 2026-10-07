@@ -15,7 +15,7 @@ never declares information construction-ready.
 
 ## Procedure
 
-1. **Validate records** — run `npm run validate:products` (or `validateWith` on the records). Schema
+1. **Validate records** — run `npm run review:project -- --project=… --client=… --rooms=… --products=… --materials=…` on the project's files (it also runs compatibility and the audit). Schema
    errors are blocking.
 2. **Compatibility** — run `assessRoomProducts(room, products)` per room. For each check:
    - `fail` → issue, usually `major` or `critical`;

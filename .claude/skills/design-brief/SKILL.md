@@ -47,6 +47,6 @@ The brief is the agreement on *what* the design must achieve. It is conceptual b
   document-status banner (never "for construction" for a brief).
 - A list of approvals to request and the questions to ask at the next meeting.
 
-Run `npm run validate:products` (validates the sample project) or `validateWith(projectSchema, …)`.
+Run `npm run review:project -- --project=… --client=…` on the project's files.
 
 Related: `concept-development`, `client-presentation`, `design-director` agent.

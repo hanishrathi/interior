@@ -33,6 +33,7 @@
     "tokens:check": "tsx scripts/generate-token-css.ts --check",
     "validate:design-system": "tsx scripts/validate-design-system.ts",
     "validate:products": "tsx scripts/validate-product-data.ts",
+    "review:project": "tsx scripts/review-project.ts",
     "validate": "npm run validate:design-system && npm run validate:products",
     "build": "npm run clean && npm run tokens:css && tsc -p tsconfig.build.json && vite build",
     "check": "npm run typecheck && npm run lint && npm run test && npm run test:browser && npm run validate && npm run build",
