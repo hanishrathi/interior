@@ -7,7 +7,8 @@ import { materialSchema } from '../design-system/schemas/material';
 import { productSchema } from '../design-system/schemas/product';
 import { designBriefSchema, projectSchema } from '../design-system/schemas/project';
 import { roomSchema } from '../design-system/schemas/room';
-import { formatIssuePath, validateWith } from '../design-system/utils/validation';
+import { checkSampleDataPolicy, formatIssuePath, validateWith } from '../design-system/utils/validation';
+import { clientSchema } from '../design-system/schemas/client';
 import { clone, confirmed, makeProduct, raw, sample } from './fixtures';
 
 const messages = (result: z.ZodSafeParseResult<unknown>) => (result.success ? [] : result.error.issues.map((issue) => issue.message));
@@ -98,7 +99,7 @@ describe('product rules', () => {
   it('requires confirmed model number and dimensions before a product is verified', () => {
     const product = makeProduct();
     const result = productSchema.safeParse({ ...product, modelNumber: { value: null, certainty: 'unknown' } });
-    expect(messages(result)).toContain('A verified product must have a confirmed model number and dimensions.');
+    expect(messages(result)).toContain('A verified product must have a confirmed brand, model number and dimensions.');
   });
 
   it('rejects malformed IP codes', () => {
@@ -178,5 +179,78 @@ describe('approvals, issues and rooms', () => {
     const room = clone(raw.bathroom);
     room.dimensions.falseCeilingHeightMm.value = 2900;
     expect(roomSchema.safeParse(room).success).toBe(false);
+  });
+});
+
+describe('evidence rules found in review', () => {
+  const kohler = () => clone(raw.products[0]!);
+
+  it('rejects confirmed statements, not just confirmed values, in sample data', () => {
+    const product = kohler();
+    product.installation.requiredComponents = [
+      { id: 'rc-x', text: 'Requires a matching in-wall tank.', certainty: 'confirmed', source: 'Memory' },
+    ] as unknown as typeof product.installation.requiredComponents;
+    expect(messages(productSchema.safeParse(product))).toContain(
+      'Sample data cannot confirm product information. Use "requires-verification" or "unknown".',
+    );
+    expect(checkSampleDataPolicy([productSchema.parse(kohler())])).toEqual([]);
+  });
+
+  it('treats a model number in sample data as an error, not a warning', () => {
+    const product = productSchema.parse({ ...kohler(), modelNumber: { value: 'K-12345', certainty: 'requires-verification', source: 'x' } });
+    expect(checkSampleDataPolicy([product]).map((issue) => issue.level)).toContain('error');
+  });
+
+  it('reserves the "sample-data" verification state for sample sources', () => {
+    const product = { ...makeProduct(), verification: { state: 'sample-data' } };
+    expect(productSchema.safeParse(product).success).toBe(false);
+  });
+
+  it('requires a confirmed brand and a cited document before a product is verified', () => {
+    const product = makeProduct();
+    expect(productSchema.safeParse({ ...product, brand: { value: null, certainty: 'unknown' } }).success).toBe(false);
+    expect(productSchema.safeParse({ ...product, source: { ...product.source, reference: null } }).success).toBe(false);
+  });
+
+  it('requires confirmed finish, quantity and installation before a product is ordered', () => {
+    const product = makeProduct({ status: 'ordered' });
+    const unknownDrainage = { ...product, installation: { ...product.installation, drainage: { value: null, certainty: 'unknown' } } };
+    expect(messages(productSchema.safeParse(unknownDrainage)).join(' ')).toMatch(/finish, quantity and installation/);
+  });
+
+  it('blocks ordering a material whose sample was rejected, and verifying sample materials', () => {
+    const material = clone(raw.materials[1]);
+    const ordered = { ...material, status: 'ordered', sampleStatus: 'rejected', verification: { state: 'verified', verifiedBy: 'x', verifiedOn: '2026-09-01', method: 'physical-sample' } };
+    expect(messages(materialSchema.safeParse(ordered)).join(' ')).toMatch(/before its physical sample is approved/);
+    expect(messages(materialSchema.safeParse(ordered)).join(' ')).toMatch(/exactly when the source is sample data/);
+  });
+
+  it('rejects vocabulary keys inherited from Object.prototype instead of throwing', () => {
+    const material = clone(raw.materials[0]!);
+    for (const finish of ['__proto__', 'constructor', 'toString']) {
+      expect(materialSchema.safeParse({ ...material, finish: { ...material.finish, value: finish } }).success).toBe(false);
+    }
+  });
+
+  it('requires an explanation for values awaiting approval and assumed statements', () => {
+    const schema = specValue(z.number());
+    expect(schema.safeParse({ value: 900, certainty: 'requires-approval' }).success).toBe(false);
+    expect(schema.safeParse({ value: 900, certainty: 'requires-approval', note: 'Proposed width' }).success).toBe(true);
+    expect(statementSchema.safeParse({ id: 's-1', text: 'Typical.', certainty: 'assumed' }).success).toBe(false);
+    expect(statementSchema.safeParse({ id: 's-1', text: 'Typical.', certainty: 'assumed', note: 'Common practice' }).success).toBe(true);
+  });
+
+  it('keeps critical issues owned while in progress and dates in order', () => {
+    const issue = { ...clone(raw.project.issues[0]), severity: 'critical', owner: undefined };
+    expect(issueSchema.safeParse({ ...issue, status: 'in-progress' }).success).toBe(false);
+    expect(issueSchema.safeParse({ ...issue, owner: 'Designer', dueOn: '2000-01-01' }).success).toBe(false);
+  });
+
+  it('does not accept assumed open questions on the client record', () => {
+    const client = clone(raw.client);
+    client.openQuestions = [
+      { id: 'oq-x', text: 'Budget includes GST?', certainty: 'assumed', note: 'Guess' },
+    ] as unknown as typeof client.openQuestions;
+    expect(clientSchema.safeParse(client).success).toBe(false);
   });
 });

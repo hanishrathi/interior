@@ -59,8 +59,14 @@ export const issueSchema = z
         message: 'Accepted risks must record who accepted them (owner) and why (resolution).',
       });
     }
-    if (issue.severity === 'critical' && issue.status === 'open' && !issue.owner) {
+    if (issue.severity === 'critical' && (issue.status === 'open' || issue.status === 'in-progress') && !issue.owner) {
       ctx.addIssue({ code: 'custom', path: ['owner'], message: 'Critical issues must have an owner.' });
+    }
+    for (const field of ['dueOn', 'resolvedOn'] as const) {
+      const date = issue[field];
+      if (date && date < issue.raisedOn) {
+        ctx.addIssue({ code: 'custom', path: [field], message: `${field} cannot be before raisedOn.` });
+      }
     }
   });
 export type Issue = z.infer<typeof issueSchema>;

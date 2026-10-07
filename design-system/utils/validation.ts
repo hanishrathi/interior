@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import type { Client } from '../schemas/client';
-import { collectSpecValues } from '../schemas/common';
+import { collectClaims } from '../schemas/common';
 import { materialSchema, type Material } from '../schemas/material';
 import { productSchema, type Product } from '../schemas/product';
 import type { Project } from '../schemas/project';
@@ -36,7 +36,6 @@ const joinPath = (base: string, path: string): string => {
 };
 
 const error = (path: string, message: string): ValidationIssue => ({ path, message, level: 'error' });
-const warning = (path: string, message: string): ValidationIssue => ({ path, message, level: 'warning' });
 
 /** Parses `input` with `schema` and returns readable, path-addressed issues instead of throwing. */
 export function validateWith<S extends z.ZodType>(schema: S, input: unknown, basePath = ''): ValidationResult<z.output<S>> {
@@ -198,11 +197,11 @@ export function checkSampleDataPolicy(
   items.forEach((item, index) => {
     const base = `${basePath}[${index}]`;
     if (!item.source.isSample) issues.push(error(`${base}.source.isSample`, 'Sample datasets may only contain records marked as sample data.'));
-    if (item.verification.state !== 'sample-data' && item.verification.state !== 'unverified') {
-      issues.push(error(`${base}.verification.state`, 'Sample records must be "sample-data" or "unverified".'));
+    if (item.verification.state !== 'sample-data') {
+      issues.push(error(`${base}.verification.state`, 'Sample records must have the verification state "sample-data".'));
     }
-    for (const { path, spec } of collectSpecValues(item)) {
-      if (spec.certainty === 'confirmed') issues.push(error(`${base}.${path}`, 'Sample records cannot contain confirmed information.'));
+    for (const { path, certainty } of collectClaims(item)) {
+      if (certainty === 'confirmed') issues.push(error(`${base}.${path}`, 'Sample records cannot contain confirmed information.'));
     }
     if ('brand' in item) {
       const brand = item.brand.value;
@@ -210,9 +209,7 @@ export function checkSampleDataPolicy(
         issues.push(error(`${base}.brand`, `Sample data may only name: ${policy.allowedBrands.join(', ')}.`));
       }
       if (brand !== null && item.modelNumber.value !== null) {
-        issues.push(
-          warning(`${base}.modelNumber`, 'Sample data names a model number. Leave it null unless it has been checked against a real source.'),
-        );
+        issues.push(error(`${base}.modelNumber`, 'Sample data cannot name a model number — leave it null.'));
       }
     }
   });

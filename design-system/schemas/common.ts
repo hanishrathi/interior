@@ -75,6 +75,13 @@ const specValueRules = (
       message: 'Unverified values must say where they came from ("source") or what must be checked ("note").',
     });
   }
+  if (!empty && spec.certainty === 'requires-approval' && !spec.source && !spec.note) {
+    ctx.addIssue({
+      code: 'custom',
+      path: ['note'],
+      message: 'Values awaiting approval must say who proposed them ("source") or what is being approved ("note").',
+    });
+  }
 };
 
 /**
@@ -135,6 +142,31 @@ export function collectSpecValues(input: unknown, basePath = ''): SpecValueEntry
   return entries;
 }
 
+export interface ClaimEntry {
+  path: string;
+  certainty: Certainty;
+}
+
+/**
+ * Depth-first list of everything inside a record that carries a certainty — spec values
+ * and statements alike — so rules such as "sample data cannot confirm anything" cover both.
+ */
+export function collectClaims(input: unknown, basePath = ''): ClaimEntry[] {
+  const entries: ClaimEntry[] = [];
+  const visit = (node: unknown, path: string): void => {
+    if (Array.isArray(node)) {
+      node.forEach((item, index) => visit(item, `${path}[${index}]`));
+      return;
+    }
+    if (typeof node !== 'object' || node === null) return;
+    const { certainty } = node as { certainty?: unknown };
+    if (CERTAINTY_LEVELS.includes(certainty as Certainty)) entries.push({ path, certainty: certainty as Certainty });
+    for (const [key, child] of Object.entries(node)) visit(child, path ? `${path}.${key}` : key);
+  };
+  visit(input, basePath);
+  return entries;
+}
+
 export const dimensionsMmSchema = z.object({
   widthMm: specValue(millimetresSchema),
   depthMm: specValue(millimetresSchema),
@@ -154,14 +186,23 @@ const statementShape = {
   source: textSchema.optional(),
   /** Who must verify or approve it. */
   owner: textSchema.optional(),
+  /** What an assumption rests on. */
+  note: textSchema.optional(),
 };
 
 const statementRules = (
-  statement: { certainty: Certainty; source?: string | undefined; owner?: string | undefined },
+  statement: { certainty: Certainty; source?: string | undefined; owner?: string | undefined; note?: string | undefined },
   ctx: z.RefinementCtx,
 ): void => {
   if (statement.certainty === 'confirmed' && !statement.source) {
     ctx.addIssue({ code: 'custom', path: ['source'], message: 'Confirmed statements must cite a source.' });
+  }
+  if (statement.certainty === 'assumed' && !statement.note && !statement.source) {
+    ctx.addIssue({
+      code: 'custom',
+      path: ['note'],
+      message: 'Assumed statements must say what they rest on ("source") or explain the assumption ("note").',
+    });
   }
   if (statement.certainty === 'requires-approval' && !statement.owner) {
     ctx.addIssue({ code: 'custom', path: ['owner'], message: 'Say who must approve this ("owner").' });

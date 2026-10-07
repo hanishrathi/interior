@@ -62,11 +62,11 @@ export const clientSchema = z
   })
   .superRefine((client, ctx) => {
     client.openQuestions.forEach((question, index) => {
-      if (question.certainty === 'confirmed') {
+      if (question.certainty === 'confirmed' || question.certainty === 'assumed') {
         ctx.addIssue({
           code: 'custom',
           path: ['openQuestions', index, 'certainty'],
-          message: 'An open question cannot be confirmed — move the answer into the relevant section.',
+          message: 'Open questions must be unknown, requires-verification or requires-approval — move answers into the relevant section.',
         });
       }
     });
