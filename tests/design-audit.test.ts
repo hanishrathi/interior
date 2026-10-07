@@ -163,3 +163,35 @@ describe('scoring', () => {
     expect(scoreFindings(Array.from({ length: 10 }, () => ({ ruleId: 'construction-claim' as const, severity: 'critical' as const })))).toBe(60);
   });
 });
+
+describe('construction readiness gate', () => {
+  const issuedForConstruction = (overrides: Partial<DesignAuditInput> = {}): DesignAuditInput => {
+    const input = { ...baseInput(), products: [], materials: [], ...overrides };
+    input.project.phase = 'documentation';
+    input.project.documentStatus = 'for-construction';
+    return input;
+  };
+
+  it('is not ready while major issues are open', () => {
+    const report = auditDesign(issuedForConstruction());
+    expect(sample.project.issues.some((i) => i.severity === 'major' && i.status === 'open')).toBe(true);
+    expect(report.findings.map((f) => f.ruleId)).toContain('open-major-issue');
+    expect(report.readiness.construction.ready).toBe(false);
+  });
+
+  it('is not ready with no products or materials recorded, or with draft approvals', () => {
+    const input = issuedForConstruction();
+    input.project.issues = [];
+    input.project.approvals = input.project.approvals.filter((a) => a.status === 'draft');
+    const report = auditDesign(input);
+    expect(report.readiness.construction.blockers).toContain('No products or materials are recorded.');
+    expect(report.readiness.construction.blockers).toContain('Approvals are pending or still in draft.');
+    expect(report.readiness.construction.ready).toBe(false);
+  });
+
+  it('always flags construction language in the brief', () => {
+    const input = issuedForConstruction();
+    input.project.designBrief!.objectives[0]!.text = 'Final drawings issued for construction.';
+    expect(auditDesign(input).findings.map((f) => f.ruleId)).toContain('construction-claim');
+  });
+});

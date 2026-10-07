@@ -225,3 +225,39 @@ describe('sample bathroom', () => {
     expect(downlight.checks.find((c) => c.id === 'ip:zone-1')?.result).toBe('unknown');
   });
 });
+
+describe('room assessment found in review', () => {
+  const ip20Light = () =>
+    makeProduct({
+      id: 'prd-ip20-light',
+      category: 'lighting',
+      installation: { ...makeProduct().installation, electrical: confirmed('hardwired'), ipRating: confirmed('IP20') },
+    });
+
+  const roomWith = (product: ReturnType<typeof makeProduct>, zones: ('zone-1' | 'outside-zones')[]) => {
+    const room = makeRoom();
+    const template = room.lighting!.fixtures[0]!;
+    room.productIds = [product.id];
+    room.fixtureAllowances = [];
+    room.lighting!.fixtures = zones.map((zone, i) => ({ ...template, id: `fx-${i}`, productId: product.id, bathroomZone: zone }));
+    return room;
+  };
+
+  it('checks every zone a product is used in, regardless of order', () => {
+    const light = ip20Light();
+    for (const zones of [['zone-1', 'outside-zones'], ['outside-zones', 'zone-1']] as const) {
+      expect(assessRoomProducts(roomWith(light, [...zones]), [light])[light.id]?.outcome).toBe('incompatible');
+    }
+  });
+
+  it('cannot clear an electrical item in a wet room that has no zone', () => {
+    const heater = makeProduct({
+      id: 'prd-heater',
+      category: 'water-heater',
+      installation: { ...makeProduct().installation, electrical: confirmed('socket-16a'), ipRating: confirmed('IP20') },
+    });
+    const report = assessRoomProducts(roomWith(heater, []), [heater])[heater.id];
+    expect(report?.checks.map((c) => c.id)).toContain('ip:zone-unassigned');
+    expect(report?.outcome).not.toBe('compatible');
+  });
+});

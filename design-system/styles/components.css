@@ -532,6 +532,13 @@
   background: var(--cd-color-border-strong);
 }
 
+/* Forced colours (Windows High Contrast) replace backgrounds, which would hide the indicator. */
+@media (forced-colors: active) {
+  .cd-tabs__tab--selected::after {
+    background: CanvasText;
+  }
+}
+
 .cd-tabs__tab:disabled {
   cursor: not-allowed;
   opacity: 0.55;

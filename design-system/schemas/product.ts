@@ -4,7 +4,7 @@ import {
   COMMITTED_ITEM_STATUSES,
   ITEM_STATUSES,
   SAMPLE_ALLOWED_STATUSES,
-  collectSpecValues,
+  collectClaims,
   dimensionsMmSchema,
   idSchema,
   priceSchema,
@@ -135,6 +135,7 @@ export const productSchema = z
 
     if (product.verification.state === 'verified') {
       const essentials = [
+        ['brand', product.brand],
         ['modelNumber', product.modelNumber],
         ['dimensions.widthMm', product.dimensions.widthMm],
         ['dimensions.depthMm', product.dimensions.depthMm],
@@ -145,10 +146,45 @@ export const productSchema = z
           ctx.addIssue({
             code: 'custom',
             path: path.split('.'),
-            message: 'A verified product must have a confirmed model number and dimensions.',
+            message: 'A verified product must have a confirmed brand, model number and dimensions.',
           });
         }
       }
+      if (!product.source.isSample && !product.source.reference && !product.source.url) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['source', 'reference'],
+          message: 'A verified product must cite the document it was verified against (reference or url).',
+        });
+      }
+    }
+
+    if (COMMITTED_ITEM_STATUSES.includes(product.status)) {
+      const orderable = [
+        ['finish.name', product.finish.name],
+        ['quantity', product.quantity],
+        ['installation.mounting', product.installation.mounting],
+        ['installation.waterSupply', product.installation.waterSupply],
+        ['installation.drainage', product.installation.drainage],
+        ['installation.electrical', product.installation.electrical],
+      ] as const;
+      for (const [path, spec] of orderable) {
+        if (spec.certainty !== 'confirmed') {
+          ctx.addIssue({
+            code: 'custom',
+            path: path.split('.'),
+            message: `A product cannot be "${product.status}" until its finish, quantity and installation requirements are confirmed.`,
+          });
+        }
+      }
+    }
+
+    if (product.verification.state === 'sample-data' && !product.source.isSample) {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['verification', 'state'],
+        message: 'Only records whose source is sample data can have the verification state "sample-data".',
+      });
     }
 
     if (product.source.isSample) {
@@ -166,8 +202,8 @@ export const productSchema = z
           message: 'Sample data cannot be marked as verified.',
         });
       }
-      for (const { path, spec } of collectSpecValues(product)) {
-        if (spec.certainty === 'confirmed') {
+      for (const { path, certainty } of collectClaims(product)) {
+        if (certainty === 'confirmed') {
           ctx.addIssue({
             code: 'custom',
             path: path.split('.'),

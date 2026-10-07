@@ -38,13 +38,15 @@ const summary = summariseRequirements(room.requirements);
 | `Badge` | Tags and categories | Six tones; `dot`, `dashed`. Always contains text. |
 | `StatusBadge` | Any status | `kind` + `value` from the shared registry (`certainty`, `item`, `verification`, `approval`, `severity`, `issue`, `document`, `phase`, `room`, `requirement`, `priority`, `sample`, `check`, `compatibility`). |
 | `Input`, `Select`, `Textarea` | Forms | `label` required; `hint` and `error` linked via `aria-describedby`; `Input` takes a metric `unit` ("mm", "m²") announced with the label. |
-| `Modal` | Focused tasks | Native `<dialog>`: focus containment, Escape and focus return built in. Controlled by `open` / `onClose`. |
-| `Tabs` | Switching views | WAI-ARIA tabs; Arrow keys, Home and End; controlled or uncontrolled. |
+| `Modal` | Focused tasks | Native `<dialog>`: focus containment and focus return built in. Fully controlled: Escape and the close button call `onClose`, and the dialog closes only when `open` becomes false — so the parent can refuse, e.g. to confirm discarding changes. Safe to unmount while open. |
+| `Tabs` | Switching views | WAI-ARIA tabs; Arrow keys, Home and End; controlled or uncontrolled. A missing or disabled `value` / `defaultValue` falls back to the first enabled tab. |
 | `DataTable` | Tabular records | Captioned, sortable (`sortValue`), row headers (`isRowHeader`), keyboard-scrollable on small screens. Unknown values sort last. |
 | `ProgressBar` | Coverage and completion | `label` required; `valueText` is shown and announced. |
 | `SectionHeader` | Section titles | Choose `level` for the document outline, not for size. |
 | `EmptyState` | Empty regions | Say why it is empty and what to do next. |
 | `DetailList` | Term / detail pairs | Semantic `<dl>`; stacks in narrow containers. |
+| `Field` | Labelled form controls | Wraps a control with its label, hint, error and unit; links hint and error with `aria-describedby`. |
+| `DimensionsText` | W × D × H in mm | Formats product dimensions; unknown dimensions say so instead of showing blanks. |
 | `SpecValueText` | Any spec value | Formats known values and shows certainty; missing values render as a certainty badge. |
 | `StatementList` | Statements and recommendations | Always shows certainty, source, owner and rationale. |
 

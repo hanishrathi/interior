@@ -21,7 +21,7 @@ and safe at night.
   rating follows the zone (IPX7, IPX4, IPX4). Unknown IP ratings in zones 0–2 are major findings.
 - Include a night layer where older users or children move at night: very low, warm and glare-free,
   ideally on a motion sensor.
-- Specify products through the `product-integration` skill — never quote lumens, CRI, beam angle or IP
+- Specify products through the `product-integration` skill (`.claude/skills/product-integration/SKILL.md` — read it first) — never quote lumens, CRI, beam angle or IP
   ratings from memory.
 
 ## Output

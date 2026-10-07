@@ -4,7 +4,7 @@ import {
   COMMITTED_ITEM_STATUSES,
   ITEM_STATUSES,
   SAMPLE_ALLOWED_STATUSES,
-  collectSpecValues,
+  collectClaims,
   currencySchema,
   idSchema,
   sourceSchema,
@@ -50,7 +50,7 @@ export const materialSchema = z
     description: textSchema.optional(),
     origin: specValue(textSchema),
     supplier: specValue(textSchema),
-    finish: specValue(textSchema.refine((id) => id in finishTokens, 'Unknown finish id (see tokens/finishes.json).')),
+    finish: specValue(textSchema.refine((id) => Object.hasOwn(finishTokens, id), 'Unknown finish id (see tokens/finishes.json).')),
     colour: specValue(textSchema),
     /** Approximate on-screen swatch. Never a colour match — approve physical samples. */
     displayColor: z.string().regex(/^#[0-9A-Fa-f]{6}$/).optional(),
@@ -106,7 +106,7 @@ export const materialSchema = z
     }
 
     const finishId = material.finish.value;
-    const finish = finishId ? finishTokens[finishId] : undefined;
+    const finish = finishId && Object.hasOwn(finishTokens, finishId) ? finishTokens[finishId] : undefined;
     if (finish && !finish.appliesTo.includes(material.category)) {
       ctx.addIssue({
         code: 'custom',
@@ -122,11 +122,41 @@ export const materialSchema = z
         message: `A material cannot be "${material.status}" until its verification state is "verified".`,
       });
     }
-    if (material.status === 'client-approved' && material.sampleStatus !== 'approved') {
+    if ((material.status === 'client-approved' || COMMITTED_ITEM_STATUSES.includes(material.status)) && material.sampleStatus !== 'approved') {
       ctx.addIssue({
         code: 'custom',
         path: ['sampleStatus'],
-        message: 'A material should not be client-approved before its physical sample is approved.',
+        message: `A material cannot be "${material.status}" before its physical sample is approved.`,
+      });
+    }
+
+    if (material.verification.state === 'verified') {
+      const essentials = [
+        ['supplier', material.supplier],
+        ['finish', material.finish],
+        ['format.lengthMm', material.format.lengthMm],
+        ['format.widthMm', material.format.widthMm],
+        ['format.thicknessMm', material.format.thicknessMm],
+        ...(material.applications.some((application) => WET_FLOOR_APPLICATIONS.includes(application))
+          ? ([['properties.slipResistance', material.properties.slipResistance]] as const)
+          : []),
+      ] as const;
+      for (const [path, spec] of essentials) {
+        if (spec.certainty !== 'confirmed') {
+          ctx.addIssue({
+            code: 'custom',
+            path: path.split('.'),
+            message: 'A verified material must have a confirmed supplier, finish and format (and slip resistance for wet floors).',
+          });
+        }
+      }
+    }
+
+    if ((material.verification.state === 'sample-data') !== material.source.isSample) {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['verification', 'state'],
+        message: 'Use the verification state "sample-data" exactly when the source is sample data.',
       });
     }
 
@@ -138,8 +168,8 @@ export const materialSchema = z
           message: `Sample data cannot progress beyond ${SAMPLE_ALLOWED_STATUSES.join(' / ')}.`,
         });
       }
-      for (const { path, spec } of collectSpecValues(material)) {
-        if (spec.certainty === 'confirmed') {
+      for (const { path, certainty } of collectClaims(material)) {
+        if (certainty === 'confirmed') {
           ctx.addIssue({
             code: 'custom',
             path: path.split('.'),

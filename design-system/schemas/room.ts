@@ -117,7 +117,7 @@ export const fixtureAllowanceSchema = z.object({
   heightMm: specValue(millimetresSchema).optional(),
   frontClearance: z
     .object({
-      guidance: textSchema.refine((key) => key in planningGuidance.clearances, 'Unknown planning clearance key.'),
+      guidance: textSchema.refine((key) => Object.hasOwn(planningGuidance.clearances, key), 'Unknown planning clearance key.'),
       availableMm: specValue(millimetresSchema),
     })
     .optional(),

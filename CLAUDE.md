@@ -52,7 +52,7 @@ docs/          Architecture, principles, usage guides, workflow, assumptions
    prices and lead times come from a cited source (manufacturer document, dealer quotation, site
    measurement) or are recorded as `value: null` with certainty `unknown` / `requires-verification`.
    Do not fill gaps from memory, "typical" values or other models in the same range.
-2. **Every claim carries a certainty**: `confirmed` (needs `source`), `assumed` (needs `note`),
+2. **Every claim carries a certainty**: `confirmed` (needs `source`), `assumed` (needs `note`; a statement may give its basis in `source`),
    `unknown` (value must be `null`), `requires-verification`, `requires-approval` (statements need an
    `owner`). Use `specValue()` for values and `statementSchema` / `recommendationSchema` for sentences.
    Every major recommendation states its rationale and certainty.

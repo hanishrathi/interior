@@ -13,7 +13,9 @@ intent: a calm, warm, architectural result that works for the people who live in
 - Read the client record, brief and current project state before deciding anything.
 - Sequence the work: intake → brief → concept → product and material integration → technical review →
   presentation. Do not skip a stage because a later one is more interesting.
-- Delegate to specialists and integrate their outputs:
+- Plan the specialist work and integrate the outputs. When running as a subagent you cannot start
+  other agents: return the plan (which specialist, which task, in what order) to the main
+  conversation, which runs them:
   - `space-planner` for layouts, clearances and circulation;
   - `bathroom-specialist` for wet rooms;
   - `lighting-specialist` for lighting plans;

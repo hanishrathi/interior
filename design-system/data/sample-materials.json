@@ -66,7 +66,8 @@
         {
           "id": "mnt-acid",
           "text": "Avoid acidic cleaners on calcareous stone.",
-          "certainty": "assumed"
+          "certainty": "assumed",
+          "note": "General care practice for this material type; confirm against the supplier’s maintenance guidance."
         }
       ]
     },
@@ -169,12 +170,14 @@
         {
           "id": "mnt-acid",
           "text": "Avoid acidic cleaners on calcareous stone.",
-          "certainty": "assumed"
+          "certainty": "assumed",
+          "note": "General care practice for this material type; confirm against the supplier’s maintenance guidance."
         },
         {
           "id": "mnt-texture",
           "text": "Textured surface holds dirt; specify a suitable cleaning regime.",
-          "certainty": "assumed"
+          "certainty": "assumed",
+          "note": "General care practice for this material type; confirm against the supplier’s maintenance guidance."
         }
       ]
     },
@@ -273,7 +276,8 @@
         {
           "id": "mnt-acid",
           "text": "Avoid acidic cleaners on calcareous stone.",
-          "certainty": "assumed"
+          "certainty": "assumed",
+          "note": "General care practice for this material type; confirm against the supplier’s maintenance guidance."
         }
       ]
     },
@@ -355,7 +359,8 @@
         {
           "id": "mnt-veneer",
           "text": "Wipe clean; avoid standing water on edges near the basin.",
-          "certainty": "assumed"
+          "certainty": "assumed",
+          "note": "General care practice for this material type; confirm against the supplier’s maintenance guidance."
         }
       ]
     },
@@ -440,7 +445,8 @@
         {
           "id": "mnt-lime",
           "text": "Can be marked by contact; allow for touch-ups.",
-          "certainty": "assumed"
+          "certainty": "assumed",
+          "note": "General care practice for this material type; confirm against the supplier’s maintenance guidance."
         }
       ]
     },

@@ -29,7 +29,7 @@ Always pass `asOf` explicitly so results are reproducible.
 | `wet-zone-ip-rating` | Unknown or insufficient IP ratings in bathroom zones 0–2 |
 | `requirement-not-met`, `requirement-unsupported` | Unmet requirements; "met" with nothing linked |
 | `accessibility-coverage` | Wet rooms without accessibility requirements where the household needs them |
-| `approval-overdue`, `open-critical-issue` | Stalled decisions and unresolved critical issues |
+| `approval-overdue`, `open-critical-issue`, `open-major-issue` | Stalled decisions and unresolved critical or major issues |
 | `construction-claim`, `document-status-premature` | Concept information presented as construction-ready |
 | `imperial-units` | ft, inches, sq ft, sft in any text |
 | `palette-restraint`, `colour-temperature-consistency` | Design quality signals |

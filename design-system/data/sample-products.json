@@ -73,7 +73,8 @@
         {
           "id": "rc-wc-cistern",
           "text": "Concealed cistern and mounting frame matched to this WC (see prd-cistern-01).",
-          "certainty": "assumed"
+          "certainty": "assumed",
+          "note": "General installation practice for this fixture type; confirm against the manufacturer’s installation guide."
         },
         {
           "id": "rc-wc-buildout",
@@ -169,7 +170,8 @@
         {
           "id": "rc-cistern-plate",
           "text": "Flush plate compatible with the cistern.",
-          "certainty": "assumed"
+          "certainty": "assumed",
+          "note": "General installation practice for this fixture type; confirm against the manufacturer’s installation guide."
         },
         {
           "id": "rc-cistern-access",
@@ -266,7 +268,8 @@
         {
           "id": "rc-hf-valve",
           "text": "Angle valve or stop cock for isolation.",
-          "certainty": "assumed"
+          "certainty": "assumed",
+          "note": "General installation practice for this fixture type; confirm against the manufacturer’s installation guide."
         }
       ],
       "notes": []

@@ -35,6 +35,7 @@ export type AuditRuleId =
   | 'palette-restraint'
   | 'colour-temperature-consistency'
   | 'open-critical-issue'
+  | 'open-major-issue'
   | 'information-maturity';
 
 export interface AuditFinding {
@@ -328,6 +329,16 @@ export function auditDesign(input: DesignAuditInput): DesignAuditReport {
         recommendation: `Resolve before issuing further information${issue.owner ? ` (owner: ${issue.owner})` : ''}.`,
         subjectIds: [issue.id],
       });
+    } else if (issue.severity === 'major' && (issue.status === 'open' || issue.status === 'in-progress')) {
+      add({
+        ruleId: 'open-major-issue',
+        severity: 'major',
+        category: issue.category,
+        title: `Open major issue: ${issue.title}`,
+        message: issue.description,
+        recommendation: `Resolve before the next issue of information${issue.owner ? ` (owner: ${issue.owner})` : ''}.`,
+        subjectIds: [issue.id],
+      });
     }
   }
 
@@ -339,10 +350,16 @@ export function auditDesign(input: DesignAuditInput): DesignAuditReport {
     ...materials.flatMap((material, i) => collectTextFields(material, `materials[${i}]`)),
   ];
 
-  const allVerified = [...products, ...materials].every((item) => item.verification.state === 'verified');
+  const items = [...products, ...materials];
+  // Vacuous truth would let a project with no recorded items pass as "all verified".
+  const allVerified = items.length > 0 && items.every((item) => item.verification.state === 'verified');
+  const awaitingApproval = project.approvals.filter((a) => a.status === 'pending' || a.status === 'draft');
   const constructionIssued = project.documentStatus === 'for-construction';
-  if (!(constructionIssued && allVerified)) {
-    for (const finding of scanTextFields(textFields, findConstructionReadyClaims)) {
+  const legitimatelyIssued = constructionIssued && allVerified && awaitingApproval.length === 0;
+  // A brief is conceptual, so construction language in it is always wrong.
+  const scanned = legitimatelyIssued ? textFields.filter((field) => field.path.startsWith('project.designBrief')) : textFields;
+  {
+    for (const finding of scanTextFields(scanned, findConstructionReadyClaims)) {
       add({
         ruleId: 'construction-claim',
         severity: 'critical',
@@ -370,9 +387,9 @@ export function auditDesign(input: DesignAuditInput): DesignAuditReport {
   }
 
   if (constructionIssued) {
-    const unverified = [...products, ...materials].filter((item) => item.verification.state !== 'verified');
-    const pending = project.approvals.filter((a) => a.status === 'pending');
-    if (unverified.length > 0 || pending.length > 0) {
+    const unverified = items.filter((item) => item.verification.state !== 'verified');
+    const pending = awaitingApproval;
+    if (items.length === 0 || unverified.length > 0 || pending.length > 0) {
       add({
         ruleId: 'document-status-premature',
         severity: 'critical',
@@ -420,8 +437,8 @@ export function auditDesign(input: DesignAuditInput): DesignAuditReport {
 
   const constructionBlockers = [
     ...(phaseIndex(project.phase) < phaseIndex('documentation') ? [`Project is at the ${humanize(project.phase).toLowerCase()} phase.`] : []),
-    ...(allVerified ? [] : ['Not every product and material is verified.']),
-    ...(project.approvals.some((a) => a.status === 'pending') ? ['Approvals are pending.'] : []),
+    ...(items.length === 0 ? ['No products or materials are recorded.'] : allVerified ? [] : ['Not every product and material is verified.']),
+    ...(awaitingApproval.length > 0 ? ['Approvals are pending or still in draft.'] : []),
     ...titles(['critical', 'major']),
   ];
   const coordinationBlockers = [

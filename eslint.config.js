@@ -6,7 +6,8 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 export default defineConfig(
-  globalIgnores(['dist', 'coverage', 'node_modules']),
+  // .claude/worktrees holds Claude Code's isolated copies of this repository.
+  globalIgnores(['dist', 'coverage', 'node_modules', '.vitest', '.claude/worktrees']),
   js.configs.recommended,
   tseslint.configs.recommendedTypeChecked,
   {

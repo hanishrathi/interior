@@ -61,7 +61,7 @@ import { clientSchema, validateWith } from '../design-system';
 const result = validateWith(clientSchema, record, 'client');
 ```
 
-All measurements metric. No imperial units, even if the client used them — convert and note the
-original in `source` (e.g. "Client said 'about 10 feet'; converted to 3,050 mm, requires verification").
+All measurements metric. No imperial units, even if the client used them — record only the metric
+value as `requires-verification` with a source such as "Client's estimate at intake, converted to mm".
 
 Related: `design-brief` skill, `design-director` agent.
