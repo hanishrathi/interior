@@ -18,6 +18,7 @@ skills and agents that help designers use it.
 | Library build (types + bundle + CSS) | `npm run build` |
 | Validate tokens, CSS, components, docs, skills, agents | `npm run validate:design-system` |
 | Validate sample product and material data | `npm run validate:products` |
+| Review a real project (records, compatibility, audit, readiness) | `npm run review:project -- --project=… --client=… --rooms=… --products=… --materials=…` |
 | Validate a real catalogue | `npx tsx scripts/validate-product-data.ts --products=path.json --materials=path.json` |
 | Regenerate `styles/tokens.css` after editing tokens | `npm run tokens:css` |
 

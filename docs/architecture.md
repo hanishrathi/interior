@@ -99,6 +99,7 @@ import { ProductCard, assessRoomProducts } from '@clawed/design-system';
 | Browser tests | `npm run test:browser` | Tabs and Modal keyboard, focus, visibility and dismissal in headless Chromium, with the shipped CSS |
 | Design system | `npm run validate:design-system` | Token resolution, contrast, generated CSS, CSS variables, component exports and hygiene, docs, skills and agents |
 | Product data | `npm run validate:products` | Schemas, sample-data policy, integrity, completeness, compatibility, units and language |
+| Project review | `npm run review:project` | A real project's records end to end: validation, compatibility per room, design audit and readiness (sample project when no paths are given) |
 | Build | `npm run build` | Declarations and bundle |
 
 `npm run check` runs them all. CI (`.github/workflows/check.yml`) runs `npm ci`, installs Playwright's

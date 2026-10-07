@@ -10,13 +10,15 @@ Clawed Design principles. It flags — it never fixes and never certifies.
 
 ## Run it
 
-```ts
-import { auditDesign } from '../design-system';
-
-const report = auditDesign({ project, client, rooms, products, materials, asOf: '2026-10-05' });
+```bash
+npm run review:project -- --project=path/project.json --client=path/client.json --rooms=path/rooms.json \
+  --products=path/products.json --materials=path/materials.json --as-of=2026-10-05
 ```
 
-Always pass `asOf` explicitly so results are reproducible.
+It validates the records first (the audit only runs on valid records), then prints compatibility per
+room, every finding with its recommendation, and the readiness gates. From code, call
+`reviewProject(files, asOf)` or `auditDesign({ project, client, rooms, products, materials, asOf })`
+from `design-system/index.ts`. Always pass `asOf` explicitly so results are reproducible.
 
 ## What it checks
 

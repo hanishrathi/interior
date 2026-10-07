@@ -17,6 +17,7 @@ export * from './utils/status';
 export * from './utils/validation';
 export * from './utils/productCompatibility';
 export * from './utils/designQualityAudit';
+export * from './utils/projectReview';
 
 // Primitives
 export * from './components/Button';

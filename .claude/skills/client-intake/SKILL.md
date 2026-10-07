@@ -57,7 +57,7 @@ Never upgrade certainty to make a record look complete.
 ## Validate
 
 ```ts
-import { clientSchema, validateWith } from '../design-system';
+import { clientSchema, validateWith } from './design-system'; // from the repository root
 const result = validateWith(clientSchema, record, 'client');
 ```
 
