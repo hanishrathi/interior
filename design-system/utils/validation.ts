@@ -257,19 +257,52 @@ export function collectTextFields(input: unknown, basePath = ''): TextField[] {
 /** A number, allowing digit grouping such as 1,200 or 1,20,000. */
 const NUMBER = String.raw`\d(?:[\d,]*\d)?(?:\.\d+)?`;
 
-const IMPERIAL_PATTERNS: readonly RegExp[] = [
-  new RegExp(String.raw`\b${NUMBER}\s*(?:sq\.?\s*ft\.?|sqft|sft|square\s+(?:feet|foot)|cft|cu\.?\s*ft\.?)(?![a-z])`, 'gi'),
-  new RegExp(String.raw`\b\d+\s*['′]\s*\d+(?:\.\d+)?\s*(?:["″]|in(?:ch(?:es)?)?\b)?`, 'gi'),
-  new RegExp(String.raw`\b${NUMBER}\s*(?:ft\.?|feet|foot)(?![a-z])`, 'gi'),
-  new RegExp(String.raw`\b${NUMBER}\s*(?:inches|inch|in\.)(?![a-z])`, 'gi'),
-  new RegExp(String.raw`\b${NUMBER}\s*["″](?=\s|$|[,.;:)])`, 'g'),
+/** Not part of a longer number (a `\b` fails after "x" in "12x10 ft"). */
+const START = String.raw`(?<![\d.])`;
+const FEET_MARK = `['′’]`;
+const INCH_MARK = `["″”]`;
+
+interface UnitPattern {
+  pattern: RegExp;
+  /** Rejects matches that only look like units, e.g. a number closing a quotation. */
+  accept?: (text: string, index: number) => boolean;
+}
+
+/** True when a straight or curly quote before `index` is still open, so a following mark closes it. */
+const insideQuotes = (text: string, index: number): boolean => {
+  const before = text.slice(0, index);
+  return (before.split('"').length - 1) % 2 === 1 || before.lastIndexOf('“') > before.lastIndexOf('”');
+};
+
+const IMPERIAL_PATTERNS: readonly UnitPattern[] = [
+  // Areas and volumes: sq ft, sft, sq feet, sq yd, square feet, cft.
+  {
+    pattern: new RegExp(
+      String.raw`${START}${NUMBER}\s*(?:sq\.?\s*(?:ft\.?|feet|foot|yd\.?|yards?)|sqft|sft|square\s+(?:feet|foot|yards?)|cft|cu\.?\s*ft\.?)(?![a-z])`,
+      'gi',
+    ),
+  },
+  // Feet and inches together: 5'6", 2’6”, 7′ 2″.
+  { pattern: new RegExp(String.raw`${START}\d+\s*${FEET_MARK}\s*\d+(?:\.\d+)?\s*(?:${INCH_MARK}|in(?:ch(?:es)?)?\b)?`, 'gi') },
+  // Lengths in words: 12 ft, 12x10 ft, 3 yards, 100 gaj.
+  { pattern: new RegExp(String.raw`${START}${NUMBER}\s*(?:ft\.?|feet|foot|yards?|yd\.?|gaj)(?![a-z])`, 'gi') },
+  { pattern: new RegExp(String.raw`${START}${NUMBER}\s*(?:inches|inch|in\.)(?![a-z])`, 'gi') },
+  // A feet mark on its own: 6' wide, 10'x12'.
+  { pattern: new RegExp(String.raw`${START}${NUMBER}\s*${FEET_MARK}(?![a-wyz\d])`, 'gi'), accept: (text, i) => !insideQuotes(text, i) },
+  // An inch mark on its own: 36" vanity, 36” vanity — but not a number closing a quotation ("600").
+  {
+    pattern: new RegExp(String.raw`${START}${NUMBER}\s*${INCH_MARK}(?=\s|$|[,.;:)x×])`, 'g'),
+    accept: (text, i) => !insideQuotes(text, i),
+  },
 ];
 
-function scanPatterns(text: string, patterns: readonly RegExp[]): string[] {
+function scanPatterns(text: string, patterns: readonly UnitPattern[]): string[] {
   let masked = text;
   const matches: string[] = [];
-  for (const pattern of patterns) {
-    masked = masked.replace(pattern, (match) => {
+  for (const { pattern, accept } of patterns) {
+    masked = masked.replace(pattern, (match: string, ...args: unknown[]) => {
+      const index = args.find((arg) => typeof arg === 'number') as number;
+      if (accept && !accept(masked, index)) return match;
       matches.push(match.trim());
       return ' '.repeat(match.length);
     });
@@ -277,21 +310,32 @@ function scanPatterns(text: string, patterns: readonly RegExp[]): string[] {
   return matches;
 }
 
-/** Imperial measurements in free text (ft, inches, sq ft, sft, 5'6"…). Clawed Design is metric-only. */
+/** Imperial measurements in free text (ft, inches, sq ft, sft, yards, gaj, 5'6"…). Clawed Design is metric-only. */
 export function findImperialUnits(text: string): string[] {
   return scanPatterns(text, IMPERIAL_PATTERNS);
 }
 
+const FOR_CONSTRUCTION = String.raw`for[- ]construction\b`;
+
 const CONSTRUCTION_CLAIM_PATTERNS: readonly RegExp[] = [
   /\bconstruction[- ]ready\b/gi,
-  /\b(?:issued|released|approved|good|ready|fit)\s+for\s+construction\b/gi,
+  new RegExp(String.raw`\b(?:issued?|issues|issuing|released|approved|good|ready|fit|drawings?|sets?|layouts?|plans?)[\s-]+${FOR_CONSTRUCTION}`, 'gi'),
+  // A status label: "Bathroom layout — for construction", "Status: for construction".
+  new RegExp(String.raw`(?:^|[—–:(]|\s-)\s*${FOR_CONSTRUCTION}`, 'gi'),
   /\bready\s+to\s+build\b/gi,
   /\bsite[- ]ready\b/gi,
-  /\bfinal\s+(?:drawings?|specifications?|details?|design)\b/gi,
-  /\bGFC\b/g,
+  /\bfinal\s+(?:drawings?|specifications?|specs?|details?|designs?|layouts?|sets?|versions?|selections?|issue)\b/gi,
+  /\bG\.?F\.?C\.?s?(?![a-z])/gi,
+  // IFC alone is also the BIM file format, so only "IFC drawings", "IFC set"…
+  /\bIFC\s+(?:drawings?|sets?|issue|revision|rev)\b/gi,
 ];
 
-const NEGATION_BEFORE = /\b(?:not|never|no|cannot|can't|isn't|nor|before|until|prior\s+to|without)\b[^.;:!?]{0,48}$/i;
+/** A negation directly before the claim: "not (yet) issued…", "before it is issued…". */
+const NEGATION_BEFORE = new RegExp(
+  String.raw`(?:\b(?:not|never|cannot|can't|isn't|aren't|wasn't|nor)\s+(?:(?:yet|be|been|being|is|are|was)\s+)*` +
+    String.raw`|\b(?:before|until|prior\s+to)\s+(?:(?:it|they|this|these|the\s+\w+)\s+)?(?:(?:is|are|be|being|gets?|has\s+been|have\s+been)\s+)?)$`,
+  'i',
+);
 
 /**
  * Phrases that present information as construction-ready ("issued for construction", "GFC",
@@ -302,11 +346,12 @@ export function findConstructionReadyClaims(text: string): string[] {
   const claims: string[] = [];
   for (const pattern of CONSTRUCTION_CLAIM_PATTERNS) {
     for (const match of text.matchAll(pattern)) {
-      const preceding = text.slice(0, match.index);
-      if (!NEGATION_BEFORE.test(preceding)) claims.push(match[0]);
+      const claim = match[0].replace(/^[\s—–:(-]+/, '');
+      const preceding = text.slice(0, (match.index ?? 0) + match[0].indexOf(claim));
+      if (!NEGATION_BEFORE.test(preceding)) claims.push(claim);
     }
   }
-  return claims;
+  return [...new Set(claims)];
 }
 
 export function scanTextFields(fields: readonly TextField[], finder: (text: string) => string[]): TextFinding[] {
