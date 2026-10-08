@@ -1,0 +1,70 @@
+name: Deploy site
+
+# Publishes the preview site (site/) to a cPanel hosting account over FTPS after every push to main
+# that passed the Check workflow. Setup and settings: docs/deployment.md.
+#
+# It stays idle until the CPANEL_HOST repository variable exists, so merging it changes nothing for a
+# repository that has not configured a host.
+
+on:
+  workflow_run:
+    workflows: [Check]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Show what would be uploaded and removed, and change nothing
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-site
+  cancel-in-progress: false # let a running upload finish; the next one queues behind it
+
+jobs:
+  deploy:
+    name: Deploy to cPanel
+    # `workflow_run` also fires for pull requests whose head branch is called "main", including ones from
+    # forks, and this job holds the FTP password. Only a push to main in this repository may deploy.
+    if: >-
+      ${{ vars.CPANEL_HOST != '' && (
+        github.event_name == 'workflow_dispatch' ||
+        (github.event.workflow_run.conclusion == 'success' &&
+         github.event.workflow_run.event == 'push' &&
+         github.event.workflow_run.head_branch == 'main' &&
+         github.event.workflow_run.head_repository.full_name == github.repository)) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          # The commit that passed Check, not whatever main has become since.
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+          persist-credentials: false
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run build:site
+
+      - name: Install lftp
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
+      - name: Upload over FTPS
+        env:
+          DEPLOY_HOST: ${{ vars.CPANEL_HOST }}
+          DEPLOY_USER: ${{ vars.CPANEL_USER }}
+          DEPLOY_PASSWORD: ${{ secrets.CPANEL_PASSWORD }}
+          DEPLOY_PATH: ${{ vars.CPANEL_PATH }}
+          DEPLOY_PORT: ${{ vars.CPANEL_PORT || '21' }}
+          DEPLOY_VERIFY_URL: ${{ vars.CPANEL_SITE_URL }}
+          DEPLOY_DRY_RUN: ${{ inputs.dry_run && 'true' || 'false' }}
+        run: bash scripts/deploy-site.sh
